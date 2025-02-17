@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/', // Base URL for GitHub Pages
   plugins: [react()],
   resolve: {
     alias: {
@@ -19,8 +20,6 @@ export default defineConfig({
     target: 'esnext', // Ensure compatibility with modern JavaScript features
   },
   server: {
-    port: 3000,
-    strictPort: true,
-    host: true,
-  },
+    port: 3000
+  }
 })
