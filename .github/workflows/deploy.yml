@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # Make sure this is set to 'gh-pages'
-          folder: dist  # Folder with the build output (e.g., dist)
+          branch: build  # Keep this as 'build' if you're deploying to that branch
+          folder: dist    # Folder with the build output (e.g., dist)
           token: ${{ secrets.PAT }}
-          clean: true
+          clean: true      # Cleans the branch before deploying
