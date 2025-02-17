@@ -33,10 +33,19 @@ jobs:
           git commit -m "Deploy to build branch"
           git push origin build --force  # Or use gh-pages branch here
 
+      - name: Commit and Push Build to 'build' Branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B build
+          git add -f dist
+          git commit -m "Build output"
+          git push origin build --force
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: build  # Keep this as 'build' if you're deploying to that branch
           folder: dist    # Folder with the build output (e.g., dist)
           token: ${{ secrets.PAT }}
-          clean: true      # Cleans the branch before deploying
+          clean: true      # Cleans the branch before
