@@ -22,7 +22,16 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build
+        run: npm run build  # Builds project to 'dist' (or your specified folder)
+
+      - name: Commit and Push Build to 'build' Branch (or 'gh-pages')
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B build  # or gh-pages if you're deploying to that branch
+          git add -f dist  # Ensure you're adding the build output folder (dist)
+          git commit -m "Deploy to build branch"
+          git push origin build --force  # Or use gh-pages branch here
 
       - name: Commit and Push Build to 'build' Branch
         run: |
@@ -36,7 +45,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: dist
+          branch: build  # Keep this as 'build' if you're deploying to that branch
+          folder: dist    # Folder with the build output (e.g., dist)
           token: ${{ secrets.PAT }}
-          clean: true
+          clean: true      # Cleans the branch before
