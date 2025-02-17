@@ -11,25 +11,82 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#90caf9',
+      main: '#81d4fa', // A sophisticated light blue
+      dark: '#4ba3c7',
+      light: '#b6ffff',
     },
     secondary: {
-      main: '#f48fb1',
+      main: '#cfd8dc', // Metallic grey
+      dark: '#9ea7aa',
+      light: '#ffffff',
     },
     background: {
-      default: '#121212',
-      paper: '#1e1e1e',
+      default: '#0a0a0a', // Nearly black for depth
+      paper: '#1a1a1a',    // Slightly lighter black for cards
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: 'rgba(255, 255, 255, 0.7)',
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"SF Pro Display", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
-      fontSize: '2.5rem',
+      fontSize: '3.5rem',
       fontWeight: 600,
+      letterSpacing: '-0.02em',
+      lineHeight: 1.2,
     },
     h2: {
+      fontSize: '2.5rem',
+      fontWeight: 500,
+      letterSpacing: '-0.01em',
+    },
+    h3: {
       fontSize: '2rem',
       fontWeight: 500,
+      letterSpacing: '-0.01em',
+    },
+    body1: {
+      fontSize: '1.1rem',
+      lineHeight: 1.7,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          textTransform: 'none',
+          padding: '10px 24px',
+          fontSize: '1rem',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': {
+            transform: 'translateY(-2px)',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+          '&:hover': {
+            boxShadow: '0 8px 30px rgba(0, 0, 0, 0.25)',
+          },
+          transition: 'all 0.3s ease-in-out',
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          background: 'linear-gradient(145deg, #1a1a1a 0%, #222222 100%)',
+          backdropFilter: 'blur(10px)',
+        },
+      },
     },
   },
 });
