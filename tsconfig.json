@@ -1,7 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "allowJs": true
-  }
+    "outDir": "./dist",  
+    "rootDir": "./src",  
+    "allowJs": true,  
+    "strict": true,  
+    "module": "ESNext",  
+    "target": "ESNext",  
+    "jsx": "react-jsx",  
+    "esModuleInterop": true,  
+    "skipLibCheck": true,  
+    "forceConsistentCasingInFileNames": true  
+  },
+  "include": ["src"],  
+  "exclude": ["node_modules", "dist"]  
 }
