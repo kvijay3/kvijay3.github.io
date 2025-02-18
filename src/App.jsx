@@ -128,7 +128,7 @@ function App() {
               align="center"
               sx={{ fontFamily: 'Poppins' }}
             >
-              {new Date().getFullYear()} Vijaykumar Karthikeyan. All rights reserved.
+              &copy; {new Date().getFullYear()} Vijaykumar Karthikeyan. All rights reserved.
             </Typography>
           </Box>
         </Box>
