@@ -74,7 +74,7 @@ const About = () => {
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
           >
             <Avatar
-              src="/public/headshot.jpg" // Add your headshot image here
+              src="/headshot.jpg" // Add your headshot image here
               alt="Vijay Karthikeyan"
               sx={{
                 width: 200,
@@ -128,7 +128,7 @@ const About = () => {
           {/* Resume Button */}
           <Button
             component={motion.a}
-            href="public/resume.pdf"  
+            href="/resume.pdf"  
             target="_blank"
             rel="noopener noreferrer"
             variant="contained"
