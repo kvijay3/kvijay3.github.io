@@ -138,12 +138,12 @@ const About = () => {
             whileTap={{ scale: 0.95 }}
             sx={{
               mb: 4,
-              backgroundColor: '#81d4fa',
+              backgroundColor: '#64b5f6',
               color: 'white',
               fontFamily: 'Space Grotesk',
               textTransform: 'none',
               '&:hover': {
-                backgroundColor: '#64b5f6',
+                backgroundColor: '#81d4fa',
               },
             }}
           >
@@ -179,9 +179,17 @@ const About = () => {
                     lineHeight: 1.7
                   }}
                 >
-                  I'm a passionate developer with a love for creating elegant solutions to complex problems.
-                  My journey in technology has been driven by curiosity and a desire to make a positive impact
-                  through code.
+                  I am a <strong>First Year</strong> studying <strong>Computer Science and Engineering (B.S.)</strong> at the University of California, Los Angeles (UCLA).
+                  </Typography>
+                  <Typography 
+                  paragraph
+                  sx={{
+                    fontFamily: 'Space Grotesk',
+                    fontSize: '1.1rem',
+                    lineHeight: 1.7
+                  }}
+                >
+                  I'm passionate about applying Computational techniques to solve biological/scientific problems. My favorite applications involve Machine Learning, Backend Development, and Bioengineering.
                 </Typography>
                 <Typography 
                   paragraph
@@ -191,8 +199,17 @@ const About = () => {
                     lineHeight: 1.7
                   }}
                 >
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source
-                  projects, or learning about the latest developments in the tech world.
+                  When I'm not working on projects, I either play soccer or am at the gym. I love watching international sports (especially my favorite team Paris Saint-Germain).
+                  </Typography>
+                  <Typography 
+                  paragraph
+                  sx={{
+                    fontFamily: 'Space Grotesk',
+                    fontSize: '1.1rem',
+                    lineHeight: 1.7
+                  }}
+                >
+                  I am always open to exploring new areas and opportunties and I highly encourage anyone interested in working with me to reach out!
                 </Typography>
               </Paper>
             </Grid>

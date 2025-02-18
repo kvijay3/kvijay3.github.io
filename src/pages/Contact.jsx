@@ -84,7 +84,8 @@ const Contact = () => {
         >
           Contact
         </Typography>
-
+        I am always looking to hear about new opportunities. I am also looking to give information regarding anything. Please feel free to reach out!
+        <br />
         <Paper
           component="form"
           onSubmit={handleSubmit}

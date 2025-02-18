@@ -150,7 +150,7 @@ const Home = () => {
           }}
         >
           <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-            Specializing in full-stack development, cloud solutions, and creating seamless user experiences
+            Specializing in Machine Learning, Backend Development, and Bioengineering to create easy and innovative solutions.
           </Typography>
         </Box>
       </Box>
