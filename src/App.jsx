@@ -1,4 +1,4 @@
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline, Box, Typography } from '@mui/material';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import Navbar from './components/Navbar';
@@ -96,17 +96,42 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Router>
-        <div className="app">
+        <Box sx={{ 
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column'
+        }}>
           <Navbar />
-          <main className="content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </main>
-        </div>
+          <Box sx={{ flex: 1 }}>
+            <main className="content">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </main>
+          </Box>
+          <Box 
+            component="footer" 
+            sx={{ 
+              py: 3,
+              px: 2,
+              mt: 'auto',
+              backgroundColor: 'background.paper',
+              borderTop: '1px solid rgba(255, 255, 255, 0.12)'
+            }}
+          >
+            <Typography 
+              variant="body2" 
+              color="text.secondary" 
+              align="center"
+              sx={{ fontFamily: 'Poppins' }}
+            >
+              {new Date().getFullYear()} Vijaykumar Karthikeyan. All rights reserved.
+            </Typography>
+          </Box>
+        </Box>
       </Router>
     </ThemeProvider>
   );
