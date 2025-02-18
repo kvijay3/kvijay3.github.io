@@ -23,8 +23,20 @@ const Projects = () => {
         transition={{ duration: 0.5 }}
         sx={{ py: 4 }}
       >
-        <Typography variant="h2" component="h1" sx={{ mb: 4 }}>
-          My Projects
+        <Typography 
+          variant="h2" 
+          component="h1" 
+          sx={{ 
+            mb: 2,
+            fontFamily: 'Space Grotesk',
+            fontWeight: 600,
+            fontSize: { xs: '2.25rem', md: '3rem' },
+            lineHeight: 1.1,
+            textAlign: 'center',
+            color: '#333'
+          }}
+        >
+          Projects
         </Typography>
 
         <Grid container spacing={4}>
@@ -36,10 +48,10 @@ const Projects = () => {
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
               >
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h5" component="h2" sx={{ mb: 2 }}>
+                  <Typography variant="h5" component="h2" sx={{ mb: 2, fontFamily: 'Space Grotesk', fontWeight: 600, fontSize: { xs: '1.75rem', md: '2rem' } }}>
                     {project.title}
                   </Typography>
-                  <Typography variant="body1" paragraph>
+                  <Typography variant="body1" paragraph sx={{ fontSize: { xs: '1rem', md: '1.125rem' }, color: '#666' }}>
                     {project.description}
                   </Typography>
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
@@ -48,10 +60,11 @@ const Projects = () => {
                         key={i}
                         variant="body2"
                         sx={{
-                          backgroundColor: 'primary.dark',
+                          backgroundColor: '#81d4fa',
                           px: 1,
                           py: 0.5,
                           borderRadius: 1,
+                          color: '#fff'
                         }}
                       >
                         {tech}

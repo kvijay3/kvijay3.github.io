@@ -74,12 +74,15 @@ const Contact = () => {
           variant="h2" 
           component="h1" 
           sx={{ 
-            mb: 4, 
+            mb: 2,
+            fontFamily: 'Space Grotesk',
+            fontWeight: 700,
+            fontSize: { xs: '2.5rem', md: '3.5rem' },
             textAlign: 'center',
-            fontSize: { xs: '2.5rem', md: '3.75rem' }
+            color: '#81d4fa'
           }}
         >
-          Get in Touch
+          Contact
         </Typography>
 
         <Paper
@@ -131,9 +134,9 @@ const Contact = () => {
               sx={{
                 py: 1.5,
                 borderRadius: 2,
-                backgroundColor: '#2563eb',
+                backgroundColor: '#81d4fa',
                 '&:hover': {
-                  backgroundColor: '#1d4ed8'
+                  backgroundColor: '#64b5f6'
                 }
               }}
             >

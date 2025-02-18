@@ -50,17 +50,23 @@ const Home = () => {
           <Typography
             variant="h1"
             sx={{
-              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+              background: `linear-gradient(45deg, #81d4fa, ${theme.palette.secondary.main})`,
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               color: 'transparent',
               mb: 2,
               maxWidth: '800px',
+              fontFamily: 'Space Grotesk',
+              fontWeight: 700,
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              textAlign: 'center',
+              letterSpacing: '-0.05em',
+              lineHeight: 1.2,
             }}
           >
-            Creating Digital
+            Vijaykumar Karthikeyan
             <br />
-            Experiences
+            Website in Development
           </Typography>
         </motion.div>
 
@@ -71,11 +77,14 @@ const Home = () => {
               color: 'text.secondary',
               maxWidth: '600px',
               fontWeight: 400,
+              fontFamily: 'Space Grotesk',
+              fontSize: { xs: '1.25rem', md: '1.5rem' },
+              lineHeight: 1.6,
             }}
           >
             Website In Development
             <br />
-            Hi, I'm Vijay — a passionate developer crafting innovative solutions
+            Hi, I'm Vijay — I'm an aspiring Developer and Researcher that is interested in the intersection of Biology and Computation. I am especially motivated in using Science to benefit the world. 
           </Typography>
         </motion.div>
 
@@ -95,13 +104,19 @@ const Home = () => {
             size="large"
             endIcon={<ArrowForward />}
             sx={{
-              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+              background: `linear-gradient(45deg, #81d4fa, ${theme.palette.primary.dark})`,
               '&:hover': {
-                background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
+                background: `linear-gradient(45deg, ${theme.palette.primary.dark}, #81d4fa)`,
               },
+              color: '#fff',
+              textTransform: 'none',
+              fontFamily: 'Space Grotesk',
+              fontSize: '1.125rem',
+              fontWeight: 600,
+              letterSpacing: '-0.05em',
             }}
           >
-            View My Work
+            View Projects
           </Button>
           <Button
             component={Link}
@@ -113,6 +128,12 @@ const Home = () => {
               '&:hover': {
                 borderWidth: '2px',
               },
+              color: '#81d4fa',
+              textTransform: 'none',
+              fontFamily: 'Space Grotesk',
+              fontSize: '1.125rem',
+              fontWeight: 600,
+              letterSpacing: '-0.05em',
             }}
           >
             Get in Touch

@@ -23,7 +23,7 @@ const About = () => {
       name: 'LinkedIn',
       icon: <LinkedInIcon />,
       url: 'https://linkedin.com/in/vijaykumar-karthikeyan',
-      color: '#0077B5'
+      color: '#81d4fa'
     },
     {
       name: 'GitHub',
@@ -93,7 +93,8 @@ const About = () => {
               fontFamily: 'Space Grotesk',
               fontWeight: 700,
               fontSize: { xs: '2.5rem', md: '3.5rem' },
-              textAlign: 'center'
+              textAlign: 'center',
+              color: '#81d4fa'
             }}
           >
             About Me
@@ -137,12 +138,12 @@ const About = () => {
             whileTap={{ scale: 0.95 }}
             sx={{
               mb: 4,
-              backgroundColor: '#2196F3',
+              backgroundColor: '#81d4fa',
               color: 'white',
-              fontFamily: 'Poppins',
+              fontFamily: 'Space Grotesk',
               textTransform: 'none',
               '&:hover': {
-                backgroundColor: '#1976D2',
+                backgroundColor: '#64b5f6',
               },
             }}
           >
@@ -157,7 +158,7 @@ const About = () => {
                 sx={{ 
                   p: 3, 
                   height: '100%',
-                  fontFamily: 'Poppins'
+                  fontFamily: 'Space Grotesk'
                 }}
               >
                 <Typography 
@@ -173,7 +174,7 @@ const About = () => {
                 <Typography 
                   paragraph
                   sx={{
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Space Grotesk',
                     fontSize: '1.1rem',
                     lineHeight: 1.7
                   }}
@@ -185,7 +186,7 @@ const About = () => {
                 <Typography 
                   paragraph
                   sx={{
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Space Grotesk',
                     fontSize: '1.1rem',
                     lineHeight: 1.7
                   }}
@@ -203,7 +204,7 @@ const About = () => {
                 sx={{ 
                   p: 3,
                   height: '100%',
-                  fontFamily: 'Poppins'
+                  fontFamily: 'Space Grotesk'
                 }}
               >
                 <Typography 
@@ -223,13 +224,13 @@ const About = () => {
                       component={motion.div}
                       whileHover={{ scale: 1.05 }}
                       sx={{
-                        bgcolor: 'primary.main',
+                        bgcolor: '#81d4fa',
                         color: 'white',
                         px: 2,
                         py: 1,
                         borderRadius: 2,
                         fontSize: '0.9rem',
-                        fontFamily: 'Poppins'
+                        fontFamily: 'Space Grotesk'
                       }}
                     >
                       {skill}
