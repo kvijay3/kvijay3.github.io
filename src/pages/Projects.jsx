@@ -22,6 +22,15 @@ const Projects = () => {
       paper: 'https://drive.google.com/file/d/1Pjsi2TTWZ274OXqLnv235vLAm_fT-b3D/view',
       poster: 'https://drive.google.com/file/d/16YQVQWIX1V-XvEb4n6Ii2Srln-B2EAKJ/view'
     },
+    {
+      title: '3D Tunable Magnetic Field for use in Particle Physics Experiments',
+      affiliation: 'University of Kentucky, College of Engineering',
+      description: 'Designed a device that generates a magnetic field in 3-dimension utilizing Helmholtz coils. Modelled device with CAD software, and utilized MATLAB to program an interface that allows for the magnetic field to be tuned as needed. Presented work to University of Kentucky Department of Engineering. Received College Credit.',
+      technologies: ['CAD', 'Circuits', 'MATLAB', 'Physics', 'Arduino'],
+      //github: 'https://github.com/yourusername/project1',
+      presentation: '',
+      CAD: ''
+    },
     // Add more projects as needed
   ];
 
