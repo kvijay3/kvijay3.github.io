@@ -73,6 +73,8 @@ const Home = () => {
               fontWeight: 400,
             }}
           >
+            Website In Development
+            <br />
             Hi, I'm Vijay — a passionate developer crafting innovative solutions
           </Typography>
         </motion.div>
