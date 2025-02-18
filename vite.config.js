@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/', // Base URL for GitHub Pages
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -17,6 +17,8 @@ export default defineConfig({
     global: 'window', // Forces the 'global' object to be set to 'window' in Node.js environment
   },
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
     target: 'esnext', // Ensure compatibility with modern JavaScript features
   },
   server: {
