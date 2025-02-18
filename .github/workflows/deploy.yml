@@ -31,5 +31,5 @@ jobs:
         with:
           branch: build  # Specify the branch (e.g., 'build' or 'gh-pages') where the build should be deployed
           folder: dist    # Folder with the build output (e.g., dist)
-          token: ${{ secrets.GITHUB_TOKEN }}  # Use built-in GITHUB_TOKEN
+          token: ${{ secrets.PAT }}  # Use your GitHub Personal Access Token (PAT)
           clean: true  # Cleans the branch before deploying (optional but recommended)
