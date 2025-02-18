@@ -66,7 +66,6 @@ const Home = () => {
           >
             Vijaykumar Karthikeyan
             <br />
-            Website in Development
           </Typography>
         </motion.div>
 
@@ -82,8 +81,6 @@ const Home = () => {
               lineHeight: 1.6,
             }}
           >
-            Website In Development
-            <br />
             Hi, I'm Vijay — I'm an aspiring Developer and Researcher that is interested in the intersection of Biology and Computation. I am especially motivated in using Science to benefit the world. 
           </Typography>
         </motion.div>
