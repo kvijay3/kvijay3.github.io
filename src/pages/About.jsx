@@ -28,7 +28,7 @@ const About = () => {
     {
       name: 'GitHub',
       icon: <GitHubIcon sx={{ color: '#ffffff' }} />,
-      url: 'https://github.com/vijaykumar-karthikeyan',
+      url: 'https://github.com/kvijay3',
       color: '#333'
     },
     {
