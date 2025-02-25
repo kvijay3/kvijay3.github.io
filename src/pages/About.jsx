@@ -9,14 +9,58 @@ import DescriptionIcon from '@mui/icons-material/Description';
 
 const About = () => {
   const skills = [
-    'JavaScript/TypeScript',
+    // Programming Languages
+    'Python',
+    'JavaScript',
+    'HTML/CSS',
+    'C++',
+    'C#',
+    'Java',
+    'MATLAB',
+  
+    // Web & Backend Development
     'React.js',
     'Node.js',
-    'Python',
-    'HTML/CSS',
-    'Git',
+    'Django REST Framework',
+    'Flask',
+    'REST APIs',
+  
+    // Databases & Cloud
+    'MySQL',
+    'MongoDB',
+    'PostgreSQL',
+    'AWS Elastic Compute Cloud',
+    'AWS Lambda',
+    'AWS RDS',
+  
+    // Machine Learning & Data Science
+    'PyTorch',
+    'TensorFlow',
+    'scikit-learn',
+    'Pandas',
+    'NumPy',
+    'Matplotlib',
+    'Seaborn',
+  
+    // DevOps & Tools
+    'Linux CLI',
+    'Bash',
+    'Docker',
+    'Git/GitHub',
+  
+    // Hardware & Engineering
+    'Arduino',
+    'CAD',
+  
+    // Miscellaneous
+    'API Development',
+    'Software Automation',
+    'Data Visualization',
+    'Scientific Computing',
+    
     // Add more skills as needed
   ];
+  
 
   const socialLinks = [
     {
