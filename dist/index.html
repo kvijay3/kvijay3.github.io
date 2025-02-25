@@ -4,8 +4,115 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vijay's Portfolio</title>
-    <script type="module" crossorigin src="/assets/index-DWOlATka.js"></script>
+    <title>Vijay's Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --primary-hover: #1d4ed8;
+        --text-color: #1f2937;
+        --border-color: #e5e7eb;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      body {
+        color: var(--text-color);
+        line-height: 1.5;
+        background-color: #f9fafb;
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 3rem auto;
+        padding: 2.5rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      .form-header {
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .form-header h2 {
+        font-size: 1.875rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .form-header p {
+        color: #6b7280;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-color);
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.15s ease-in-out;
+        background-color: #fff;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+      }
+
+      button[type="submit"]:hover {
+        background-color: var(--primary-hover);
+      }
+
+      @media (max-width: 640px) {
+        .contact-form {
+          margin: 1.5rem;
+          padding: 1.5rem;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-CSBS75jg.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Buu7q9aS.css">
   </head>
   <body>
