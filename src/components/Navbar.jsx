@@ -48,23 +48,34 @@ const Navbar = () => {
                   sx={{
                     color: location.pathname === item.path ? theme.palette.primary.main : 'white',
                     position: 'relative',
-                    '&:after': {
+                    '&::before': {
                       content: '""',
                       position: 'absolute',
                       width: location.pathname === item.path ? '100%' : '0%',
                       height: '2px',
                       bottom: -2,
                       left: '0',
-                      backgroundColor: theme.palette.primary.main,
-                      transition: 'width 0.3s ease-in-out',
+                      background: `linear-gradient(90deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
+                      opacity: location.pathname === item.path ? 1 : 0,
+                      transition: 'all 0.3s ease-in-out',
+                      transform: 'scaleX(0)',
+                      transformOrigin: 'left',
                     },
                     '&:hover': {
                       color: theme.palette.primary.main,
                       backgroundColor: 'transparent',
-                      '&:after': {
+                      '&::before': {
                         width: '100%',
+                        opacity: 1,
+                        transform: 'scaleX(1)',
                       },
                     },
+                    ...(location.pathname === item.path && {
+                      '&::before': {
+                        transform: 'scaleX(1)',
+                        opacity: 1,
+                      },
+                    }),
                   }}
                 >
                   {item.label}
@@ -79,3 +90,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
