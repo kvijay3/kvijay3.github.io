@@ -1,29 +1,23 @@
 import { ThemeProvider, CssBaseline, Box, Typography } from '@mui/material';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
-import Navbar from './components/Navbar';
-import ScrollProgress from './components/ScrollProgress';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
+import BiohackerHome from './pages/BiohackerHome';
 
-const darkTheme = createTheme({
+const biohackerTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#81d4fa', // A sophisticated light blue
-      dark: '#4ba3c7',
-      light: '#b6ffff',
+      main: '#4fc3f7',
+      dark: '#29b6f6',
+      light: '#81d4fa',
     },
     secondary: {
-      main: '#cfd8dc', // Metallic grey
-      dark: '#9ea7aa',
-      light: '#ffffff',
+      main: '#00ff88',
+      dark: '#00cc6a',
+      light: '#33ff99',
     },
     background: {
-      default: '#0a0a0a', // Nearly black for depth
-      paper: '#1a1a1a',    // Slightly lighter black for cards
+      default: '#000000',
+      paper: '#1a1a1a',
     },
     text: {
       primary: '#ffffff',
@@ -31,13 +25,13 @@ const darkTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"SF Pro Display", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Courier New", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontSize: '3.5rem',
       fontWeight: 600,
       letterSpacing: '-0.02em',
       lineHeight: 1.2,
-      background: 'linear-gradient(45deg, #81d4fa, #4ba3c7)',
+      background: 'linear-gradient(45deg, #4fc3f7, #00ff88)',
       backgroundSize: '200% 200%',
       WebkitBackgroundClip: 'text',
       backgroundClip: 'text',
@@ -72,7 +66,7 @@ const darkTheme = createTheme({
           overflow: 'hidden',
           '&:hover': {
             transform: 'translateY(-2px)',
-            boxShadow: '0 4px 20px rgba(129, 212, 250, 0.25)',
+            boxShadow: '0 4px 20px rgba(79, 195, 247, 0.25)',
             '&::after': {
               width: '300px',
               height: '300px',
@@ -100,7 +94,7 @@ const darkTheme = createTheme({
           boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           '&:hover': {
-            boxShadow: '0 8px 30px rgba(129, 212, 250, 0.15)',
+            boxShadow: '0 8px 30px rgba(79, 195, 247, 0.15)',
             transform: 'translateY(-5px) scale(1.02)',
           },
         },
@@ -114,7 +108,7 @@ const darkTheme = createTheme({
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           '&:hover': {
             transform: 'translateY(-5px) scale(1.02)',
-            boxShadow: '0 8px 30px rgba(129, 212, 250, 0.15)',
+            boxShadow: '0 8px 30px rgba(79, 195, 247, 0.15)',
           },
         },
       },
@@ -124,64 +118,44 @@ const darkTheme = createTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={biohackerTheme}>
       <CssBaseline />
-      <Router>
-        <Box sx={{ 
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'relative',
-        }}>
-          <ScrollProgress />
-          <Navbar />
-          <Box sx={{ flex: 1 }}>
-            <main className="content">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </main>
-          </Box>
-          <Box 
-            component="footer" 
-            sx={{ 
-              py: 3,
-              px: 2,
-              mt: 'auto',
-              backgroundColor: 'background.paper',
-              borderTop: '1px solid rgba(255, 255, 255, 0.12)',
-              position: 'relative',
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                height: '1px',
-                background: 'linear-gradient(90deg, transparent, rgba(129, 212, 250, 0.3), transparent)',
-              },
+      <Box sx={{ 
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        background: '#000000',
+      }}>
+        <Box sx={{ flex: 1 }}>
+          <main className="content">
+            <BiohackerHome />
+          </main>
+        </Box>
+        <Box
+          component="footer"
+          sx={{
+            py: 3,
+            px: 2,
+            mt: 'auto',
+            background: '#000000',
+            borderTop: '1px solid rgba(79, 195, 247, 0.2)',
+            position: 'relative',
+          }}
+        >
+          <Typography
+            variant="body2"
+            align="center"
+            sx={{
+              color: '#8aa4b1',
+              fontFamily: 'Courier New, monospace',
+              letterSpacing: '0.06em',
             }}
           >
-            <Typography 
-              variant="body2" 
-              color="text.secondary" 
-              align="center"
-              sx={{ 
-                fontFamily: 'Poppins',
-                '&:hover': {
-                  color: 'primary.main',
-                  transition: 'color 0.3s ease',
-                },
-              }}
-            >
-              &copy; {new Date().getFullYear()} Vijaykumar Karthikeyan. All rights reserved.
-            </Typography>
-          </Box>
+            &copy; {new Date().getFullYear()} Vijaykumar Karthikeyan. All rights reserved.
+          </Typography>
         </Box>
-      </Router>
+      </Box>
     </ThemeProvider>
   );
 }

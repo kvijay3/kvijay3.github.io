@@ -1,0 +1,116 @@
+{
+  "profile": {
+    "name": "Vijaykumar Karthikeyan",
+    "title": "Founder, Developer, and Researcher",
+    "bio": "Hi, I'm Vijay! I like science, soccer, and pandas. I am a current second-year undergraduate studying Bioengineering and Computer Science at UCLA. I am the Co-founder and CTO of Cogenesis, Inc.",
+    "image": "/headshot.svg",
+    "email": "vijay@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "San Francisco, CA",
+    "resume": "/resume.pdf"
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/in/kvijay3",
+    "github": "https://github.com/kvijay3",
+    "twitter": "https://twitter.com/kvijay3",
+    "instagram": "https://instagram.com/kvijay3"
+  },
+  "experiences": [
+    {
+      "id": 1,
+      "type": "work",
+      "title": "Senior Biohacker",
+      "company": "Neural Dynamics Lab",
+      "location": "San Francisco, CA",
+      "startDate": "2023-01",
+      "endDate": "present",
+      "description": "Leading research in neural interface development and biohacking technologies. Developing cutting-edge solutions for human enhancement.",
+      "technologies": ["Python", "TensorFlow", "Neural Networks", "Bioinformatics"],
+      "achievements": [
+        "Developed neural interface prototype with 95% accuracy",
+        "Published 3 papers in top-tier journals",
+        "Led team of 5 researchers"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "project",
+      "title": "Biohacker Toolkit",
+      "company": "Personal Project",
+      "location": "Remote",
+      "startDate": "2022-06",
+      "endDate": "2023-12",
+      "description": "Open-source platform for biohackers to track and optimize their biological metrics using machine learning.",
+      "technologies": ["React", "Node.js", "MongoDB", "Machine Learning"],
+      "achievements": [
+        "1000+ active users",
+        "Featured in Biohacker Magazine",
+        "Open source with 500+ GitHub stars"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "work",
+      "title": "Bioinformatics Engineer",
+      "company": "GenomeTech Solutions",
+      "location": "Boston, MA",
+      "startDate": "2021-08",
+      "endDate": "2022-12",
+      "description": "Developed algorithms for genomic data analysis and personalized medicine applications.",
+      "technologies": ["Python", "R", "Bioinformatics", "AWS"],
+      "achievements": [
+        "Improved analysis speed by 300%",
+        "Reduced false positive rate by 50%",
+        "Led migration to cloud infrastructure"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "project",
+      "title": "Sleep Optimization AI",
+      "company": "Personal Project",
+      "location": "Remote",
+      "startDate": "2021-01",
+      "endDate": "2021-12",
+      "description": "AI-powered system that analyzes sleep patterns and provides personalized recommendations for optimal rest.",
+      "technologies": ["Python", "TensorFlow", "IoT", "Data Analysis"],
+      "achievements": [
+        "Improved sleep quality by 40% for test users",
+        "Integrated with 10+ wearable devices",
+        "Won Biohacker Innovation Award 2021"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "education",
+      "title": "Master of Science in Bioengineering",
+      "company": "Stanford University",
+      "location": "Stanford, CA",
+      "startDate": "2019-09",
+      "endDate": "2021-06",
+      "description": "Specialized in computational biology and human enhancement technologies.",
+      "technologies": ["Research", "Thesis", "Lab Work"],
+      "achievements": [
+        "GPA: 3.9/4.0",
+        "Thesis: 'Neural Interface Optimization'",
+        "Research Assistant for 2 years"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "highschool",
+      "title": "Valedictorian",
+      "company": "Lincoln High School",
+      "location": "San Francisco, CA",
+      "startDate": "2015-09",
+      "endDate": "2019-06",
+      "description": "Graduated as valedictorian with focus on science and mathematics.",
+      "technologies": ["Leadership", "Academic Excellence"],
+      "achievements": [
+        "4.0 GPA",
+        "President of Science Club",
+        "National Merit Scholar"
+      ]
+    }
+  ]
+}
