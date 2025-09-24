@@ -19,6 +19,67 @@ import experiencesData from '../data/experiences.json';
 import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
 
+// Add CSS animations for lava lamp effects
+const lavaLampStyles = `
+  @keyframes lavaFlow {
+    0% { 
+      background: linear-gradient(45deg, #666666, #888888, #aaaaaa, #cccccc, #999999);
+      background-size: 400% 400%;
+      background-position: 0% 50%;
+    }
+    25% { 
+      background-position: 100% 50%;
+    }
+    50% { 
+      background-position: 100% 100%;
+    }
+    75% { 
+      background-position: 0% 100%;
+    }
+    100% { 
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes lavaGlow {
+    0% { 
+      opacity: 0.4;
+      transform: scale(1) rotate(0deg);
+      filter: blur(2px);
+    }
+    50% { 
+      opacity: 0.8;
+      transform: scale(1.05) rotate(180deg);
+      filter: blur(1px);
+    }
+    100% { 
+      opacity: 0.4;
+      transform: scale(1) rotate(360deg);
+      filter: blur(2px);
+    }
+  }
+  
+  @keyframes lavaGlowReverse {
+    0% { 
+      opacity: 0.8;
+      transform: scale(1.05) rotate(360deg);
+      filter: blur(1px);
+    }
+    100% { 
+      opacity: 0.4;
+      transform: scale(1) rotate(0deg);
+      filter: blur(2px);
+    }
+  }
+`;
+
+// Inject the styles
+if (typeof document !== 'undefined') {
+  const styleSheet = document.createElement('style');
+  styleSheet.textContent = lavaLampStyles;
+  document.head.appendChild(styleSheet);
+}
+
 const BiohackerHome = () => {
   const [currentHeadshot, setCurrentHeadshot] = useState('/headshot.svg');
   const particlesContainerRef = useRef(null);
@@ -317,14 +378,67 @@ const BiohackerHome = () => {
               document.body.removeChild(link);
             }}
             sx={{
-              borderColor: '#5680e3',
-              color: '#5680e3',
+              background: 'linear-gradient(45deg, #666666, #888888, #aaaaaa, #cccccc, #999999)',
+              backgroundSize: '400% 400%',
+              border: 'none',
+              position: 'relative',
+              color: '#ffffff',
               fontFamily: 'Courier New, monospace',
               fontWeight: 'bold',
               textTransform: 'uppercase',
+              letterSpacing: '1px',
+              padding: '12px 24px',
+              borderRadius: '25px',
+              transition: 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              textShadow: '0 0 10px rgba(255, 255, 255, 0.5)',
+              animation: 'lavaFlow 8s ease-in-out infinite',
+              overflow: 'hidden',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1))',
+                borderRadius: '25px',
+                zIndex: 1,
+                animation: 'lavaGlow 6s ease-in-out infinite',
+              },
               '&:hover': {
-                borderColor: '#5680e3',
-                backgroundColor: 'rgba(86, 128, 227, 0.1)'
+                transform: 'translateY(-3px) scale(1.08)',
+                boxShadow: '0 20px 40px rgba(102, 102, 102, 0.4), 0 10px 20px rgba(136, 136, 136, 0.3), 0 5px 10px rgba(170, 170, 170, 0.2)',
+                filter: 'brightness(1.2) saturate(1.1)',
+                animation: 'lavaFlow 4s ease-in-out infinite',
+                '&::before': {
+                  animation: 'lavaGlow 3s ease-in-out infinite',
+                },
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  top: '-5px',
+                  left: '-5px',
+                  right: '-5px',
+                  bottom: '-5px',
+                  background: 'linear-gradient(45deg, #666666, #888888, #aaaaaa, #cccccc, #999999)',
+                  borderRadius: '30px',
+                  zIndex: -1,
+                  animation: 'lavaGlow 4s ease-in-out infinite',
+                  filter: 'blur(3px)',
+                },
+              },
+              '&:not(:hover)': {
+                '&::after': {
+                  animation: 'lavaGlowReverse 2s ease-in-out forwards',
+                },
+              },
+              '&:active': {
+                transform: 'translateY(-1px) scale(1.02)',
+                boxShadow: '0 10px 20px rgba(102, 102, 102, 0.3)',
+              },
+              '& > *': {
+                position: 'relative',
+                zIndex: 2,
               },
             }}
           >
