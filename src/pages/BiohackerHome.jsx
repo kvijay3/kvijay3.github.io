@@ -18,8 +18,7 @@ import {
   Download
 } from '@mui/icons-material';
 import experiencesData from '../data/experiences.json';
-import Particles from "react-particles";
-import { loadSlim } from "tsparticles-slim";
+// Particles moved to App-level for seamless footer background
 
 // Add CSS animations for lava lamp effects
 const lavaLampStyles = `
@@ -95,9 +94,7 @@ const BiohackerHome = () => {
         exp.categories && exp.categories.includes(selectedCategory)
       );
 
-  const particlesInit = useCallback(async engine => {
-    await loadSlim(engine);
-  }, []);
+  // Particles init removed from page level
 
   const scheduleShootingStar = useCallback(() => {
     const container = particlesContainerRef.current;
@@ -149,79 +146,6 @@ const BiohackerHome = () => {
 
   return (
     <>
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        loaded={particlesLoaded}
-        options={{
-          background: {
-            color: { value: "#000000" },
-            image: undefined,
-          },
-          fpsLimit: 60,
-          interactivity: {
-            events: {
-              onClick: {
-                enable: false,
-              },
-              onHover: {
-                enable: false,
-              },
-              resize: true,
-            },
-          },
-          particles: {
-            color: {
-              value: "#ffffff",
-            },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: {
-                default: "out",
-              },
-              random: true,
-              speed: 0.1,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-                area: 800,
-              },
-              value: 200,
-            },
-            opacity: {
-              value: { min: 0.1, max: 0.8 },
-              animation: {
-                enable: true,
-                speed: 0.5,
-                minimumValue: 0.1,
-                sync: false,
-              },
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 0.5, max: 2 },
-              animation: {
-                enable: true,
-                speed: 0.5,
-                minimumValue: 0.1,
-                sync: false,
-              },
-            },
-          },
-          detectRetina: true,
-          style: {
-            position: "fixed",
-            inset: 0,
-            zIndex: -2,
-            pointerEvents: "none",
-          },
-        }}
-      />
       
       {/* Main Profile Section - Fits in viewport */}
       <Box sx={{ 
@@ -304,7 +228,8 @@ const BiohackerHome = () => {
                   mb: 4,
                   fontSize: '14px',
                   lineHeight: 1.6,
-                  textAlign: 'justify'
+                  textAlign: 'justify',
+                  whiteSpace: 'pre-line'
                 }}
               >
                 {experiencesData.profile.bio}
@@ -343,7 +268,14 @@ const BiohackerHome = () => {
                   }}
                   aria-label="X profile"
                 >
-                  <Box component="img" src="/x.svg" alt="X" sx={{ width: 28, height: 28, display: 'block' }} />
+                  <Box
+                    component="svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 256 256"
+                    sx={{ width: 28, height: 28, display: 'block' }}
+                  >
+                    <path d="M180.64 32H214L146.88 108.42L226 224H164.88L116.24 156.38L60.96 224H26.88L98.56 143.26L22 32H85.12L129.68 93.94L180.64 32ZM170.88 204H187.04L87.36 51.52H70.4L170.88 204Z" fill="currentColor" />
+                  </Box>
                 </IconButton>
                 <IconButton
                   href={"https://instagram.com/vijay.kar03"}

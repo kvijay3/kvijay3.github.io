@@ -2,7 +2,7 @@
   "profile": {
     "name": "Vijaykumar Karthikeyan",
     "title": "Founder, Developer, and Researcher",
-    "bio": "Hi, I'm Vijay! I like science, soccer, and pandas. I am a current second-year undergraduate studying Bioengineering and Computer Science at UCLA. I am the Co-founder and CTO of Cogenesis, Inc.",
+    "bio": "Hi, I'm Vijay! I like Science, Soccer, and Pandas. I am a current second-year undergraduate studying Bioengineering and Computer Science at UCLA. I am the Co-founder and CTO of Cogenesis, Inc. \n \n I am passionate about building, especially to accelerate scienific innovation. Would love to chat about anything!",
     "image": "/headshot.svg",
     "email": "vijay@example.com",
     "phone": "+1 (555) 123-4567",
@@ -26,7 +26,7 @@
       "startDate": "March 2025",
       "endDate": "present",
       "description": "Transforming Biological Image Analysis with Artificial Intelligence",
-      "technologies": ["VLMs", "AWS", "React", "REST APIs", "Django" ,"Entrepreneurship"],
+      "technologies": ["VLMs", "AWS", "React", "REST APIs", "Django", "Entrepreneurship"],
       "achievements": [
         "Incubated in Founder's, Inc. and Startup UCLA."
       ]
@@ -34,7 +34,7 @@
     {
       "id": 2,
       "type": "education",
-      "categories": ["Featured"],
+      "categories": ["Featured", "Current"],
       "title": "Undergraduate Student",
       "company": "UCLA",
       "location": "Los Angeles, CA",
@@ -49,17 +49,112 @@
     },
     {
       "id": 3,
+      "type": "research",
+      "categories": ["Research", "Featured", "Current"],
+      "title": "Student Researcher",
+      "company": "The Kamariza Lab at UCLA Bioengineering",
+      "location": "Remote",
+      "startDate": "January 2025",
+      "endDate": "present",
+      "description": "Developing CRISPR-based Diagnostics for Infectious Diseases.",
+      "technologies": ["CRISPR", "In Vitro Transcription", "QuantStudio", "Bioinformatics", "Python"],
+      "achievements": [
+        "Developing Algorithmic Tools for CRISPR Assay Design based on intermoelcular interactions"
+      ]
+    },
+    {
+      "id": 4,
       "type": "project",
       "categories": ["Featured"],
-      "title": "Website Renovation",
-      "company": "Personal Project",
+      "title": "Kwo - Machine Learning for Health Prediction",
+      "company": "UCLA Biomedical Engineering Society Design Team",
       "location": "Remote",
-      "startDate": "September 2025",
-      "endDate": "present",
-      "description": "Website will be updated soon.",
-      "technologies": [],
+      "startDate": "September 2024",
+      "endDate": "June 2025",
+      "description": "Led Backend Development for this application. Utilizied and Organized Apple HealthKit data to train custom Machine Learning models to predict individual health metrics.",
+      "technologies": ["AWS EC2", "AWS RDS", "Backend Development", "Machine Learning", "Python", "LLMs", "Apple HealthKit", "Django Rest Framework", "iOS Development"],
       "achievements": [
-
+          "Published Application to App Store",
+          "Presented at BMES Tech Projects Symposium"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "project",
+      "categories": ["Featured"],
+      "title": "AI for Short form Content Creation",
+      "company": "Project for Lookbk",
+      "location": "Remote",
+      "startDate": "January 2025",
+      "endDate": "March 2025",
+      "description": "Developed an algorithm to prepare hooks for short forms demos of the product 'Lookbk' (The Shazam for clothes). Utilizing RunwayML I was able to generate AI generated videos of people before a short demo is displayed.",
+      "technologies": ["RunwayML", "Python", "LLMs", "AWS EC2", "AWS S3", "Flask", "REST APIs", "Video Generation"],
+      "achievements": [
+        "Delivered Project to Lookbk for use in their marketing",
+        "Builder with VEST @ UCLA"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "project",
+      "categories": [],
+      "title": "kwikchart",
+      "company": "Developed at UCLA BMES Biohack 2025",
+      "location": "Remote",
+      "startDate": "March 2025",
+      "endDate": "March 2025",
+      "description": "Developed a platform to allow for the understanding of Electronic Health Records (EHRs) through Natural Language Processing (NLP) and LLMs. Targeted towards helping Neurodivergent patients to better understand their health.",
+      "technologies": ["REST APIs", "Tailwind", "Flask", "Hackathon", "LLMs", "Meta Llama", "NLP"],
+      "achievements": [
+        "Second Place at the UCLA BMES Biohack 2025"
+      ]
+    },
+    {
+      "id":7,
+      "type": "project",
+      "categories": ["High School"],
+      "title": "High School Student",
+      "company": "Paul Laurence Dunbar High School, Lexington, KY",
+      "location": "Remote",
+      "startDate": "August 2021",
+      "endDate": "June 2024",
+      "description": "Student at the Math Science & Technology Center (MSTC) at Paul Laurence Dunbar High School (selective admissions).",
+      "technologies": ["Science Olympiad", "Junior Varsity Golf", "MSTC Element", "PLD Rocketry Club", "German Honor Society", "Science National Honor Society", "National Honor Society"],
+       "achievements": [
+         "4.00 UNweighted GPA | 4.83 Weighted GPA",
+         "35 ACT",
+         "16 Passed Advanced Placement Courses"
+       ]
+     },
+     {
+      "id": 8,
+      "type": "project",
+      "categories": ["High School", "Featured", "Research"],
+      "title": "High School Researcher",
+      "company": "University of Kentucky Center for Applied Energy Research",
+      "location": "Remote",
+      "startDate": "October 2022",
+      "endDate": "June 2024",
+      "description": "Engineered Machine Learning Pipelines to accurately predict the interaction energiers of Organic Semiconductors from their intermolecular interactions. Further, validated the use of Active Learning in the fields of Energy Research.",
+      "technologies": ["Pytorch", "Machine Learning", "Python", "SLURM", "High Performance Computing", "CLIs"],
+      "achievements": [
+        "Publication in Review",
+        "Presented at the Kentucky Science and Engineering Fair"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "project",
+      "categories": ["High School"],
+      "title": "3D Tunable Magnetic Field for use in Particle Physics Experiments",
+      "company": "Paul Laurence Dunbar High School & University of Kentucky",
+      "location": "Remote",
+      "startDate": "January 2024",
+      "endDate": "June 2024",
+      "description": "Created a Device capable of creating Tunable Magnetic Fields in all dimensions. This device is capable of maintaining a constant magnetic field with very accurate precision. This was done by creating a device that carrying 3 Helmholtz Coils oriented in the three dimensions.",
+      "technologies": ["CAD", "MATLAB", "Physics", "Circuits", "Helmholtz Coils"],
+      "achievements": [
+        "Presented to the University of Kentucky Department of Engineering Faculty"
       ]
     }
   ]

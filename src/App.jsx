@@ -1,5 +1,8 @@
 import { ThemeProvider, CssBaseline, Box, Typography } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
+import React, { useCallback } from 'react';
+import Particles from 'react-particles';
+import { loadSlim } from 'tsparticles-slim';
 import BiohackerHome from './pages/BiohackerHome';
 
 const biohackerTheme = createTheme({
@@ -117,6 +120,10 @@ const biohackerTheme = createTheme({
 });
 
 function App() {
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
   return (
     <ThemeProvider theme={biohackerTheme}>
       <CssBaseline />
@@ -127,6 +134,45 @@ function App() {
         position: 'relative',
         background: '#000000',
       }}>
+        <Particles
+          id="tsparticles-app"
+          init={particlesInit}
+          options={{
+            background: {
+              color: { value: '#000000' },
+            },
+            fpsLimit: 60,
+            interactivity: {
+              events: { resize: true },
+            },
+            particles: {
+              color: { value: '#ffffff' },
+              move: {
+                direction: 'none',
+                enable: true,
+                outModes: { default: 'out' },
+                random: true,
+                speed: 0.1,
+                straight: false,
+              },
+              number: {
+                density: { enable: true, area: 800 },
+                value: 200,
+              },
+              opacity: {
+                value: { min: 0.1, max: 0.8 },
+                animation: { enable: true, speed: 0.5, minimumValue: 0.1, sync: false },
+              },
+              shape: { type: 'circle' },
+              size: {
+                value: { min: 0.5, max: 2 },
+                animation: { enable: true, speed: 0.5, minimumValue: 0.1, sync: false },
+              },
+            },
+            detectRetina: true,
+            style: { position: 'fixed', inset: 0, zIndex: -2, pointerEvents: 'none' },
+          }}
+        />
         <Box sx={{ flex: 1 }}>
           <main className="content">
             <BiohackerHome />
@@ -138,8 +184,9 @@ function App() {
             py: 3,
             px: 2,
             mt: 'auto',
-            background: '#000000',
             position: 'relative',
+            zIndex: 1,
+            background: 'transparent',
           }}
         >
           <Typography
