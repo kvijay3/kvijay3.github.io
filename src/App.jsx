@@ -139,7 +139,6 @@ function App() {
             px: 2,
             mt: 'auto',
             background: '#000000',
-            borderTop: '1px solid rgba(79, 195, 247, 0.2)',
             position: 'relative',
           }}
         >
