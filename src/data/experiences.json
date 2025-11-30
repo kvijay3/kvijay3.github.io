@@ -1,8 +1,8 @@
 {
   "profile": {
     "name": "Vijaykumar Karthikeyan",
-    "title": "Founder, Developer, and Researcher",
-    "bio": "Hi, I'm Vijay! I like Science, Soccer, and Pandas. I am a current second-year undergraduate studying Bioengineering and Computer Science at UCLA. I am the Co-founder and CTO of Cogenesis, Inc. \n \n I am passionate about building, especially to accelerate scienific innovation. Would love to chat about anything!",
+    "title": "Developer and Researcher",
+    "bio": "Hi, I'm Vijay! I like Science, Soccer, and Pandas. I am a current second-year undergraduate studying Bioengineering and Computer Science at UCLA. \n \n I am passionate about building, especially to accelerate scienific innovation. Would love to chat about anything!",
     "image": "/headshot.svg",
     "email": "vijay@example.com",
     "phone": "+1 (555) 123-4567",
@@ -17,14 +17,46 @@
   },
   "experiences": [
     {
+      "id": 10,
+      "type": "project",
+      "categories": ["Current", "Featured"],
+      "title": "Ateball – Creative Labs @ UCLA",
+      "company": "Creative Labs @ UCLA",
+      "location": "Los Angeles, CA",
+      "startDate": "October 2025",
+      "endDate": "present",
+      "description": "Created Backend Application that uses Google Places API and smart scoring to allow users to pick places to eat",
+      "technologies": ["Backend Development", "Google Places API", "Python", "REST APIs", "Algorithm Design"],
+      "achievements": [
+        "Built intelligent location recommendation system",
+        "Developed with Creative Labs @ UCLA"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "project",
+      "categories": ["Current", "Featured"],
+      "title": "Kinetiq",
+      "company": "UCLA Biomedical Engineering Society Design Team",
+      "location": "Los Angeles, CA",
+      "startDate": "September 2025",
+      "endDate": "present",
+      "description": "Full Stack Development of Doctor and Patient Dashboards to display analytics from a Smart Knee Brace. Creating Analytics from raw sensor data to track Knee Health and aid in treatment planning",
+      "technologies": ["Full Stack Development", "Data Analytics", "Sensor Data Processing", "Dashboard Development", "Python", "React"],
+      "achievements": [
+        "Developed comprehensive analytics platform for knee health monitoring",
+        "Created dual dashboard system for doctors and patients"
+      ]
+    },
+    {
       "id": 1,
       "type": "work",
-      "categories": ["Current", "Entrepreneurial", "Featured"],
+      "categories": ["Entrepreneurial", "Featured"],
       "title": "Co-Founder,CTO",
       "company": "Cogenesis, Inc.",
       "location": "Los Angeles, CA",
       "startDate": "March 2025",
-      "endDate": "present",
+      "endDate": "November 2025",
       "description": "Transforming Biological Image Analysis with Artificial Intelligence",
       "technologies": ["VLMs", "AWS", "React", "REST APIs", "Django", "Entrepreneurship"],
       "achievements": [

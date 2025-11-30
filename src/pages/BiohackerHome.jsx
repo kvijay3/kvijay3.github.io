@@ -6,7 +6,12 @@ import {
   Button,
   IconButton,
   Chip,
-  Grid
+  Grid,
+  Select,
+  MenuItem,
+  FormControl,
+  useMediaQuery,
+  useTheme
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import {
@@ -85,6 +90,8 @@ const BiohackerHome = () => {
   const [currentHeadshot, setCurrentHeadshot] = useState('/headshot.svg');
   const [selectedCategory, setSelectedCategory] = useState('Featured');
   const particlesContainerRef = useRef(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   
   const categories = ['Current', 'Research', 'Featured', 'High School', 'All Experiences'];
   
@@ -397,55 +404,118 @@ const BiohackerHome = () => {
         <Container maxWidth="lg" sx={{ py: 8, px: 2 }}>
 
           {/* Category Filter */}
-          <Box sx={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center',
-            gap: { xs: 1, sm: 2, md: 3 }, 
-            mb: 6, 
-            flexWrap: 'nowrap',
-            position: 'relative',
-            maxWidth: '800px',
-            mx: 'auto',
-            overflow: 'hidden'
-          }}>
-            {categories.map((category, index) => {
-              const isSelected = selectedCategory === category;
-              
-              return (
-                <motion.div
-                  key={category}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0
+          {isMobile ? (
+            // Mobile Dropdown
+            <Box sx={{ mb: 6, maxWidth: '400px', mx: 'auto' }}>
+              <FormControl fullWidth>
+                <Select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  sx={{
+                    fontFamily: 'Courier New, monospace',
+                    fontWeight: 'bold',
+                    color: '#5680e3',
+                    backgroundColor: 'rgba(86, 128, 227, 0.1)',
+                    border: '2px solid #5680e3',
+                    borderRadius: '8px',
+                    '& .MuiOutline-notchedOutline': {
+                      border: 'none',
+                    },
+                    '&:hover': {
+                      backgroundColor: 'rgba(86, 128, 227, 0.2)',
+                    },
+                    '& .MuiSelect-select': {
+                      padding: '12px 16px',
+                    },
+                    '& .MuiSvgIcon-root': {
+                      color: '#5680e3',
+                    }
                   }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Typography
-                    onClick={() => setSelectedCategory(category)}
-                    sx={{
-                      fontFamily: 'Courier New, monospace',
-                      fontWeight: 'bold',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      color: isSelected ? '#5680e3' : '#ffffff',
-                      fontSize: isSelected ? { xs: '1.2rem', sm: '1.3rem', md: '1.4rem' } : { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
-                      textAlign: 'center',
-                      padding: { xs: '4px 8px', sm: '6px 12px', md: '8px 14px' },
-                      whiteSpace: 'nowrap',
-                      '&:hover': {
-                        color: '#5680e3',
-                        transform: 'scale(1.05)',
+                  MenuProps={{
+                    PaperProps: {
+                      sx: {
+                        backgroundColor: '#1a1a1a',
+                        border: '2px solid #5680e3',
+                        '& .MuiMenuItem-root': {
+                          fontFamily: 'Courier New, monospace',
+                          fontWeight: 'bold',
+                          color: '#ffffff',
+                          '&:hover': {
+                            backgroundColor: 'rgba(86, 128, 227, 0.2)',
+                            color: '#5680e3',
+                          },
+                          '&.Mui-selected': {
+                            backgroundColor: 'rgba(86, 128, 227, 0.3)',
+                            color: '#5680e3',
+                            '&:hover': {
+                              backgroundColor: 'rgba(86, 128, 227, 0.4)',
+                            }
+                          }
+                        }
                       }
+                    }
+                  }}
+                >
+                  {categories.map((category) => (
+                    <MenuItem key={category} value={category}>
+                      {category.toUpperCase()}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
+          ) : (
+            // Desktop Tabs
+            <Box sx={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              gap: { xs: 1, sm: 2, md: 3 }, 
+              mb: 6, 
+              flexWrap: 'nowrap',
+              position: 'relative',
+              maxWidth: '800px',
+              mx: 'auto',
+              overflow: 'hidden'
+            }}>
+              {categories.map((category, index) => {
+                const isSelected = selectedCategory === category;
+                
+                return (
+                  <motion.div
+                    key={category}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0
                     }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
-                    {category.toUpperCase()}
-                  </Typography>
-                </motion.div>
-              );
-            })}
-          </Box>
+                    <Typography
+                      onClick={() => setSelectedCategory(category)}
+                      sx={{
+                        fontFamily: 'Courier New, monospace',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        color: isSelected ? '#5680e3' : '#ffffff',
+                        fontSize: isSelected ? { xs: '1.2rem', sm: '1.3rem', md: '1.4rem' } : { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
+                        textAlign: 'center',
+                        padding: { xs: '4px 8px', sm: '6px 12px', md: '8px 14px' },
+                        whiteSpace: 'nowrap',
+                        '&:hover': {
+                          color: '#5680e3',
+                          transform: 'scale(1.05)',
+                        }
+                      }}
+                    >
+                      {category.toUpperCase()}
+                    </Typography>
+                  </motion.div>
+                );
+              })}
+            </Box>
+          )}
 
           {/* Filtered Experiences */}
           <Box sx={{ 
