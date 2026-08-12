@@ -109,7 +109,7 @@ a:hover {
 }
 
 .section-anchor {
-  scroll-margin-top: 96px;
+  scroll-margin-top: 32px;
 }
 
 .hero-blur-name {
@@ -120,6 +120,11 @@ a:hover {
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 0.5rem;
+}
+
+.hero-blur-name--sidebar {
+  font-size: clamp(1.55rem, 3.2vw, 2.05rem);
+  margin-bottom: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

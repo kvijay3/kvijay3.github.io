@@ -1,8 +1,8 @@
 {
   "profile": {
     "name": "Vijaykumar Karthikeyan",
-    "title": "Bioengineer \u00b7 Developer \u00b7 Researcher",
-    "bio": "Hi, I'm Vijay \u2014 I work at the intersection of biology and computation. I build CRISPR diagnostics, ML-powered biotech tools, and products that turn lab insights into real-world impact.\n\nCurrently a Bioengineering undergrad at UCLA (CS technical breadth + Data Science Engineering minor). Always happy to chat about science, building, or soccer.",
+    "title": "Bioengineer · Developer · Researcher",
+    "bio": "Hi, I'm Vijay — I work at the intersection of biology and computation. I build CRISPR diagnostics, ML-powered biotech tools, and products that turn lab insights into real-world impact.\n\nCurrently a third-year undergraduate in Bioengineering at UCLA (CS technical breadth + Data Science Engineering minor). Always happy to chat about science, building, or soccer.",
     "image": "/headshot.svg",
     "email": "vijayk.karthik15@gmail.com",
     "phone": "",
@@ -12,7 +12,7 @@
   "social": {
     "linkedin": "https://linkedin.com/in/vijaykumar-karthikeyan",
     "github": "https://github.com/kvijay3",
-    "twitter": "https://x.com/kvijay03",
+    "twitter": "https://x.com/vijay_kar03",
     "instagram": "https://instagram.com/vijay.kar03"
   },
   "skills": {
@@ -79,7 +79,7 @@
         "Current",
         "Featured"
       ],
-      "title": "Kinetiq \u2014 Smart Knee Brace",
+      "title": "Kinetiq — Smart Knee Brace",
       "company": "BMES Design Team @ UCLA",
       "location": "Los Angeles, CA",
       "startDate": "July 2025",
@@ -131,7 +131,7 @@
         "Research"
       ],
       "title": "Paper-Based CRISPR-Cas13a RNA Diagnostic for Tuberculosis",
-      "company": "Diagnostics \u00b7 Microscopy",
+      "company": "Diagnostics · Microscopy",
       "location": "Los Angeles, CA",
       "startDate": "May 2026",
       "endDate": "June 2026",
@@ -153,12 +153,12 @@
       "categories": [
         "Featured"
       ],
-      "title": "Polaris \u2014 Agentic Hospital Paging System",
+      "title": "Polaris — Agentic Hospital Paging System",
       "company": "LA Hacks 2026",
       "location": "Los Angeles, CA",
       "startDate": "April 2026",
       "endDate": "April 2026",
-      "description": "AI agent paging system that alerts clinicians \u2014 built with Next.js and FastAPI. Won Best Social Impact Award at LA Hacks 2026.",
+      "description": "AI agent paging system that alerts clinicians — built with Next.js and FastAPI. Won Best Social Impact Award at LA Hacks 2026.",
       "technologies": [
         "AI Agents",
         "Next.js",
@@ -182,7 +182,7 @@
       "location": "Los Angeles, CA",
       "startDate": "September 2024",
       "endDate": "June 2028",
-      "description": "Technical Breadth in Computer Science + Minor in Data Science Engineering. Coursework: Molecular Bioengineering, Machine Learning and Modelling, Biotransport, Thermodynamics, Data Structures & Algorithms, Biomedical Transducers, Biocompatibility, Biomedical Ethics.",
+      "description": "Third-year undergraduate. Technical Breadth in Computer Science + Minor in Data Science Engineering. Coursework: Molecular Bioengineering, Machine Learning and Modelling, Biotransport, Thermodynamics, Data Structures & Algorithms, Biomedical Transducers, Biocompatibility, Biomedical Ethics.",
       "technologies": [
         "Bioengineering",
         "Computer Science",
@@ -191,8 +191,8 @@
       ],
       "achievements": [
         "Technical Breadth in Computer Science + Minor in Data Science Engineering",
-        "BMES @ UCLA \u2014 BioHack Chair | Design Team Project Manager (Sep 2024 \u2013 Present)",
-        "VEST @ UCLA \u2014 Internal Vice President (Jan 2025 \u2013 Present)"
+        "BMES @ UCLA — BioHack Chair | Design Team Project Manager (Sep 2024 – Present)",
+        "VEST @ UCLA — Internal Vice President (Jan 2025 – Present)"
       ]
     },
     {
@@ -331,7 +331,7 @@
       "id": 12,
       "type": "project",
       "categories": [],
-      "title": "Ateball \u2013 Creative Labs @ UCLA",
+      "title": "Ateball – Creative Labs @ UCLA",
       "company": "Creative Labs @ UCLA",
       "location": "Los Angeles, CA",
       "startDate": "October 2025",
@@ -351,7 +351,7 @@
       "id": 13,
       "type": "project",
       "categories": [],
-      "title": "Kwo \u2014 Machine Learning for Health Prediction",
+      "title": "Kwo — Machine Learning for Health Prediction",
       "company": "UCLA BMES Design Team",
       "location": "Los Angeles, CA",
       "startDate": "September 2024",
@@ -375,7 +375,7 @@
       "type": "project",
       "categories": [],
       "title": "AI for Short-form Content Creation",
-      "company": "Lookbk \u00b7 VEST @ UCLA",
+      "company": "Lookbk · VEST @ UCLA",
       "location": "Remote",
       "startDate": "January 2025",
       "endDate": "March 2025",

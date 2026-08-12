@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import {
   Box,
   Typography,
-  Container,
   Button,
   IconButton,
   Chip,
@@ -21,6 +20,7 @@ import {
   Email,
   LocationOn,
   OpenInNew,
+  X as XMuiIcon,
 } from '@mui/icons-material';
 import experiencesData from '../data/experiences.json';
 import BlurText from '../components/reactbits/BlurText/BlurText';
@@ -28,13 +28,11 @@ import SpotlightCard from '../components/reactbits/SpotlightCard/SpotlightCard';
 
 const PAGE_BG = '#1A2F35';
 const SURFACE = '#243B42';
-const SURFACE_RAISED = '#2A454D';
 const TEXT = '#E8F2F0';
 const MUTED = '#9BB5B0';
 const MINT = '#7EC8B8';
 const MINT_DEEP = '#5FB3A1';
 const SKY = '#6BA3C7';
-const SKY_DEEP = '#4F8FB5';
 const BORDER = 'rgba(126, 200, 184, 0.22)';
 const BORDER_SKY = 'rgba(107, 163, 199, 0.28)';
 const SPOTLIGHT = 'rgba(126, 200, 184, 0.22)';
@@ -42,12 +40,22 @@ const SPOTLIGHT_FEATURED = 'rgba(107, 163, 199, 0.26)';
 
 const FEATURED_IDS = [5, 4, 2, 3]; // Polaris, CRISPR TB, Kinetiq, Cogenesis
 const NAV_LINKS = [
-  { id: 'about', label: 'About' },
   { id: 'selected-work', label: 'Selected work' },
   { id: 'experience', label: 'Experience' },
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ];
+
+const SOCIAL_ICON_SX = {
+  color: MUTED,
+  border: `1px solid transparent`,
+  transition: 'color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease',
+  '&:hover': {
+    color: MINT,
+    bgcolor: 'rgba(126,200,184,0.1)',
+    borderColor: BORDER,
+  },
+};
 
 const fadeUp = {
   initial: { opacity: 0, y: 16 },
@@ -78,7 +86,7 @@ const SectionTitle = ({ children }) => (
     sx={{
       fontFamily: '"Fraunces", Georgia, serif',
       fontWeight: 650,
-      fontSize: { xs: '1.75rem', md: '2.15rem' },
+      fontSize: { xs: '1.65rem', md: '2rem' },
       color: TEXT,
       mb: 3,
       letterSpacing: '-0.02em',
@@ -117,7 +125,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
     <Box
       component="article"
       sx={{
-        p: featured ? { xs: 2.75, md: 3.5 } : { xs: 2.25, md: 2.75 },
+        p: featured ? { xs: 2.5, md: 3.25 } : { xs: 2.1, md: 2.6 },
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
@@ -130,7 +138,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
           sx={{
             fontFamily: '"Fraunces", Georgia, serif',
             fontWeight: 650,
-            fontSize: featured ? { xs: '1.2rem', md: '1.4rem' } : { xs: '1.05rem', md: '1.15rem' },
+            fontSize: featured ? { xs: '1.15rem', md: '1.3rem' } : { xs: '1.02rem', md: '1.12rem' },
             color: TEXT,
             letterSpacing: '-0.015em',
             lineHeight: 1.3,
@@ -170,8 +178,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
           fontFamily: '"Source Sans 3", sans-serif',
           mb: 2,
           lineHeight: 1.65,
-          fontSize: featured ? '1rem' : '0.95rem',
-          maxWidth: featured ? '68ch' : '100%',
+          fontSize: featured ? '0.98rem' : '0.94rem',
           flexGrow: 1,
         }}
       >
@@ -186,7 +193,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
               key={item}
               sx={{
                 fontFamily: '"Source Sans 3", sans-serif',
-                fontSize: '0.92rem',
+                fontSize: '0.9rem',
                 lineHeight: 1.55,
                 mb: 0.6,
                 '&::marker': { color: SKY },
@@ -235,6 +242,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
 const BiohackerHome = () => {
   const [currentHeadshot, setCurrentHeadshot] = useState('/headshot.svg');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [activeNav, setActiveNav] = useState('selected-work');
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -264,291 +272,303 @@ const BiohackerHome = () => {
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (el) {
+      setActiveNav(id);
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
+  const socialButtons = (
+    <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap' }}>
+      <IconButton
+        href={experiencesData.social.twitter}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="X (Twitter)"
+        sx={SOCIAL_ICON_SX}
+      >
+        <XMuiIcon fontSize="small" />
+      </IconButton>
+      <IconButton
+        href={experiencesData.social.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        sx={SOCIAL_ICON_SX}
+      >
+        <Instagram />
+      </IconButton>
+      <IconButton
+        href={experiencesData.social.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        sx={SOCIAL_ICON_SX}
+      >
+        <GitHub />
+      </IconButton>
+      <IconButton
+        href={experiencesData.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        sx={SOCIAL_ICON_SX}
+      >
+        <LinkedIn />
+      </IconButton>
+    </Box>
+  );
+
   return (
-    <>
-      {/* Sticky nav */}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: 'stretch',
+        maxWidth: 1180,
+        mx: 'auto',
+        px: { xs: 2.25, sm: 3, md: 4 },
+        gap: { xs: 0, md: 5 },
+        minHeight: '100vh',
+      }}
+    >
+      {/* LEFT: sticky identity panel */}
       <Box
-        component="nav"
+        component="aside"
         sx={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 1200,
-          backdropFilter: 'blur(14px)',
-          background: 'rgba(26, 47, 53, 0.78)',
-          borderBottom: `1px solid ${BORDER}`,
+          width: { xs: '100%', md: 340, lg: 380 },
+          flexShrink: 0,
+          position: { xs: 'relative', md: 'sticky' },
+          top: { md: 0 },
+          alignSelf: { md: 'flex-start' },
+          height: { md: '100vh' },
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: { xs: 'flex-start', md: 'space-between' },
+          py: { xs: 4, md: 6 },
+          pb: { xs: 3, md: 6 },
         }}
       >
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            py: 1.5,
-            gap: 2,
-          }}
-        >
-          <Typography
-            onClick={() => scrollTo('about')}
-            sx={{
-              fontFamily: '"Fraunces", Georgia, serif',
-              fontWeight: 700,
-              fontSize: '1.05rem',
-              color: TEXT,
-              cursor: 'pointer',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            VK
-          </Typography>
+        <Box>
           <Box
             sx={{
               display: 'flex',
-              gap: { xs: 1, md: 2.5 },
-              flexWrap: 'wrap',
-              justifyContent: 'flex-end',
+              gap: 2,
+              mb: 2.5,
+              flexDirection: { xs: 'row', md: 'column' },
+              alignItems: { xs: 'center', md: 'flex-start' },
             }}
           >
-            {NAV_LINKS.map((link) => (
+            <Box
+              component="img"
+              src={currentHeadshot}
+              onClick={toggleHeadshot}
+              alt="Vijay Karthikeyan"
+              sx={{
+                width: { xs: 72, md: 96 },
+                height: { xs: 92, md: 120 },
+                display: 'block',
+                imageRendering: 'pixelated',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                transform: 'scale(1.2)',
+                clipPath: 'inset(8% 12% 8% 12% round 14px)',
+                cursor: 'pointer',
+                userSelect: 'none',
+                WebkitUserDrag: 'none',
+                borderRadius: '14px',
+                boxShadow: '0 10px 28px rgba(8, 18, 22, 0.4)',
+                border: `1px solid ${BORDER}`,
+                flexShrink: 0,
+                '&:hover': { filter: 'brightness(1.06)' },
+              }}
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+            />
+            <Box sx={{ minWidth: 0 }}>
+              <BlurText
+                text={experiencesData.profile.name}
+                delay={70}
+                animateBy="words"
+                direction="top"
+                className="hero-blur-name hero-blur-name--sidebar"
+                stepDuration={0.26}
+              />
               <Typography
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
                 sx={{
                   fontFamily: '"Source Sans 3", sans-serif',
-                  fontSize: { xs: '0.8rem', md: '0.92rem' },
                   fontWeight: 600,
-                  color: MUTED,
-                  cursor: 'pointer',
-                  transition: 'color 0.15s ease',
-                  '&:hover': { color: MINT },
+                  fontSize: { xs: '0.98rem', md: '1.05rem' },
+                  color: MINT,
+                  mt: 0.75,
                 }}
               >
-                {link.label}
+                {experiencesData.profile.title}
               </Typography>
-            ))}
+            </Box>
           </Box>
-        </Container>
-      </Box>
 
-      {/* About / Hero */}
-      <Box id="about" className="section-anchor" component="section" sx={{ pt: { xs: 5, md: 8 }, pb: { xs: 6, md: 10 } }}>
-        <Container maxWidth="lg">
-          <motion.div {...fadeUp}>
+          <Typography
+            sx={{
+              color: '#C5D8D3',
+              fontFamily: '"Source Sans 3", sans-serif',
+              fontSize: { xs: '0.95rem', md: '0.98rem' },
+              lineHeight: 1.7,
+              whiteSpace: 'pre-line',
+              mb: 3,
+              maxWidth: '42ch',
+            }}
+          >
+            {experiencesData.profile.bio}
+          </Typography>
+
+          {!isMobile && (
             <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: { xs: '1fr', md: '220px 1fr' },
-                gap: { xs: 3, md: 5 },
-                alignItems: 'start',
-              }}
+              component="nav"
+              aria-label="Section navigation"
+              sx={{ display: 'flex', flexDirection: 'column', gap: 0.35, mb: 3.5 }}
             >
-              <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-                <Box
-                  component="img"
-                  src={currentHeadshot}
-                  onClick={toggleHeadshot}
-                  alt="Vijay Karthikeyan"
-                  sx={{
-                    width: { xs: 140, md: 180 },
-                    height: { xs: 180, md: 230 },
-                    mx: { xs: 'auto', md: 0 },
-                    display: 'block',
-                    imageRendering: 'pixelated',
-                    objectFit: 'cover',
-                    objectPosition: 'center',
-                    transform: 'scale(1.25)',
-                    clipPath: 'inset(8% 12% 8% 12% round 18px)',
-                    cursor: 'pointer',
-                    userSelect: 'none',
-                    WebkitUserDrag: 'none',
-                    borderRadius: '18px',
-                    boxShadow: '0 12px 36px rgba(8, 18, 22, 0.45)',
-                    border: `1px solid ${BORDER}`,
-                    transition: 'filter 0.2s ease',
-                    '&:hover': { filter: 'brightness(1.06)' },
-                  }}
-                  draggable={false}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </Box>
-
-              <Box>
-                <SectionLabel>About</SectionLabel>
-                <BlurText
-                  text={experiencesData.profile.name}
-                  delay={80}
-                  animateBy="words"
-                  direction="top"
-                  className="hero-blur-name"
-                  stepDuration={0.28}
-                />
-                <Typography
-                  sx={{
-                    fontFamily: '"Source Sans 3", sans-serif',
-                    fontWeight: 600,
-                    fontSize: { xs: '1.05rem', md: '1.2rem' },
-                    color: MINT,
-                    mb: 2.5,
-                    mt: 0.5,
-                  }}
-                >
-                  {experiencesData.profile.title}
-                </Typography>
-
-                <Typography
-                  sx={{
-                    color: '#C5D8D3',
-                    fontFamily: '"Source Sans 3", sans-serif',
-                    maxWidth: '70ch',
-                    mb: 3,
-                    fontSize: { xs: '1.02rem', md: '1.1rem' },
-                    lineHeight: 1.75,
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {experiencesData.profile.bio}
-                </Typography>
-
-                <Box sx={{ display: 'flex', gap: 1, mb: 3, flexWrap: 'wrap' }}>
-                  <IconButton
-                    href={experiencesData.social.linkedin}
-                    target="_blank"
-                    aria-label="LinkedIn"
-                    sx={{ color: MUTED, '&:hover': { color: MINT, bgcolor: 'rgba(126,200,184,0.1)' } }}
-                  >
-                    <LinkedIn />
-                  </IconButton>
-                  <IconButton
-                    href={experiencesData.social.github}
-                    target="_blank"
-                    aria-label="GitHub"
-                    sx={{ color: MUTED, '&:hover': { color: MINT, bgcolor: 'rgba(126,200,184,0.1)' } }}
-                  >
-                    <GitHub />
-                  </IconButton>
-                  <IconButton
-                    href={experiencesData.social.twitter}
-                    target="_blank"
-                    aria-label="X profile"
-                    sx={{ color: MUTED, '&:hover': { color: MINT, bgcolor: 'rgba(126,200,184,0.1)' } }}
-                  >
-                    <Box
-                      component="svg"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 256 256"
-                      sx={{ width: 20, height: 20 }}
-                    >
-                      <path
-                        d="M180.64 32H214L146.88 108.42L226 224H164.88L116.24 156.38L60.96 224H26.88L98.56 143.26L22 32H85.12L129.68 93.94L180.64 32ZM170.88 204H187.04L87.36 51.52H70.4L170.88 204Z"
-                        fill="currentColor"
-                      />
-                    </Box>
-                  </IconButton>
-                  <IconButton
-                    href={experiencesData.social.instagram}
-                    target="_blank"
-                    aria-label="Instagram"
-                    sx={{ color: MUTED, '&:hover': { color: MINT, bgcolor: 'rgba(126,200,184,0.1)' } }}
-                  >
-                    <Instagram />
-                  </IconButton>
-                </Box>
-
-                <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
-                  <Button
-                    variant="contained"
-                    component="a"
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
+              {NAV_LINKS.map((link) => {
+                const active = activeNav === link.id;
+                return (
+                  <Typography
+                    key={link.id}
+                    onClick={() => scrollTo(link.id)}
                     sx={{
-                      bgcolor: MINT,
-                      color: PAGE_BG,
-                      px: 2.75,
-                      py: 1.1,
-                      fontSize: '0.95rem',
-                      '&:hover': { bgcolor: MINT_DEEP },
-                    }}
-                  >
-                    View resume
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    onClick={() => scrollTo('selected-work')}
-                    sx={{
-                      borderColor: BORDER,
-                      color: TEXT,
-                      px: 2.5,
-                      py: 1,
-                      '&:hover': {
-                        borderColor: SKY,
-                        bgcolor: 'rgba(107,163,199,0.1)',
+                      fontFamily: '"Source Sans 3", sans-serif',
+                      fontSize: '0.82rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: active ? TEXT : MUTED,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 1.25,
+                      py: 0.55,
+                      transition: 'color 0.15s ease',
+                      '&:hover': { color: TEXT },
+                      '&::before': {
+                        content: '""',
+                        display: 'block',
+                        width: active ? 48 : 24,
+                        height: 1.5,
+                        bgcolor: active ? MINT : 'rgba(155,181,176,0.45)',
+                        transition: 'width 0.2s ease, background-color 0.15s ease',
+                      },
+                      '&:hover::before': {
+                        width: 48,
+                        bgcolor: MINT,
                       },
                     }}
                   >
-                    See selected work
-                  </Button>
-                </Box>
-              </Box>
+                    {link.label}
+                  </Typography>
+                );
+              })}
             </Box>
-          </motion.div>
-        </Container>
-      </Box>
+          )}
 
-      {/* Selected work */}
-      <Box
-        id="selected-work"
-        className="section-anchor"
-        component="section"
-        sx={{
-          py: { xs: 6, md: 9 },
-          background: 'linear-gradient(180deg, rgba(42, 69, 77, 0.35) 0%, rgba(26, 47, 53, 0.2) 100%)',
-        }}
-      >
-        <Container maxWidth="lg">
-          <SectionLabel>Selected work</SectionLabel>
-          <SectionTitle>Standout projects</SectionTitle>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
+            {socialButtons}
+            <Button
+              variant="contained"
+              component="a"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                bgcolor: MINT,
+                color: PAGE_BG,
+                px: 2.5,
+                py: 1,
+                fontSize: '0.92rem',
+                '&:hover': { bgcolor: MINT_DEEP },
+              }}
+            >
+              View resume
+            </Button>
+          </Box>
+        </Box>
+
+        {!isMobile && (
           <Typography
             sx={{
-              color: MUTED,
-              maxWidth: '60ch',
-              mb: 4,
+              mt: 4,
               fontFamily: '"Source Sans 3", sans-serif',
-              mt: -2,
+              fontSize: '0.78rem',
+              color: MUTED,
+              letterSpacing: '0.02em',
             }}
           >
-            A short list of work that best represents how I build — diagnostics, agents, wearables, and biotech tools.
+            Los Angeles, CA · UCLA Bioengineering
           </Typography>
-
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-              gap: 2.5,
-            }}
-          >
-            {featuredWork.map((exp, i) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                style={{ height: '100%' }}
-              >
-                <ExperienceCard experience={exp} featured />
-              </motion.div>
-            ))}
-          </Box>
-        </Container>
+        )}
       </Box>
 
-      {/* Experience */}
-      <Box id="experience" className="section-anchor" component="section" sx={{ py: { xs: 6, md: 9 } }}>
-        <Container maxWidth="lg">
+      {/* RIGHT: scrollable portfolio content */}
+      <Box
+        component="div"
+        sx={{
+          flex: 1,
+          minWidth: 0,
+          py: { xs: 1, md: 6 },
+          pb: { xs: 6, md: 8 },
+        }}
+      >
+        {/* Selected work */}
+        <Box
+          id="selected-work"
+          className="section-anchor"
+          component="section"
+          sx={{ mb: { xs: 6, md: 8 } }}
+        >
+          <motion.div {...fadeUp}>
+            <SectionLabel>Selected work</SectionLabel>
+            <SectionTitle>Standout projects</SectionTitle>
+            <Typography
+              sx={{
+                color: MUTED,
+                maxWidth: '58ch',
+                mb: 3.5,
+                fontFamily: '"Source Sans 3", sans-serif',
+                mt: -2,
+                fontSize: '0.98rem',
+              }}
+            >
+              A short list of work that best represents how I build — diagnostics, agents, wearables, and biotech tools.
+            </Typography>
+
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
+                gap: 2.25,
+              }}
+            >
+              {featuredWork.map((exp, i) => (
+                <motion.div
+                  key={exp.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  style={{ height: '100%' }}
+                >
+                  <ExperienceCard experience={exp} featured />
+                </motion.div>
+              ))}
+            </Box>
+          </motion.div>
+        </Box>
+
+        {/* Experience */}
+        <Box
+          id="experience"
+          className="section-anchor"
+          component="section"
+          sx={{ mb: { xs: 6, md: 8 } }}
+        >
           <SectionLabel>Experience</SectionLabel>
           <SectionTitle>Research, leadership & more</SectionTitle>
 
@@ -578,7 +598,7 @@ const BiohackerHome = () => {
               </Select>
             </FormControl>
           ) : (
-            <Box sx={{ display: 'flex', gap: 1, mb: 3.5, flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', gap: 1, mb: 3, flexWrap: 'wrap' }}>
               {categories.map((c) => {
                 const active = selectedCategory === c;
                 return (
@@ -600,7 +620,7 @@ const BiohackerHome = () => {
             </Box>
           )}
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 860 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             {experienceList.map((exp, i) => (
               <motion.div
                 key={exp.id}
@@ -613,28 +633,22 @@ const BiohackerHome = () => {
               </motion.div>
             ))}
           </Box>
-        </Container>
-      </Box>
+        </Box>
 
-      {/* Education */}
-      <Box
-        id="education"
-        className="section-anchor"
-        component="section"
-        sx={{
-          py: { xs: 6, md: 9 },
-          background: 'linear-gradient(180deg, rgba(36, 59, 66, 0.55) 0%, rgba(26, 47, 53, 0.25) 100%)',
-        }}
-      >
-        <Container maxWidth="lg">
+        {/* Education + Skills */}
+        <Box
+          id="education"
+          className="section-anchor"
+          component="section"
+          sx={{ mb: { xs: 6, md: 8 } }}
+        >
           <SectionLabel>Education</SectionLabel>
           <SectionTitle>Where I study</SectionTitle>
           <Box
             sx={{
               display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: education.length > 1 ? '1fr 1fr' : '1fr' },
-              gap: 2.5,
-              maxWidth: 960,
+              gridTemplateColumns: { xs: '1fr', sm: education.length > 1 ? '1fr 1fr' : '1fr' },
+              gap: 2.25,
             }}
           >
             {education.map((exp) => (
@@ -643,21 +657,21 @@ const BiohackerHome = () => {
           </Box>
 
           {experiencesData.skills && (
-            <Box sx={{ mt: 6, maxWidth: 900 }}>
+            <Box sx={{ mt: 5.5 }}>
               <SectionLabel>Skills</SectionLabel>
               <Typography
                 variant="h4"
                 sx={{
                   fontFamily: '"Fraunces", Georgia, serif',
                   fontWeight: 650,
-                  fontSize: { xs: '1.4rem', md: '1.7rem' },
+                  fontSize: { xs: '1.35rem', md: '1.55rem' },
                   color: TEXT,
-                  mb: 3,
+                  mb: 2.5,
                 }}
               >
                 Tools I use
               </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.25 }}>
                 {Object.entries(experiencesData.skills).map(([category, skills]) => (
                   <Box key={category}>
                     <Typography
@@ -666,7 +680,7 @@ const BiohackerHome = () => {
                         fontWeight: 700,
                         color: TEXT,
                         mb: 1,
-                        fontSize: '0.95rem',
+                        fontSize: '0.92rem',
                       }}
                     >
                       {category}
@@ -677,21 +691,19 @@ const BiohackerHome = () => {
               </Box>
             </Box>
           )}
-        </Container>
-      </Box>
+        </Box>
 
-      {/* Contact */}
-      <Box id="contact" className="section-anchor" component="section" sx={{ py: { xs: 6, md: 9 } }}>
-        <Container maxWidth="md">
+        {/* Contact */}
+        <Box id="contact" className="section-anchor" component="section">
           <SectionLabel>Contact</SectionLabel>
           <SectionTitle>Let&apos;s talk</SectionTitle>
           <Typography
             sx={{
               color: '#C5D8D3',
-              maxWidth: '58ch',
-              mb: 3.5,
+              maxWidth: '52ch',
+              mb: 3,
               fontFamily: '"Source Sans 3", sans-serif',
-              fontSize: '1.08rem',
+              fontSize: '1.02rem',
               lineHeight: 1.7,
               mt: -2,
             }}
@@ -702,10 +714,10 @@ const BiohackerHome = () => {
           <SpotlightCard spotlightColor={SPOTLIGHT}>
             <Box
               sx={{
-                p: { xs: 2.5, md: 3.5 },
+                p: { xs: 2.25, md: 3 },
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 2,
+                gap: 1.75,
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25, flexWrap: 'wrap' }}>
@@ -741,7 +753,7 @@ const BiohackerHome = () => {
                 </MuiLink>
               </Box>
 
-              <Box sx={{ pt: 1 }}>
+              <Box sx={{ pt: 0.75, display: 'flex', alignItems: 'center', gap: 1.5, flexWrap: 'wrap' }}>
                 <Button
                   variant="contained"
                   component="a"
@@ -757,12 +769,13 @@ const BiohackerHome = () => {
                 >
                   Download resume
                 </Button>
+                {socialButtons}
               </Box>
             </Box>
           </SpotlightCard>
-        </Container>
+        </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 
