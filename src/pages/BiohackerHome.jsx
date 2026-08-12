@@ -244,7 +244,7 @@ const BiohackerHome = () => {
 
               <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mb: 4, flexWrap: 'wrap' }}>
                 <IconButton
-                  href={"https://www.linkedin.com/in/vijaykumar-karthikeyan/"}
+                  href={experiencesData.social.linkedin}
                   target="_blank"
                   sx={{
                     color: '#0077b5',
@@ -266,7 +266,7 @@ const BiohackerHome = () => {
                   <GitHub fontSize="large" />
                 </IconButton>
                 <IconButton
-                  href={"https://x.com/kvijay03"}
+                  href={experiencesData.social.twitter}
                   target="_blank"
                   sx={{
                     color: '#ffffff',
@@ -285,7 +285,7 @@ const BiohackerHome = () => {
                   </Box>
                 </IconButton>
                 <IconButton
-                  href={"https://instagram.com/vijay.kar03"}
+                  href={experiencesData.social.instagram}
                   target="_blank"
                   sx={{
                     color: '#e4405f',
@@ -394,6 +394,62 @@ const BiohackerHome = () => {
           </motion.div>
         </Container>
       </Box>
+
+
+      {/* Skills Section */}
+      {experiencesData.skills && (
+        <Box sx={{ position: 'relative', zIndex: 0, pb: 4 }}>
+          <Container maxWidth="lg" sx={{ px: 2 }}>
+            <Typography
+              variant="h4"
+              sx={{
+                color: '#5680e3',
+                fontFamily: 'Courier New, monospace',
+                fontWeight: 'bold',
+                mb: 3,
+                textAlign: 'center',
+                fontSize: { xs: '1.3rem', md: '1.6rem' }
+              }}
+            >
+              SKILLS
+            </Typography>
+            <Box sx={{ maxWidth: '800px', mx: 'auto', display: 'flex', flexDirection: 'column', gap: 3 }}>
+              {Object.entries(experiencesData.skills).map(([category, skills]) => (
+                <Box key={category}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      color: '#71f57e',
+                      fontFamily: 'Courier New, monospace',
+                      fontWeight: 'bold',
+                      mb: 1.5,
+                      fontSize: { xs: '0.95rem', md: '1.05rem' }
+                    }}
+                  >
+                    {category}
+                  </Typography>
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                    {skills.map((skill) => (
+                      <Chip
+                        key={skill}
+                        label={skill}
+                        size="small"
+                        sx={{
+                          background: 'linear-gradient(45deg, #5680e3, #71f57e)',
+                          color: '#000000',
+                          fontFamily: 'Courier New, monospace',
+                          fontWeight: 'bold',
+                          fontSize: { xs: '0.65rem', sm: '0.7rem', md: '0.75rem' }
+                        }}
+                      />
+                    ))}
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+          </Container>
+        </Box>
+      )}
 
       {/* Journey Section - Scrollable */}
       <Box sx={{ 
@@ -610,6 +666,35 @@ const BiohackerHome = () => {
                     </Typography>
                   ))}
                 </Box>
+                {experience.links && experience.links.length > 0 && (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 1 }}>
+                    {experience.links.map((link, linkIndex) => (
+                      <Button
+                        key={linkIndex}
+                        component="a"
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size="small"
+                        variant="outlined"
+                        sx={{
+                          color: '#5680e3',
+                          borderColor: '#5680e3',
+                          fontFamily: 'Courier New, monospace',
+                          textTransform: 'none',
+                          fontSize: '0.75rem',
+                          '&:hover': {
+                            borderColor: '#71f57e',
+                            color: '#71f57e',
+                            backgroundColor: 'rgba(113, 245, 126, 0.08)'
+                          }
+                        }}
+                      >
+                        {link.label}
+                      </Button>
+                    ))}
+                  </Box>
+                )}
               </motion.div>
             ))}
           </Box>
