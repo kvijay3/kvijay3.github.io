@@ -5,54 +5,56 @@ import Particles from 'react-particles';
 import { loadSlim } from 'tsparticles-slim';
 import BiohackerHome from './pages/BiohackerHome';
 
+const FONT = '"Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+
 const biohackerTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#4fc3f7',
-      dark: '#29b6f6',
-      light: '#81d4fa',
+      main: '#7dd3fc',
+      dark: '#38bdf8',
+      light: '#bae6fd',
     },
     secondary: {
-      main: '#00ff88',
-      dark: '#00cc6a',
-      light: '#33ff99',
+      main: '#86efac',
+      dark: '#4ade80',
+      light: '#bbf7d0',
     },
     background: {
-      default: '#000000',
-      paper: '#1a1a1a',
+      default: '#05080c',
+      paper: '#101820',
     },
     text: {
-      primary: '#ffffff',
-      secondary: 'rgba(255, 255, 255, 0.7)',
+      primary: '#e8eef2',
+      secondary: '#b6c5d0',
     },
   },
   typography: {
-    fontFamily: '"Courier New", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: FONT,
     h1: {
-      fontSize: '3.5rem',
-      fontWeight: 600,
-      letterSpacing: '-0.02em',
-      lineHeight: 1.2,
-      background: 'linear-gradient(45deg, #4fc3f7, #00ff88)',
-      backgroundSize: '200% 200%',
-      WebkitBackgroundClip: 'text',
-      backgroundClip: 'text',
-      color: 'transparent',
-      animation: 'gradientText 5s ease infinite',
+      fontSize: '2.75rem',
+      fontWeight: 700,
+      letterSpacing: '-0.03em',
+      lineHeight: 1.15,
     },
     h2: {
-      fontSize: '2.5rem',
-      fontWeight: 500,
-      letterSpacing: '-0.01em',
+      fontSize: '2rem',
+      fontWeight: 600,
+      letterSpacing: '-0.02em',
+      lineHeight: 1.25,
     },
     h3: {
-      fontSize: '2rem',
-      fontWeight: 500,
-      letterSpacing: '-0.01em',
+      fontSize: '1.5rem',
+      fontWeight: 600,
+      letterSpacing: '-0.015em',
+      lineHeight: 1.3,
     },
     body1: {
-      fontSize: '1.1rem',
+      fontSize: '1.05rem',
+      lineHeight: 1.75,
+    },
+    body2: {
+      fontSize: '0.95rem',
       lineHeight: 1.7,
     },
   },
@@ -62,30 +64,10 @@ const biohackerTheme = createTheme({
         root: {
           borderRadius: 8,
           textTransform: 'none',
-          padding: '10px 24px',
-          fontSize: '1rem',
-          transition: 'all 0.3s ease-in-out',
-          position: 'relative',
-          overflow: 'hidden',
+          fontFamily: FONT,
+          transition: 'background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease',
           '&:hover': {
-            transform: 'translateY(-2px)',
-            boxShadow: '0 4px 20px rgba(79, 195, 247, 0.25)',
-            '&::after': {
-              width: '300px',
-              height: '300px',
-            },
-          },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: 0,
-            height: 0,
-            background: 'rgba(255, 255, 255, 0.1)',
-            borderRadius: '50%',
-            transform: 'translate(-50%, -50%)',
-            transition: 'width 0.6s ease, height 0.6s ease',
+            transform: 'none',
           },
         },
       },
@@ -94,11 +76,11 @@ const biohackerTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundImage: 'none',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          boxShadow: 'none',
+          transition: 'border-color 0.2s ease',
           '&:hover': {
-            boxShadow: '0 8px 30px rgba(79, 195, 247, 0.15)',
-            transform: 'translateY(-5px) scale(1.02)',
+            transform: 'none',
+            boxShadow: 'none',
           },
         },
       },
@@ -106,12 +88,11 @@ const biohackerTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          background: 'linear-gradient(145deg, #1a1a1a 0%, #222222 100%)',
-          backdropFilter: 'blur(10px)',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          background: '#101820',
+          transition: 'border-color 0.2s ease',
           '&:hover': {
-            transform: 'translateY(-5px) scale(1.02)',
-            boxShadow: '0 8px 30px rgba(79, 195, 247, 0.15)',
+            transform: 'none',
+            boxShadow: 'none',
           },
         },
       },
@@ -127,19 +108,21 @@ function App() {
   return (
     <ThemeProvider theme={biohackerTheme}>
       <CssBaseline />
-      <Box sx={{ 
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        background: '#000000',
-      }}>
+      <Box
+        sx={{
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          background: '#05080c',
+        }}
+      >
         <Particles
           id="tsparticles-app"
           init={particlesInit}
           options={{
             background: {
-              color: { value: '#000000' },
+              color: { value: '#05080c' },
             },
             fpsLimit: 60,
             interactivity: {
@@ -152,21 +135,21 @@ function App() {
                 enable: true,
                 outModes: { default: 'out' },
                 random: true,
-                speed: 0.1,
+                speed: 0.08,
                 straight: false,
               },
               number: {
-                density: { enable: true, area: 800 },
-                value: 200,
+                density: { enable: true, area: 900 },
+                value: 90,
               },
               opacity: {
-                value: { min: 0.1, max: 0.8 },
-                animation: { enable: true, speed: 0.5, minimumValue: 0.1, sync: false },
+                value: { min: 0.08, max: 0.35 },
+                animation: { enable: true, speed: 0.3, minimumValue: 0.08, sync: false },
               },
               shape: { type: 'circle' },
               size: {
-                value: { min: 0.5, max: 2 },
-                animation: { enable: true, speed: 0.5, minimumValue: 0.1, sync: false },
+                value: { min: 0.4, max: 1.4 },
+                animation: { enable: true, speed: 0.3, minimumValue: 0.2, sync: false },
               },
             },
             detectRetina: true,
@@ -181,7 +164,7 @@ function App() {
         <Box
           component="footer"
           sx={{
-            py: 3,
+            py: 4,
             px: 2,
             mt: 'auto',
             position: 'relative',
@@ -191,14 +174,19 @@ function App() {
         >
           <Typography
             variant="body2"
-            align="center"
+            align="left"
             sx={{
               color: '#8aa4b1',
-              fontFamily: 'Courier New, monospace',
-              letterSpacing: '0.06em',
+              fontFamily: FONT,
+              letterSpacing: '0.01em',
+              maxWidth: '72ch',
+              mx: 'auto',
+              px: { xs: 2.5, sm: 3 },
+              width: '100%',
+              boxSizing: 'border-box',
             }}
           >
-            &copy; {new Date().getFullYear()} Vijaykumar Karthikeyan. All rights reserved.
+            &copy; {new Date().getFullYear()} Vijaykumar Karthikeyan
           </Typography>
         </Box>
       </Box>
