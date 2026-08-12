@@ -3,27 +3,28 @@ import { createTheme } from '@mui/material/styles';
 import React from 'react';
 import BiohackerHome from './pages/BiohackerHome';
 import ScrollProgress from './components/ScrollProgress';
+import Aurora from './components/reactbits/Aurora/Aurora';
 
-const pastelTheme = createTheme({
+const tealTheme = createTheme({
   palette: {
-    mode: 'light',
+    mode: 'dark',
     primary: {
-      main: '#D96B5C',
-      dark: '#C45548',
-      light: '#E89286',
+      main: '#7EC8B8',
+      dark: '#5FB3A1',
+      light: '#A5DCCF',
     },
     secondary: {
-      main: '#4F9A92',
-      dark: '#3D7C75',
-      light: '#7BB5AF',
+      main: '#6BA3C7',
+      dark: '#4F8FB5',
+      light: '#8FBCD6',
     },
     background: {
-      default: '#FBF7F2',
-      paper: '#FFFCF8',
+      default: '#1A2F35',
+      paper: '#243B42',
     },
     text: {
-      primary: '#2A2732',
-      secondary: '#4A4556',
+      primary: '#E8F2F0',
+      secondary: '#9BB5B0',
     },
   },
   typography: {
@@ -32,43 +33,43 @@ const pastelTheme = createTheme({
       fontFamily: '"Fraunces", Georgia, serif',
       fontWeight: 650,
       letterSpacing: '-0.02em',
-      color: '#2A2732',
+      color: '#E8F2F0',
     },
     h2: {
       fontFamily: '"Fraunces", Georgia, serif',
       fontWeight: 600,
       letterSpacing: '-0.015em',
-      color: '#2A2732',
+      color: '#E8F2F0',
     },
     h3: {
       fontFamily: '"Fraunces", Georgia, serif',
       fontWeight: 600,
-      color: '#2A2732',
+      color: '#E8F2F0',
     },
     h4: {
       fontFamily: '"Fraunces", Georgia, serif',
       fontWeight: 600,
-      color: '#2A2732',
+      color: '#E8F2F0',
     },
     h5: {
       fontFamily: '"Fraunces", Georgia, serif',
       fontWeight: 600,
-      color: '#2A2732',
+      color: '#E8F2F0',
     },
     h6: {
       fontFamily: '"Source Sans 3", sans-serif',
       fontWeight: 600,
-      color: '#4A4556',
+      color: '#9BB5B0',
     },
     body1: {
       fontSize: '1.05rem',
       lineHeight: 1.7,
-      color: '#2A2732',
+      color: '#E8F2F0',
     },
     body2: {
       fontSize: '0.95rem',
       lineHeight: 1.6,
-      color: '#4A4556',
+      color: '#9BB5B0',
     },
   },
   shape: { borderRadius: 14 },
@@ -108,8 +109,16 @@ const pastelTheme = createTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={pastelTheme}>
+    <ThemeProvider theme={tealTheme}>
       <CssBaseline />
+      <Box className="aurora-page" aria-hidden="true">
+        <Aurora
+          colorStops={['#1A2F35', '#7EC8B8', '#6BA3C7']}
+          amplitude={0.85}
+          blend={0.55}
+          speed={0.55}
+        />
+      </Box>
       <ScrollProgress />
       <Box
         sx={{
@@ -117,6 +126,7 @@ function App() {
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
+          zIndex: 1,
           background: 'transparent',
         }}
       >
@@ -131,16 +141,16 @@ function App() {
             py: 4,
             px: 2,
             mt: 'auto',
-            borderTop: '1px solid rgba(42, 39, 50, 0.08)',
-            background: 'rgba(255, 252, 248, 0.55)',
-            backdropFilter: 'blur(8px)',
+            borderTop: '1px solid rgba(126, 200, 184, 0.16)',
+            background: 'rgba(26, 47, 53, 0.72)',
+            backdropFilter: 'blur(10px)',
           }}
         >
           <Typography
             variant="body2"
             align="center"
             sx={{
-              color: '#6B6578',
+              color: '#9BB5B0',
               fontFamily: '"Source Sans 3", sans-serif',
               letterSpacing: '0.02em',
             }}

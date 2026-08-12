@@ -1,22 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Pastel Lab Light — cohesive 5-color system + ink */
-  --cream: #FBF7F2;
-  --blush: #F3E4E8;
-  --lavender: #E6E2F0;
-  --mint: #E2EEE8;
-  --peach: #F6E6DC;
-  --ink: #2A2732;
-  --ink-soft: #4A4556;
-  --ink-muted: #6B6578;
-  --accent: #D96B5C;       /* soft coral */
-  --accent-deep: #C45548;
-  --accent-teal: #4F9A92;  /* soft teal */
-  --surface: rgba(255, 252, 248, 0.82);
-  --surface-solid: #FFFCF8;
-  --border: rgba(139, 123, 168, 0.22);
-  --shadow: 0 10px 40px rgba(42, 39, 50, 0.06);
+  /* Darker blue-green pastel */
+  --page-bg: #1A2F35;
+  --surface: #243B42;
+  --surface-raised: #2A454D;
+  --text: #E8F2F0;
+  --muted: #9BB5B0;
+  --accent-mint: #7EC8B8;
+  --accent-sky: #6BA3C7;
+  --accent-mint-deep: #5FB3A1;
+  --accent-sky-deep: #4F8FB5;
+  --border: rgba(126, 200, 184, 0.22);
+  --border-sky: rgba(107, 163, 199, 0.28);
+  --shadow: 0 12px 40px rgba(8, 18, 22, 0.35);
   --radius: 18px;
   --prose: 70ch;
   --font-display: 'Fraunces', Georgia, serif;
@@ -27,8 +24,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  color: var(--ink);
-  background: var(--cream);
+  color: var(--text);
+  background: var(--page-bg);
 }
 
 * {
@@ -47,24 +44,28 @@ body {
   font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.65;
-  color: var(--ink);
+  color: var(--text);
   background:
-    radial-gradient(1200px 600px at 10% -10%, var(--blush) 0%, transparent 55%),
-    radial-gradient(900px 500px at 95% 5%, var(--lavender) 0%, transparent 50%),
-    radial-gradient(800px 500px at 80% 90%, var(--mint) 0%, transparent 55%),
-    radial-gradient(700px 400px at 5% 80%, var(--peach) 0%, transparent 50%),
-    var(--cream);
+    radial-gradient(1000px 520px at 12% -8%, rgba(107, 163, 199, 0.16) 0%, transparent 55%),
+    radial-gradient(900px 500px at 92% 8%, rgba(126, 200, 184, 0.14) 0%, transparent 50%),
+    radial-gradient(700px 420px at 70% 95%, rgba(107, 163, 199, 0.1) 0%, transparent 55%),
+    var(--page-bg);
   background-attachment: fixed;
 }
 
+#root {
+  position: relative;
+  z-index: 1;
+}
+
 a {
-  color: var(--accent-deep);
+  color: var(--accent-mint);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
 }
 
 a:hover {
-  color: var(--accent);
+  color: var(--accent-sky);
 }
 
 .content {
@@ -77,17 +78,17 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: var(--page-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(217, 107, 92, 0.35);
+  background: rgba(126, 200, 184, 0.35);
   border-radius: 999px;
-  border: 2px solid var(--cream);
+  border: 2px solid var(--page-bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(217, 107, 92, 0.55);
+  background: rgba(107, 163, 199, 0.55);
 }
 
 .scroll-progress {
@@ -96,20 +97,29 @@ a:hover {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-teal));
+  background: linear-gradient(90deg, var(--accent-mint), var(--accent-sky));
   transform-origin: 0 50%;
   transform: scaleX(0);
   z-index: 1400;
 }
 
 ::selection {
-  background: rgba(217, 107, 92, 0.22);
-  color: var(--ink);
+  background: rgba(126, 200, 184, 0.28);
+  color: var(--text);
 }
 
-/* Utility for section anchors under sticky nav */
 .section-anchor {
   scroll-margin-top: 96px;
+}
+
+.hero-blur-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

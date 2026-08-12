@@ -23,18 +23,22 @@ import {
   OpenInNew,
 } from '@mui/icons-material';
 import experiencesData from '../data/experiences.json';
+import BlurText from '../components/reactbits/BlurText/BlurText';
+import SpotlightCard from '../components/reactbits/SpotlightCard/SpotlightCard';
 
-const ACCENT = '#D96B5C';
-const ACCENT_DEEP = '#C45548';
-const TEAL = '#4F9A92';
-const LILAC_SOFT = '#E6E2F0';
-const MINT = '#E2EEE8';
-const MINT_INK = '#2F6F69';
-const INK = '#2A2732';
-const INK_SOFT = '#4A4556';
-const INK_MUTED = '#6B6578';
-const SURFACE = '#FFFCF8';
-const BORDER = 'rgba(139, 123, 168, 0.28)';
+const PAGE_BG = '#1A2F35';
+const SURFACE = '#243B42';
+const SURFACE_RAISED = '#2A454D';
+const TEXT = '#E8F2F0';
+const MUTED = '#9BB5B0';
+const MINT = '#7EC8B8';
+const MINT_DEEP = '#5FB3A1';
+const SKY = '#6BA3C7';
+const SKY_DEEP = '#4F8FB5';
+const BORDER = 'rgba(126, 200, 184, 0.22)';
+const BORDER_SKY = 'rgba(107, 163, 199, 0.28)';
+const SPOTLIGHT = 'rgba(126, 200, 184, 0.22)';
+const SPOTLIGHT_FEATURED = 'rgba(107, 163, 199, 0.26)';
 
 const FEATURED_IDS = [5, 4, 2, 3]; // Polaris, CRISPR TB, Kinetiq, Cogenesis
 const NAV_LINKS = [
@@ -60,7 +64,7 @@ const SectionLabel = ({ children }) => (
       fontWeight: 700,
       letterSpacing: '0.14em',
       textTransform: 'uppercase',
-      color: ACCENT_DEEP,
+      color: MINT,
       mb: 1.5,
     }}
   >
@@ -75,7 +79,7 @@ const SectionTitle = ({ children }) => (
       fontFamily: '"Fraunces", Georgia, serif',
       fontWeight: 650,
       fontSize: { xs: '1.75rem', md: '2.15rem' },
-      color: INK,
+      color: TEXT,
       mb: 3,
       letterSpacing: '-0.02em',
     }}
@@ -92,9 +96,9 @@ const TechChips = ({ items, accent = false }) => (
         label={tech}
         size="small"
         sx={{
-          bgcolor: accent ? LILAC_SOFT : MINT,
-          color: accent ? '#5C4E78' : MINT_INK,
-          border: `1px solid ${accent ? 'rgba(139, 123, 168, 0.35)' : 'rgba(79, 154, 146, 0.28)'}`,
+          bgcolor: accent ? 'rgba(107, 163, 199, 0.18)' : 'rgba(126, 200, 184, 0.14)',
+          color: accent ? '#B7D4E6' : '#BFE6DC',
+          border: `1px solid ${accent ? BORDER_SKY : BORDER}`,
           fontFamily: '"Source Sans 3", sans-serif',
           fontWeight: 600,
           fontSize: '0.75rem',
@@ -106,131 +110,126 @@ const TechChips = ({ items, accent = false }) => (
 );
 
 const ExperienceCard = ({ experience, featured = false }) => (
-  <Box
-    component="article"
-    sx={{
-      p: featured ? { xs: 2.75, md: 3.5 } : { xs: 2.25, md: 2.75 },
-      borderRadius: featured ? '22px' : '16px',
-      bgcolor: SURFACE,
-      border: `1px solid ${BORDER}`,
-      boxShadow: featured ? '0 14px 40px rgba(42, 39, 50, 0.07)' : '0 4px 18px rgba(42, 39, 50, 0.04)',
-      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      '&:hover': {
-        borderColor: featured ? 'rgba(139, 123, 168, 0.55)' : 'rgba(79, 154, 146, 0.4)',
-        boxShadow: featured
-          ? '0 18px 48px rgba(139, 123, 168, 0.14)'
-          : '0 8px 24px rgba(42, 39, 50, 0.06)',
-      },
-    }}
+  <SpotlightCard
+    className={featured ? 'featured' : ''}
+    spotlightColor={featured ? SPOTLIGHT_FEATURED : SPOTLIGHT}
   >
-    <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2, mb: 1, flexWrap: 'wrap' }}>
-      <Typography
-        variant="h5"
-        sx={{
-          fontFamily: '"Fraunces", Georgia, serif',
-          fontWeight: 650,
-          fontSize: featured ? { xs: '1.2rem', md: '1.4rem' } : { xs: '1.05rem', md: '1.15rem' },
-          color: INK,
-          letterSpacing: '-0.015em',
-          lineHeight: 1.3,
-        }}
-      >
-        {experience.title}
-      </Typography>
+    <Box
+      component="article"
+      sx={{
+        p: featured ? { xs: 2.75, md: 3.5 } : { xs: 2.25, md: 2.75 },
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        bgcolor: 'transparent',
+      }}
+    >
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2, mb: 1, flexWrap: 'wrap' }}>
+        <Typography
+          variant="h5"
+          sx={{
+            fontFamily: '"Fraunces", Georgia, serif',
+            fontWeight: 650,
+            fontSize: featured ? { xs: '1.2rem', md: '1.4rem' } : { xs: '1.05rem', md: '1.15rem' },
+            color: TEXT,
+            letterSpacing: '-0.015em',
+            lineHeight: 1.3,
+          }}
+        >
+          {experience.title}
+        </Typography>
+        <Typography
+          sx={{
+            fontFamily: '"Source Sans 3", sans-serif',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+            color: MUTED,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {experience.startDate} – {experience.endDate}
+        </Typography>
+      </Box>
+
       <Typography
         sx={{
           fontFamily: '"Source Sans 3", sans-serif',
-          fontSize: '0.85rem',
           fontWeight: 600,
-          color: INK_MUTED,
-          whiteSpace: 'nowrap',
+          color: MINT,
+          mb: 1.5,
+          fontSize: featured ? '1rem' : '0.95rem',
         }}
       >
-        {experience.startDate} – {experience.endDate}
+        {experience.company}
+        {experience.location ? ` · ${experience.location}` : ''}
       </Typography>
+
+      <Typography
+        sx={{
+          color: '#C5D8D3',
+          fontFamily: '"Source Sans 3", sans-serif',
+          mb: 2,
+          lineHeight: 1.65,
+          fontSize: featured ? '1rem' : '0.95rem',
+          maxWidth: featured ? '68ch' : '100%',
+          flexGrow: 1,
+        }}
+      >
+        {experience.description}
+      </Typography>
+
+      {experience.achievements?.length > 0 && (
+        <Box component="ul" sx={{ m: 0, mb: 2, pl: 2.2, color: '#C5D8D3' }}>
+          {experience.achievements.map((item) => (
+            <Typography
+              component="li"
+              key={item}
+              sx={{
+                fontFamily: '"Source Sans 3", sans-serif',
+                fontSize: '0.92rem',
+                lineHeight: 1.55,
+                mb: 0.6,
+                '&::marker': { color: SKY },
+              }}
+            >
+              {item}
+            </Typography>
+          ))}
+        </Box>
+      )}
+
+      <TechChips items={experience.technologies || []} accent={featured} />
+
+      {experience.links?.length > 0 && (
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
+          {experience.links.map((link) => (
+            <Button
+              key={link.url}
+              component="a"
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="small"
+              endIcon={<OpenInNew sx={{ fontSize: 14 }} />}
+              sx={{
+                color: MINT,
+                border: `1px solid ${BORDER}`,
+                px: 1.5,
+                py: 0.4,
+                fontSize: '0.8rem',
+                '&:hover': {
+                  bgcolor: 'rgba(126, 200, 184, 0.1)',
+                  borderColor: MINT,
+                },
+              }}
+            >
+              {link.label}
+            </Button>
+          ))}
+        </Box>
+      )}
     </Box>
-
-    <Typography
-      sx={{
-        fontFamily: '"Source Sans 3", sans-serif',
-        fontWeight: 600,
-        color: TEAL,
-        mb: 1.5,
-        fontSize: featured ? '1rem' : '0.95rem',
-      }}
-    >
-      {experience.company}
-      {experience.location ? ` · ${experience.location}` : ''}
-    </Typography>
-
-    <Typography
-      sx={{
-        color: INK_SOFT,
-        fontFamily: '"Source Sans 3", sans-serif',
-        mb: 2,
-        lineHeight: 1.65,
-        fontSize: featured ? '1rem' : '0.95rem',
-        maxWidth: featured ? '68ch' : '100%',
-        flexGrow: 1,
-      }}
-    >
-      {experience.description}
-    </Typography>
-
-    {experience.achievements?.length > 0 && (
-      <Box component="ul" sx={{ m: 0, mb: 2, pl: 2.2, color: INK_SOFT }}>
-        {experience.achievements.map((item) => (
-          <Typography
-            component="li"
-            key={item}
-            sx={{
-              fontFamily: '"Source Sans 3", sans-serif',
-              fontSize: '0.92rem',
-              lineHeight: 1.55,
-              mb: 0.6,
-              '&::marker': { color: ACCENT },
-            }}
-          >
-            {item}
-          </Typography>
-        ))}
-      </Box>
-    )}
-
-    <TechChips items={experience.technologies || []} accent={featured} />
-
-    {experience.links?.length > 0 && (
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
-        {experience.links.map((link) => (
-          <Button
-            key={link.url}
-            component="a"
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            size="small"
-            endIcon={<OpenInNew sx={{ fontSize: 14 }} />}
-            sx={{
-              color: ACCENT_DEEP,
-              border: `1px solid rgba(217, 107, 92, 0.35)`,
-              px: 1.5,
-              py: 0.4,
-              fontSize: '0.8rem',
-              '&:hover': {
-                bgcolor: 'rgba(217, 107, 92, 0.08)',
-                borderColor: ACCENT,
-              },
-            }}
-          >
-            {link.label}
-          </Button>
-        ))}
-      </Box>
-    )}
-  </Box>
+  </SpotlightCard>
 );
 
 const BiohackerHome = () => {
@@ -278,7 +277,7 @@ const BiohackerHome = () => {
           top: 0,
           zIndex: 1200,
           backdropFilter: 'blur(14px)',
-          background: 'rgba(251, 247, 242, 0.78)',
+          background: 'rgba(26, 47, 53, 0.78)',
           borderBottom: `1px solid ${BORDER}`,
         }}
       >
@@ -298,7 +297,7 @@ const BiohackerHome = () => {
               fontFamily: '"Fraunces", Georgia, serif',
               fontWeight: 700,
               fontSize: '1.05rem',
-              color: INK,
+              color: TEXT,
               cursor: 'pointer',
               letterSpacing: '-0.02em',
             }}
@@ -321,10 +320,10 @@ const BiohackerHome = () => {
                   fontFamily: '"Source Sans 3", sans-serif',
                   fontSize: { xs: '0.8rem', md: '0.92rem' },
                   fontWeight: 600,
-                  color: INK_SOFT,
+                  color: MUTED,
                   cursor: 'pointer',
                   transition: 'color 0.15s ease',
-                  '&:hover': { color: ACCENT_DEEP },
+                  '&:hover': { color: MINT },
                 }}
               >
                 {link.label}
@@ -366,9 +365,10 @@ const BiohackerHome = () => {
                     userSelect: 'none',
                     WebkitUserDrag: 'none',
                     borderRadius: '18px',
-                    boxShadow: '0 12px 36px rgba(42, 39, 50, 0.1)',
+                    boxShadow: '0 12px 36px rgba(8, 18, 22, 0.45)',
+                    border: `1px solid ${BORDER}`,
                     transition: 'filter 0.2s ease',
-                    '&:hover': { filter: 'brightness(1.03)' },
+                    '&:hover': { filter: 'brightness(1.06)' },
                   }}
                   draggable={false}
                   onContextMenu={(e) => e.preventDefault()}
@@ -377,27 +377,22 @@ const BiohackerHome = () => {
 
               <Box>
                 <SectionLabel>About</SectionLabel>
-                <Typography
-                  variant="h1"
-                  sx={{
-                    fontFamily: '"Fraunces", Georgia, serif',
-                    fontWeight: 700,
-                    fontSize: { xs: '2.1rem', md: '3rem' },
-                    color: INK,
-                    letterSpacing: '-0.03em',
-                    lineHeight: 1.15,
-                    mb: 1,
-                  }}
-                >
-                  {experiencesData.profile.name}
-                </Typography>
+                <BlurText
+                  text={experiencesData.profile.name}
+                  delay={80}
+                  animateBy="words"
+                  direction="top"
+                  className="hero-blur-name"
+                  stepDuration={0.28}
+                />
                 <Typography
                   sx={{
                     fontFamily: '"Source Sans 3", sans-serif',
                     fontWeight: 600,
                     fontSize: { xs: '1.05rem', md: '1.2rem' },
-                    color: TEAL,
+                    color: MINT,
                     mb: 2.5,
+                    mt: 0.5,
                   }}
                 >
                   {experiencesData.profile.title}
@@ -405,7 +400,7 @@ const BiohackerHome = () => {
 
                 <Typography
                   sx={{
-                    color: INK_SOFT,
+                    color: '#C5D8D3',
                     fontFamily: '"Source Sans 3", sans-serif',
                     maxWidth: '70ch',
                     mb: 3,
@@ -422,7 +417,7 @@ const BiohackerHome = () => {
                     href={experiencesData.social.linkedin}
                     target="_blank"
                     aria-label="LinkedIn"
-                    sx={{ color: INK_SOFT, '&:hover': { color: ACCENT_DEEP, bgcolor: 'rgba(217,107,92,0.08)' } }}
+                    sx={{ color: MUTED, '&:hover': { color: MINT, bgcolor: 'rgba(126,200,184,0.1)' } }}
                   >
                     <LinkedIn />
                   </IconButton>
@@ -430,7 +425,7 @@ const BiohackerHome = () => {
                     href={experiencesData.social.github}
                     target="_blank"
                     aria-label="GitHub"
-                    sx={{ color: INK_SOFT, '&:hover': { color: ACCENT_DEEP, bgcolor: 'rgba(217,107,92,0.08)' } }}
+                    sx={{ color: MUTED, '&:hover': { color: MINT, bgcolor: 'rgba(126,200,184,0.1)' } }}
                   >
                     <GitHub />
                   </IconButton>
@@ -438,7 +433,7 @@ const BiohackerHome = () => {
                     href={experiencesData.social.twitter}
                     target="_blank"
                     aria-label="X profile"
-                    sx={{ color: INK_SOFT, '&:hover': { color: ACCENT_DEEP, bgcolor: 'rgba(217,107,92,0.08)' } }}
+                    sx={{ color: MUTED, '&:hover': { color: MINT, bgcolor: 'rgba(126,200,184,0.1)' } }}
                   >
                     <Box
                       component="svg"
@@ -456,7 +451,7 @@ const BiohackerHome = () => {
                     href={experiencesData.social.instagram}
                     target="_blank"
                     aria-label="Instagram"
-                    sx={{ color: INK_SOFT, '&:hover': { color: ACCENT_DEEP, bgcolor: 'rgba(217,107,92,0.08)' } }}
+                    sx={{ color: MUTED, '&:hover': { color: MINT, bgcolor: 'rgba(126,200,184,0.1)' } }}
                   >
                     <Instagram />
                   </IconButton>
@@ -470,12 +465,12 @@ const BiohackerHome = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                      bgcolor: ACCENT,
-                      color: '#FFFCF8',
+                      bgcolor: MINT,
+                      color: PAGE_BG,
                       px: 2.75,
                       py: 1.1,
                       fontSize: '0.95rem',
-                      '&:hover': { bgcolor: ACCENT_DEEP },
+                      '&:hover': { bgcolor: MINT_DEEP },
                     }}
                   >
                     View resume
@@ -484,13 +479,13 @@ const BiohackerHome = () => {
                     variant="outlined"
                     onClick={() => scrollTo('selected-work')}
                     sx={{
-                      borderColor: 'rgba(42,39,50,0.18)',
-                      color: INK,
+                      borderColor: BORDER,
+                      color: TEXT,
                       px: 2.5,
                       py: 1,
                       '&:hover': {
-                        borderColor: ACCENT,
-                        bgcolor: 'rgba(217,107,92,0.06)',
+                        borderColor: SKY,
+                        bgcolor: 'rgba(107,163,199,0.1)',
                       },
                     }}
                   >
@@ -503,14 +498,14 @@ const BiohackerHome = () => {
         </Container>
       </Box>
 
-      {/* Selected work — featured standouts */}
+      {/* Selected work */}
       <Box
         id="selected-work"
         className="section-anchor"
         component="section"
         sx={{
           py: { xs: 6, md: 9 },
-          background: 'linear-gradient(180deg, rgba(243,228,232,0.35) 0%, rgba(230,226,240,0.25) 100%)',
+          background: 'linear-gradient(180deg, rgba(42, 69, 77, 0.35) 0%, rgba(26, 47, 53, 0.2) 100%)',
         }}
       >
         <Container maxWidth="lg">
@@ -518,7 +513,7 @@ const BiohackerHome = () => {
           <SectionTitle>Standout projects</SectionTitle>
           <Typography
             sx={{
-              color: INK_MUTED,
+              color: MUTED,
               maxWidth: '60ch',
               mb: 4,
               fontFamily: '"Source Sans 3", sans-serif',
@@ -542,6 +537,7 @@ const BiohackerHome = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
+                style={{ height: '100%' }}
               >
                 <ExperienceCard experience={exp} featured />
               </motion.div>
@@ -564,12 +560,14 @@ const BiohackerHome = () => {
                 size="small"
                 sx={{
                   bgcolor: SURFACE,
+                  color: TEXT,
                   borderRadius: '12px',
                   fontFamily: '"Source Sans 3", sans-serif',
                   fontWeight: 600,
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: BORDER,
                   },
+                  '& .MuiSvgIcon-root': { color: MUTED },
                 }}
               >
                 {categories.map((c) => (
@@ -591,10 +589,10 @@ const BiohackerHome = () => {
                     sx={{
                       cursor: 'pointer',
                       fontWeight: 700,
-                      bgcolor: active ? LILAC_SOFT : SURFACE,
-                      color: active ? '#5C4E78' : INK_SOFT,
-                      border: `1px solid ${active ? 'rgba(139,123,168,0.45)' : BORDER}`,
-                      '&:hover': { bgcolor: 'rgba(230,226,240,0.7)' },
+                      bgcolor: active ? 'rgba(126, 200, 184, 0.2)' : SURFACE,
+                      color: active ? MINT : MUTED,
+                      border: `1px solid ${active ? BORDER : 'rgba(126,200,184,0.14)'}`,
+                      '&:hover': { bgcolor: 'rgba(126, 200, 184, 0.14)' },
                     }}
                   />
                 );
@@ -625,7 +623,7 @@ const BiohackerHome = () => {
         component="section"
         sx={{
           py: { xs: 6, md: 9 },
-          background: 'linear-gradient(180deg, rgba(226,238,232,0.4) 0%, rgba(246,230,220,0.25) 100%)',
+          background: 'linear-gradient(180deg, rgba(36, 59, 66, 0.55) 0%, rgba(26, 47, 53, 0.25) 100%)',
         }}
       >
         <Container maxWidth="lg">
@@ -644,7 +642,6 @@ const BiohackerHome = () => {
             ))}
           </Box>
 
-          {/* Skills under education for scannability */}
           {experiencesData.skills && (
             <Box sx={{ mt: 6, maxWidth: 900 }}>
               <SectionLabel>Skills</SectionLabel>
@@ -654,7 +651,7 @@ const BiohackerHome = () => {
                   fontFamily: '"Fraunces", Georgia, serif',
                   fontWeight: 650,
                   fontSize: { xs: '1.4rem', md: '1.7rem' },
-                  color: INK,
+                  color: TEXT,
                   mb: 3,
                 }}
               >
@@ -667,7 +664,7 @@ const BiohackerHome = () => {
                       sx={{
                         fontFamily: '"Source Sans 3", sans-serif',
                         fontWeight: 700,
-                        color: INK,
+                        color: TEXT,
                         mb: 1,
                         fontSize: '0.95rem',
                       }}
@@ -690,7 +687,7 @@ const BiohackerHome = () => {
           <SectionTitle>Let&apos;s talk</SectionTitle>
           <Typography
             sx={{
-              color: INK_SOFT,
+              color: '#C5D8D3',
               maxWidth: '58ch',
               mb: 3.5,
               fontFamily: '"Source Sans 3", sans-serif',
@@ -702,69 +699,67 @@ const BiohackerHome = () => {
             Open to research collabs, biotech/build chats, and interesting problems at the biology–computation edge.
           </Typography>
 
-          <Box
-            sx={{
-              p: { xs: 2.5, md: 3.5 },
-              borderRadius: '22px',
-              bgcolor: SURFACE,
-              border: `1px solid ${BORDER}`,
-              boxShadow: '0 10px 36px rgba(42,39,50,0.06)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 2,
-            }}
-          >
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25, flexWrap: 'wrap' }}>
-              <Email sx={{ color: ACCENT }} />
-              <MuiLink
-                href="mailto:vijayk.karthik15@gmail.com"
-                underline="hover"
-                sx={{ color: INK, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
-              >
-                vijayk.karthik15@gmail.com
-              </MuiLink>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25, flexWrap: 'wrap' }}>
-              <Email sx={{ color: ACCENT }} />
-              <MuiLink
-                href="mailto:kvijay@g.ucla.edu"
-                underline="hover"
-                sx={{ color: INK, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
-              >
-                kvijay@g.ucla.edu
-              </MuiLink>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25 }}>
-              <LocationOn sx={{ color: TEAL }} />
-              <MuiLink
-                href="https://www.google.com/maps/place/Engineering+V,+UCLA/@34.0696517,-118.4465981,18z"
-                target="_blank"
-                rel="noopener noreferrer"
-                underline="hover"
-                sx={{ color: INK_SOFT, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
-              >
-                Los Angeles, CA
-              </MuiLink>
-            </Box>
+          <SpotlightCard spotlightColor={SPOTLIGHT}>
+            <Box
+              sx={{
+                p: { xs: 2.5, md: 3.5 },
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
+              }}
+            >
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25, flexWrap: 'wrap' }}>
+                <Email sx={{ color: MINT }} />
+                <MuiLink
+                  href="mailto:vijayk.karthik15@gmail.com"
+                  underline="hover"
+                  sx={{ color: TEXT, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
+                >
+                  vijayk.karthik15@gmail.com
+                </MuiLink>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25, flexWrap: 'wrap' }}>
+                <Email sx={{ color: MINT }} />
+                <MuiLink
+                  href="mailto:kvijay@g.ucla.edu"
+                  underline="hover"
+                  sx={{ color: TEXT, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
+                >
+                  kvijay@g.ucla.edu
+                </MuiLink>
+              </Box>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.25 }}>
+                <LocationOn sx={{ color: SKY }} />
+                <MuiLink
+                  href="https://www.google.com/maps/place/Engineering+V,+UCLA/@34.0696517,-118.4465981,18z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  underline="hover"
+                  sx={{ color: MUTED, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
+                >
+                  Los Angeles, CA
+                </MuiLink>
+              </Box>
 
-            <Box sx={{ pt: 1 }}>
-              <Button
-                variant="contained"
-                component="a"
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  bgcolor: ACCENT,
-                  color: '#FFFCF8',
-                  px: 2.5,
-                  '&:hover': { bgcolor: ACCENT_DEEP },
-                }}
-              >
-                Download resume
-              </Button>
+              <Box sx={{ pt: 1 }}>
+                <Button
+                  variant="contained"
+                  component="a"
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    bgcolor: MINT,
+                    color: PAGE_BG,
+                    px: 2.5,
+                    '&:hover': { bgcolor: MINT_DEEP },
+                  }}
+                >
+                  Download resume
+                </Button>
+              </Box>
             </Box>
-          </Box>
+          </SpotlightCard>
         </Container>
       </Box>
     </>
