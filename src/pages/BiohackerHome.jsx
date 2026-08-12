@@ -369,12 +369,15 @@ const BiohackerHome = () => {
           position: { xs: 'relative', md: 'sticky' },
           top: { md: 0 },
           alignSelf: { md: 'flex-start' },
-          height: { md: '100vh' },
+          height: { md: '100dvh' },
+          overflowY: { md: 'auto' },
+          overflowX: { md: 'hidden' },
+          overscrollBehavior: { md: 'contain' },
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: { xs: 'flex-start', md: 'space-between' },
+          justifyContent: { xs: 'flex-start', md: 'flex-start' },
           py: { xs: 4, md: 6 },
-          pb: { xs: 3, md: 6 },
+          pb: { xs: 3, md: 8 },
         }}
       >
         <Box>
@@ -537,14 +540,16 @@ const BiohackerHome = () => {
         {!isMobile && (
           <Typography
             sx={{
-              mt: 4,
+              mt: 'auto',
+              pt: 4,
+              pb: 0.5,
               fontFamily: '"IBM Plex Sans", sans-serif',
               fontSize: '0.78rem',
               color: MUTED,
               letterSpacing: '0.02em',
             }}
           >
-            Los Angeles, CA · UCLA Bioengineering
+            UCLA Bioengineering
           </Typography>
         )}
       </Box>
