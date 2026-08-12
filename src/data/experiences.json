@@ -45,7 +45,7 @@
       "company": "BMES Design Team @ UCLA",
       "location": "Los Angeles, CA",
       "startDate": "July 2025",
-      "endDate": "Present",
+      "endDate": "June 2026",
       "description": "Lead fullstack developer for a smart knee brace recovery platform: React web app, Swift iOS app, and Django REST backend on AWS. Tracks recovery analytics from sensor data for clinicians and patients.",
       "technologies": ["Swift", "React", "Django", "AWS", "REST APIs", "iOS"],
       "achievements": [
