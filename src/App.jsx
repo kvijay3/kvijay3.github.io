@@ -1,118 +1,107 @@
 import { ThemeProvider, CssBaseline, Box, Typography } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import React, { useCallback } from 'react';
-import Particles from 'react-particles';
-import { loadSlim } from 'tsparticles-slim';
+import React from 'react';
 import BiohackerHome from './pages/BiohackerHome';
+import ScrollProgress from './components/ScrollProgress';
+import Aurora from './components/reactbits/Aurora/Aurora';
 
-const biohackerTheme = createTheme({
+const tealTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#4fc3f7',
-      dark: '#29b6f6',
-      light: '#81d4fa',
+      main: '#7EC8B8',
+      dark: '#5FB3A1',
+      light: '#A5DCCF',
     },
     secondary: {
-      main: '#00ff88',
-      dark: '#00cc6a',
-      light: '#33ff99',
+      main: '#6BA3C7',
+      dark: '#4F8FB5',
+      light: '#8FBCD6',
     },
     background: {
-      default: '#000000',
-      paper: '#1a1a1a',
+      default: '#1A2F35',
+      paper: '#243B42',
     },
     text: {
-      primary: '#ffffff',
-      secondary: 'rgba(255, 255, 255, 0.7)',
+      primary: '#E8F2F0',
+      secondary: '#9BB5B0',
     },
   },
   typography: {
-    fontFamily: '"Courier New", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"IBM Plex Sans", "Segoe UI", system-ui, sans-serif',
     h1: {
-      fontSize: '3.5rem',
-      fontWeight: 600,
+      fontFamily: '"Instrument Serif", Georgia, serif',
+      fontWeight: 650,
       letterSpacing: '-0.02em',
-      lineHeight: 1.2,
-      background: 'linear-gradient(45deg, #4fc3f7, #00ff88)',
-      backgroundSize: '200% 200%',
-      WebkitBackgroundClip: 'text',
-      backgroundClip: 'text',
-      color: 'transparent',
-      animation: 'gradientText 5s ease infinite',
+      color: '#E8F2F0',
     },
     h2: {
-      fontSize: '2.5rem',
-      fontWeight: 500,
-      letterSpacing: '-0.01em',
+      fontFamily: '"Instrument Serif", Georgia, serif',
+      fontWeight: 600,
+      letterSpacing: '-0.015em',
+      color: '#E8F2F0',
     },
     h3: {
-      fontSize: '2rem',
-      fontWeight: 500,
-      letterSpacing: '-0.01em',
+      fontFamily: '"Instrument Serif", Georgia, serif',
+      fontWeight: 600,
+      color: '#E8F2F0',
+    },
+    h4: {
+      fontFamily: '"Instrument Serif", Georgia, serif',
+      fontWeight: 600,
+      color: '#E8F2F0',
+    },
+    h5: {
+      fontFamily: '"Instrument Serif", Georgia, serif',
+      fontWeight: 600,
+      color: '#E8F2F0',
+    },
+    h6: {
+      fontFamily: '"IBM Plex Sans", sans-serif',
+      fontWeight: 600,
+      color: '#9BB5B0',
     },
     body1: {
-      fontSize: '1.1rem',
+      fontSize: '1.05rem',
       lineHeight: 1.7,
+      color: '#E8F2F0',
+    },
+    body2: {
+      fontSize: '0.95rem',
+      lineHeight: 1.6,
+      color: '#9BB5B0',
     },
   },
+  shape: { borderRadius: 0 },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 8,
+          borderRadius: 0,
           textTransform: 'none',
-          padding: '10px 24px',
-          fontSize: '1rem',
-          transition: 'all 0.3s ease-in-out',
-          position: 'relative',
-          overflow: 'hidden',
+          fontWeight: 600,
+          letterSpacing: '0.01em',
+          boxShadow: 'none',
+          transition: 'background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease',
           '&:hover': {
-            transform: 'translateY(-2px)',
-            boxShadow: '0 4px 20px rgba(79, 195, 247, 0.25)',
-            '&::after': {
-              width: '300px',
-              height: '300px',
-            },
-          },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: 0,
-            height: 0,
-            background: 'rgba(255, 255, 255, 0.1)',
-            borderRadius: '50%',
-            transform: 'translate(-50%, -50%)',
-            transition: 'width 0.6s ease, height 0.6s ease',
+            boxShadow: 'none',
+            transform: 'none',
           },
         },
       },
     },
-    MuiPaper: {
+    MuiChip: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-          '&:hover': {
-            boxShadow: '0 8px 30px rgba(79, 195, 247, 0.15)',
-            transform: 'translateY(-5px) scale(1.02)',
-          },
+          fontWeight: 600,
+          borderRadius: 0,
         },
       },
     },
-    MuiCard: {
+    MuiCssBaseline: {
       styleOverrides: {
-        root: {
-          background: 'linear-gradient(145deg, #1a1a1a 0%, #222222 100%)',
-          backdropFilter: 'blur(10px)',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-          '&:hover': {
-            transform: 'translateY(-5px) scale(1.02)',
-            boxShadow: '0 8px 30px rgba(79, 195, 247, 0.15)',
-          },
+        body: {
+          backgroundColor: 'transparent',
         },
       },
     },
@@ -120,59 +109,28 @@ const biohackerTheme = createTheme({
 });
 
 function App() {
-  const particlesInit = useCallback(async (engine) => {
-    await loadSlim(engine);
-  }, []);
-
   return (
-    <ThemeProvider theme={biohackerTheme}>
+    <ThemeProvider theme={tealTheme}>
       <CssBaseline />
-      <Box sx={{ 
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        background: '#000000',
-      }}>
-        <Particles
-          id="tsparticles-app"
-          init={particlesInit}
-          options={{
-            background: {
-              color: { value: '#000000' },
-            },
-            fpsLimit: 60,
-            interactivity: {
-              events: { resize: true },
-            },
-            particles: {
-              color: { value: '#ffffff' },
-              move: {
-                direction: 'none',
-                enable: true,
-                outModes: { default: 'out' },
-                random: true,
-                speed: 0.1,
-                straight: false,
-              },
-              number: {
-                density: { enable: true, area: 800 },
-                value: 200,
-              },
-              opacity: {
-                value: { min: 0.1, max: 0.8 },
-                animation: { enable: true, speed: 0.5, minimumValue: 0.1, sync: false },
-              },
-              shape: { type: 'circle' },
-              size: {
-                value: { min: 0.5, max: 2 },
-                animation: { enable: true, speed: 0.5, minimumValue: 0.1, sync: false },
-              },
-            },
-            detectRetina: true,
-            style: { position: 'fixed', inset: 0, zIndex: -2, pointerEvents: 'none' },
-          }}
+      <Box className="aurora-page" aria-hidden="true">
+        <Aurora
+          colorStops={['#1A2F35', '#7EC8B8', '#6BA3C7']}
+          amplitude={0.85}
+          blend={0.55}
+          speed={0.55}
         />
+      </Box>
+      <ScrollProgress />
+      <Box
+        sx={{
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          zIndex: 1,
+          background: 'transparent',
+        }}
+      >
         <Box sx={{ flex: 1 }}>
           <main className="content">
             <BiohackerHome />
@@ -181,24 +139,24 @@ function App() {
         <Box
           component="footer"
           sx={{
-            py: 3,
+            py: 4,
             px: 2,
             mt: 'auto',
-            position: 'relative',
-            zIndex: 1,
-            background: 'transparent',
+            borderTop: '1px solid rgba(126, 200, 184, 0.16)',
+            background: 'rgba(26, 47, 53, 0.72)',
+            backdropFilter: 'blur(10px)',
           }}
         >
           <Typography
             variant="body2"
             align="center"
             sx={{
-              color: '#8aa4b1',
-              fontFamily: 'Courier New, monospace',
-              letterSpacing: '0.06em',
+              color: '#9BB5B0',
+              fontFamily: '"IBM Plex Sans", sans-serif',
+              letterSpacing: '0.02em',
             }}
           >
-            &copy; {new Date().getFullYear()} Vijaykumar Karthikeyan. All rights reserved.
+            © {new Date().getFullYear()} Vijaykumar Karthikeyan. Built with care.
           </Typography>
         </Box>
       </Box>

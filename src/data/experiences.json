@@ -2,7 +2,7 @@
   "profile": {
     "name": "Vijaykumar Karthikeyan",
     "title": "Bioengineer · Developer · Researcher",
-    "bio": "Hi, I'm Vijay — I work at the intersection of biology and computation. I build CRISPR diagnostics, ML-powered biotech tools, and products that turn lab insights into real-world impact.\n\nCurrently a Bioengineering undergrad at UCLA (CS technical breadth + Data Science Engineering minor). Always happy to chat about science, building, or soccer.",
+    "bio": "Hi, I'm Vijay — I work at the intersection of biology and computation. I build CRISPR diagnostics, ML-powered biotech tools, and products that turn lab insights into real-world impact.\n\nCurrently a third-year undergraduate in Bioengineering at UCLA (CS technical breadth + Data Science Engineering minor). Always happy to chat about science, building, or soccer.",
     "image": "/headshot.svg",
     "email": "vijayk.karthik15@gmail.com",
     "phone": "",
@@ -12,26 +12,61 @@
   "social": {
     "linkedin": "https://linkedin.com/in/vijaykumar-karthikeyan",
     "github": "https://github.com/kvijay3",
-    "twitter": "https://x.com/kvijay03",
+    "twitter": "https://x.com/vijay_kar03",
     "instagram": "https://instagram.com/vijay.kar03"
   },
   "skills": {
-    "Languages": ["Python", "JavaScript", "C++", "Swift", "PostgreSQL", "German (Novice)", "Tamil (Native)", "Telugu (Native)"],
-    "Developer Tools": ["AWS (EC2, Lambda, S3)", "Docker", "Google Cloud", "REST APIs", "React", "Claude API"],
-    "Lab": ["In Vitro Transcription", "qPCR", "Cloning", "Bacteria", "CRISPR-Cas Diagnostics", "PRISM", "Benchling"]
+    "Languages": [
+      "Python",
+      "JavaScript",
+      "C++",
+      "Swift",
+      "PostgreSQL",
+      "German (Novice)",
+      "Tamil (Native)",
+      "Telugu (Native)"
+    ],
+    "Developer Tools": [
+      "AWS (EC2, Lambda, S3)",
+      "Docker",
+      "Google Cloud",
+      "REST APIs",
+      "React",
+      "Claude API"
+    ],
+    "Lab": [
+      "In Vitro Transcription",
+      "qPCR",
+      "Cloning",
+      "Bacteria",
+      "CRISPR-Cas Diagnostics",
+      "PRISM",
+      "Benchling"
+    ]
   },
   "experiences": [
     {
       "id": 1,
       "type": "research",
-      "categories": ["Current", "Research", "Featured"],
+      "categories": [
+        "Current",
+        "Research",
+        "Featured"
+      ],
       "title": "Student Researcher @ The Kamariza Lab",
       "company": "UCLA Bioengineering",
       "location": "Los Angeles, CA",
       "startDate": "January 2025",
       "endDate": "Present",
       "description": "CRISPR/Cas13 nucleic acid diagnostics under Dr. Mireille Kamariza. Building platforms to design in vitro CRISPR assays for infectious disease detection without noncanonical activation.",
-      "technologies": ["CRISPR-Cas13", "In Vitro Transcription", "qPCR", "Diagnostics", "Python", "Benchling"],
+      "technologies": [
+        "CRISPR-Cas13",
+        "In Vitro Transcription",
+        "qPCR",
+        "Diagnostics",
+        "Python",
+        "Benchling"
+      ],
       "achievements": [
         "Studying mechanisms and activation of CRISPR/Cas13 for nucleic acid diagnostics",
         "Engineering platforms to design in vitro CRISPR assays for infectious disease detection"
@@ -40,14 +75,24 @@
     {
       "id": 2,
       "type": "project",
-      "categories": ["Current", "Featured"],
+      "categories": [
+        "Current",
+        "Featured"
+      ],
       "title": "Kinetiq — Smart Knee Brace",
       "company": "BMES Design Team @ UCLA",
       "location": "Los Angeles, CA",
       "startDate": "July 2025",
-      "endDate": "Present",
+      "endDate": "June 2026",
       "description": "Lead fullstack developer for a smart knee brace recovery platform: React web app, Swift iOS app, and Django REST backend on AWS. Tracks recovery analytics from sensor data for clinicians and patients.",
-      "technologies": ["Swift", "React", "Django", "AWS", "REST APIs", "iOS"],
+      "technologies": [
+        "Swift",
+        "React",
+        "Django",
+        "AWS",
+        "REST APIs",
+        "iOS"
+      ],
       "achievements": [
         "Published iOS application on the App Store",
         "Presented research at the 2nd Annual Arizona Digital Health Symposium"
@@ -56,14 +101,23 @@
     {
       "id": 3,
       "type": "work",
-      "categories": ["Featured"],
+      "categories": [
+        "Featured"
+      ],
       "title": "Cofounder and CTO",
       "company": "Cogenesis, Inc.",
       "location": "Los Angeles, CA",
       "startDate": "March 2025",
       "endDate": "November 2025",
       "description": "Biotech startup incubated in Founders, Inc. and backed by Startup UCLA. Led technology for an AI-powered cloud platform that helps biotech and pharma researchers analyze biological images.",
-      "technologies": ["AI", "AWS", "React", "REST APIs", "Django", "VLMs"],
+      "technologies": [
+        "AI",
+        "AWS",
+        "React",
+        "REST APIs",
+        "Django",
+        "VLMs"
+      ],
       "achievements": [
         "Incubated in Founders, Inc. and backed by Startup UCLA",
         "Launched an AI-powered cloud platform for biological image analysis"
@@ -72,14 +126,22 @@
     {
       "id": 4,
       "type": "project",
-      "categories": ["Featured", "Research"],
+      "categories": [
+        "Featured",
+        "Research"
+      ],
       "title": "Paper-Based CRISPR-Cas13a RNA Diagnostic for Tuberculosis",
       "company": "Diagnostics · Microscopy",
       "location": "Los Angeles, CA",
       "startDate": "May 2026",
       "endDate": "June 2026",
       "description": "Engineered a paper-based CRISPR-Cas13a diagnostic strip for point-of-care Mycobacterium tuberculosis RNA detection via fluorescent readout. Optimized a two-stage assay protocol using BSA passivation and trehalose stabilization.",
-      "technologies": ["CRISPR-Cas13a", "Diagnostics", "Microscopy", "Assay Design"],
+      "technologies": [
+        "CRISPR-Cas13a",
+        "Diagnostics",
+        "Microscopy",
+        "Assay Design"
+      ],
       "achievements": [
         "Point-of-care paper strip for TB RNA detection with fluorescent readout",
         "Optimized assay with BSA passivation and trehalose stabilization"
@@ -88,14 +150,21 @@
     {
       "id": 5,
       "type": "project",
-      "categories": ["Featured"],
+      "categories": [
+        "Featured"
+      ],
       "title": "Polaris — Agentic Hospital Paging System",
       "company": "LA Hacks 2026",
       "location": "Los Angeles, CA",
       "startDate": "April 2026",
       "endDate": "April 2026",
       "description": "AI agent paging system that alerts clinicians — built with Next.js and FastAPI. Won Best Social Impact Award at LA Hacks 2026.",
-      "technologies": ["AI Agents", "Next.js", "FastAPI", "Hackathon"],
+      "technologies": [
+        "AI Agents",
+        "Next.js",
+        "FastAPI",
+        "Hackathon"
+      ],
       "achievements": [
         "Best Social Impact Award at LA Hacks 2026",
         "Created an AI paging system that alerts clinicians"
@@ -104,14 +173,22 @@
     {
       "id": 6,
       "type": "education",
-      "categories": ["Current", "Featured"],
+      "categories": [
+        "Current",
+        "Featured"
+      ],
       "title": "B.S. Bioengineering",
       "company": "University of California, Los Angeles (UCLA)",
       "location": "Los Angeles, CA",
       "startDate": "September 2024",
       "endDate": "June 2028",
-      "description": "Technical Breadth in Computer Science + Minor in Data Science Engineering. Coursework: Molecular Bioengineering, Machine Learning and Modelling, Biotransport, Thermodynamics, Data Structures & Algorithms, Biomedical Transducers, Biocompatibility, Biomedical Ethics.",
-      "technologies": ["Bioengineering", "Computer Science", "Data Science", "Machine Learning"],
+      "description": "Third-year undergraduate. Technical Breadth in Computer Science + Minor in Data Science Engineering. Coursework: Molecular Bioengineering, Machine Learning and Modelling, Biotransport, Thermodynamics, Data Structures & Algorithms, Biomedical Transducers, Biocompatibility, Biomedical Ethics.",
+      "technologies": [
+        "Bioengineering",
+        "Computer Science",
+        "Data Science",
+        "Machine Learning"
+      ],
       "achievements": [
         "Technical Breadth in Computer Science + Minor in Data Science Engineering",
         "BMES @ UCLA — BioHack Chair | Design Team Project Manager (Sep 2024 – Present)",
@@ -121,14 +198,21 @@
     {
       "id": 7,
       "type": "leadership",
-      "categories": ["Current", "Featured"],
+      "categories": [
+        "Current",
+        "Featured"
+      ],
       "title": "BioHack Chair | Design Team Project Manager",
       "company": "BMES @ UCLA",
       "location": "Los Angeles, CA",
       "startDate": "September 2024",
       "endDate": "Present",
       "description": "Organizing BioHack at UCLA and managing design-team projects spanning wearables and digital health.",
-      "technologies": ["Event Organizing", "Project Management", "Biomedical Engineering"],
+      "technologies": [
+        "Event Organizing",
+        "Project Management",
+        "Biomedical Engineering"
+      ],
       "achievements": [
         "Organized the 48-hour BioHack at UCLA with 100+ participants; partnered with Cognition AI and Revilico, Inc.",
         "Managing 10+ members developing kinesiology tape for muscular fatigue monitoring"
@@ -137,14 +221,20 @@
     {
       "id": 8,
       "type": "leadership",
-      "categories": ["Current"],
+      "categories": [
+        "Current"
+      ],
       "title": "Internal Vice President",
       "company": "VEST @ UCLA",
       "location": "Los Angeles, CA",
       "startDate": "January 2025",
       "endDate": "Present",
       "description": "Managing internal club direction through projects and events; built an AI content generation pipeline for lookbk.com.",
-      "technologies": ["Leadership", "AI Pipelines", "Python"],
+      "technologies": [
+        "Leadership",
+        "AI Pipelines",
+        "Python"
+      ],
       "achievements": [
         "Organized internal projects and events for the club",
         "Built AI content generation pipeline for lookbk.com"
@@ -153,52 +243,85 @@
     {
       "id": 9,
       "type": "research",
-      "categories": ["Research", "High School"],
+      "categories": [
+        "Research",
+        "High School"
+      ],
       "title": "Student Researcher @ The Risko Lab",
       "company": "University of Kentucky CAER",
       "location": "Lexington, KY",
       "startDate": "October 2022",
       "endDate": "June 2024",
       "description": "Built ML models to forecast Organic Semiconductor interactions for electronics under Dr. Chad Risko. Automated databases and validated active learning approaches in computational chemistry.",
-      "technologies": ["PyTorch", "Machine Learning", "Python", "Psi4", "HPC", "MongoDB"],
+      "technologies": [
+        "PyTorch",
+        "Machine Learning",
+        "Python",
+        "Psi4",
+        "HPC",
+        "MongoDB"
+      ],
       "achievements": [
         "ML models for OSC dimer interaction prediction",
         "Paper and poster available (Google Drive links on request / prior portfolio)"
       ],
       "links": [
-        {"label": "Paper", "url": "https://drive.google.com/file/d/1Pjsi2TTWZ274OXqLnv235vLAm_fT-b3D/view"},
-        {"label": "Poster", "url": "https://drive.google.com/file/d/16YQVQWIX1V-XvEb4n6Ii2Srln-B2EAKJ/view"}
+        {
+          "label": "Paper",
+          "url": "https://drive.google.com/file/d/1Pjsi2TTWZ274OXqLnv235vLAm_fT-b3D/view"
+        },
+        {
+          "label": "Poster",
+          "url": "https://drive.google.com/file/d/16YQVQWIX1V-XvEb4n6Ii2Srln-B2EAKJ/view"
+        }
       ]
     },
     {
       "id": 10,
       "type": "project",
-      "categories": ["High School"],
+      "categories": [
+        "High School"
+      ],
       "title": "3D Tunable Magnetic Field for Particle Physics",
       "company": "University of Kentucky College of Engineering",
       "location": "Lexington, KY",
       "startDate": "January 2024",
       "endDate": "June 2024",
       "description": "Designed a 3D magnetic field device with Helmholtz coils; CAD modelling and MATLAB interface for tunable fields. Presented to UK Engineering faculty; received college credit.",
-      "technologies": ["CAD", "MATLAB", "Arduino", "Circuits", "Physics"],
+      "technologies": [
+        "CAD",
+        "MATLAB",
+        "Arduino",
+        "Circuits",
+        "Physics"
+      ],
       "achievements": [
         "Presented to University of Kentucky Department of Engineering"
       ],
       "links": [
-        {"label": "Presentation", "url": "https://drive.google.com/file/d/1olCJ3xFOmDzj9gTx-1mUJWi5K4T6vtpv/view?usp=sharing"}
+        {
+          "label": "Presentation",
+          "url": "https://drive.google.com/file/d/1olCJ3xFOmDzj9gTx-1mUJWi5K4T6vtpv/view?usp=sharing"
+        }
       ]
     },
     {
       "id": 11,
       "type": "education",
-      "categories": ["High School"],
+      "categories": [
+        "High School"
+      ],
       "title": "Math Science Technology Center",
       "company": "Paul Laurence Dunbar High School",
       "location": "Lexington, KY",
       "startDate": "August 2020",
       "endDate": "May 2024",
       "description": "Selective-admissions Math Science Technology Center. Capstone research and STEM extracurriculars.",
-      "technologies": ["MSTC", "Research", "Science Olympiad"],
+      "technologies": [
+        "MSTC",
+        "Research",
+        "Science Olympiad"
+      ],
       "achievements": [
         "GPA 4.00 | ACT 35",
         "400-hour Capstone Research"
@@ -214,7 +337,12 @@
       "startDate": "October 2025",
       "endDate": "Present",
       "description": "Backend application using Google Places API and smart scoring to help users pick places to eat.",
-      "technologies": ["Backend Development", "Google Places API", "Python", "REST APIs"],
+      "technologies": [
+        "Backend Development",
+        "Google Places API",
+        "Python",
+        "REST APIs"
+      ],
       "achievements": [
         "Built intelligent location recommendation system"
       ]
@@ -229,7 +357,14 @@
       "startDate": "September 2024",
       "endDate": "June 2025",
       "description": "Led backend development; organized Apple HealthKit data to train custom ML models predicting individual health metrics.",
-      "technologies": ["AWS EC2", "AWS RDS", "Machine Learning", "Python", "Django REST", "HealthKit"],
+      "technologies": [
+        "AWS EC2",
+        "AWS RDS",
+        "Machine Learning",
+        "Python",
+        "Django REST",
+        "HealthKit"
+      ],
       "achievements": [
         "Published application to the App Store",
         "Presented at BMES Tech Projects Symposium"
@@ -245,7 +380,13 @@
       "startDate": "January 2025",
       "endDate": "March 2025",
       "description": "Algorithm to prepare hooks for short-form demos of Lookbk; used RunwayML to generate AI videos before product demos.",
-      "technologies": ["RunwayML", "Python", "LLMs", "AWS", "Flask"],
+      "technologies": [
+        "RunwayML",
+        "Python",
+        "LLMs",
+        "AWS",
+        "Flask"
+      ],
       "achievements": [
         "Delivered project to Lookbk for marketing use"
       ]
@@ -260,7 +401,13 @@
       "startDate": "March 2025",
       "endDate": "March 2025",
       "description": "Platform to explain Electronic Health Records via NLP and LLMs, aimed at helping neurodivergent patients understand their health.",
-      "technologies": ["REST APIs", "Flask", "LLMs", "NLP", "Hackathon"],
+      "technologies": [
+        "REST APIs",
+        "Flask",
+        "LLMs",
+        "NLP",
+        "Hackathon"
+      ],
       "achievements": [
         "Second Place at UCLA BMES BioHack 2025"
       ]
