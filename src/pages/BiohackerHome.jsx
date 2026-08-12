@@ -433,6 +433,21 @@ const BiohackerHome = () => {
               >
                 {experiencesData.profile.title}
               </Typography>
+              <Typography
+                sx={{
+                  fontFamily: '"IBM Plex Sans", sans-serif',
+                  fontWeight: 500,
+                  fontSize: { xs: '0.86rem', md: '0.9rem' },
+                  color: MUTED,
+                  mt: 0.6,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 0.5,
+                }}
+              >
+                <LocationOn sx={{ fontSize: '1rem', opacity: 0.85 }} />
+                {experiencesData.profile.location}
+              </Typography>
             </Box>
           </Box>
 
@@ -554,19 +569,6 @@ const BiohackerHome = () => {
           <motion.div {...fadeUp}>
             <SectionLabel>Selected work</SectionLabel>
             <SectionTitle>Standout projects</SectionTitle>
-            <Typography
-              sx={{
-                color: MUTED,
-                maxWidth: '58ch',
-                mb: 3.5,
-                fontFamily: '"IBM Plex Sans", sans-serif',
-                mt: -2,
-                fontSize: '0.98rem',
-              }}
-            >
-              A short list of work that best represents how I build — diagnostics, agents, wearables, and biotech tools.
-            </Typography>
-
             <Box
               sx={{
                 display: 'grid',
