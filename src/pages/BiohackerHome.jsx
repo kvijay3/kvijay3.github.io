@@ -27,11 +27,14 @@ import experiencesData from '../data/experiences.json';
 const ACCENT = '#D96B5C';
 const ACCENT_DEEP = '#C45548';
 const TEAL = '#4F9A92';
+const LILAC_SOFT = '#E6E2F0';
+const MINT = '#E2EEE8';
+const MINT_INK = '#2F6F69';
 const INK = '#2A2732';
 const INK_SOFT = '#4A4556';
 const INK_MUTED = '#6B6578';
-const SURFACE = 'rgba(255, 252, 248, 0.88)';
-const BORDER = 'rgba(42, 39, 50, 0.08)';
+const SURFACE = '#FFFCF8';
+const BORDER = 'rgba(139, 123, 168, 0.28)';
 
 const FEATURED_IDS = [5, 4, 2, 3]; // Polaris, CRISPR TB, Kinetiq, Cogenesis
 const NAV_LINKS = [
@@ -89,9 +92,9 @@ const TechChips = ({ items, accent = false }) => (
         label={tech}
         size="small"
         sx={{
-          bgcolor: accent ? 'rgba(217, 107, 92, 0.12)' : 'rgba(79, 154, 146, 0.12)',
-          color: accent ? ACCENT_DEEP : '#2F6F69',
-          border: `1px solid ${accent ? 'rgba(217, 107, 92, 0.22)' : 'rgba(79, 154, 146, 0.22)'}`,
+          bgcolor: accent ? LILAC_SOFT : MINT,
+          color: accent ? '#5C4E78' : MINT_INK,
+          border: `1px solid ${accent ? 'rgba(139, 123, 168, 0.35)' : 'rgba(79, 154, 146, 0.28)'}`,
           fontFamily: '"Source Sans 3", sans-serif',
           fontWeight: 600,
           fontSize: '0.75rem',
@@ -106,7 +109,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
   <Box
     component="article"
     sx={{
-      p: featured ? { xs: 2.5, md: 3.25 } : { xs: 2, md: 2.5 },
+      p: featured ? { xs: 2.75, md: 3.5 } : { xs: 2.25, md: 2.75 },
       borderRadius: featured ? '22px' : '16px',
       bgcolor: SURFACE,
       border: `1px solid ${BORDER}`,
@@ -116,9 +119,9 @@ const ExperienceCard = ({ experience, featured = false }) => (
       display: 'flex',
       flexDirection: 'column',
       '&:hover': {
-        borderColor: featured ? 'rgba(217, 107, 92, 0.35)' : 'rgba(79, 154, 146, 0.3)',
+        borderColor: featured ? 'rgba(139, 123, 168, 0.55)' : 'rgba(79, 154, 146, 0.4)',
         boxShadow: featured
-          ? '0 18px 48px rgba(42, 39, 50, 0.1)'
+          ? '0 18px 48px rgba(139, 123, 168, 0.14)'
           : '0 8px 24px rgba(42, 39, 50, 0.06)',
       },
     }}
@@ -588,10 +591,10 @@ const BiohackerHome = () => {
                     sx={{
                       cursor: 'pointer',
                       fontWeight: 700,
-                      bgcolor: active ? 'rgba(217,107,92,0.15)' : SURFACE,
-                      color: active ? ACCENT_DEEP : INK_SOFT,
-                      border: `1px solid ${active ? 'rgba(217,107,92,0.35)' : BORDER}`,
-                      '&:hover': { bgcolor: 'rgba(217,107,92,0.1)' },
+                      bgcolor: active ? LILAC_SOFT : SURFACE,
+                      color: active ? '#5C4E78' : INK_SOFT,
+                      border: `1px solid ${active ? 'rgba(139,123,168,0.45)' : BORDER}`,
+                      '&:hover': { bgcolor: 'rgba(230,226,240,0.7)' },
                     }}
                   />
                 );
