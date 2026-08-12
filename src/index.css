@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 
 :root {
   /* Darker blue-green pastel */
@@ -14,10 +14,10 @@
   --border: rgba(126, 200, 184, 0.22);
   --border-sky: rgba(107, 163, 199, 0.28);
   --shadow: 0 12px 40px rgba(8, 18, 22, 0.35);
-  --radius: 18px;
+  --radius: 0;
   --prose: 70ch;
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -83,7 +83,7 @@ a:hover {
 
 ::-webkit-scrollbar-thumb {
   background: rgba(126, 200, 184, 0.35);
-  border-radius: 999px;
+  border-radius: 0;
   border: 2px solid var(--page-bg);
 }
 

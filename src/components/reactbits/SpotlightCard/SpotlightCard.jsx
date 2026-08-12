@@ -14,9 +14,16 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
     divRef.current.style.setProperty('--spotlight-color', spotlightColor);
   };
 
+  const frameClass = ['card-spotlight-frame', className.includes('featured') ? 'featured' : '']
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <div ref={divRef} onMouseMove={handleMouseMove} className={`card-spotlight ${className}`}>
-      {children}
+    <div className={frameClass}>
+      <div className="card-spotlight-shadow" aria-hidden="true" />
+      <div ref={divRef} onMouseMove={handleMouseMove} className={`card-spotlight ${className}`}>
+        {children}
+      </div>
     </div>
   );
 };

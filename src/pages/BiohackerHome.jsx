@@ -67,7 +67,7 @@ const SectionLabel = ({ children }) => (
   <Typography
     component="p"
     sx={{
-      fontFamily: '"Source Sans 3", sans-serif',
+      fontFamily: '"IBM Plex Sans", sans-serif',
       fontSize: '0.78rem',
       fontWeight: 700,
       letterSpacing: '0.14em',
@@ -84,7 +84,7 @@ const SectionTitle = ({ children }) => (
   <Typography
     variant="h3"
     sx={{
-      fontFamily: '"Fraunces", Georgia, serif',
+      fontFamily: '"Instrument Serif", Georgia, serif',
       fontWeight: 650,
       fontSize: { xs: '1.65rem', md: '2rem' },
       color: TEXT,
@@ -107,7 +107,8 @@ const TechChips = ({ items, accent = false }) => (
           bgcolor: accent ? 'rgba(107, 163, 199, 0.18)' : 'rgba(126, 200, 184, 0.14)',
           color: accent ? '#B7D4E6' : '#BFE6DC',
           border: `1px solid ${accent ? BORDER_SKY : BORDER}`,
-          fontFamily: '"Source Sans 3", sans-serif',
+          borderRadius: 0,
+          fontFamily: '"IBM Plex Sans", sans-serif',
           fontWeight: 600,
           fontSize: '0.75rem',
           height: 28,
@@ -136,7 +137,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
         <Typography
           variant="h5"
           sx={{
-            fontFamily: '"Fraunces", Georgia, serif',
+            fontFamily: '"Instrument Serif", Georgia, serif',
             fontWeight: 650,
             fontSize: featured ? { xs: '1.15rem', md: '1.3rem' } : { xs: '1.02rem', md: '1.12rem' },
             color: TEXT,
@@ -148,7 +149,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
         </Typography>
         <Typography
           sx={{
-            fontFamily: '"Source Sans 3", sans-serif',
+            fontFamily: '"IBM Plex Sans", sans-serif',
             fontSize: '0.85rem',
             fontWeight: 600,
             color: MUTED,
@@ -161,7 +162,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
 
       <Typography
         sx={{
-          fontFamily: '"Source Sans 3", sans-serif',
+          fontFamily: '"IBM Plex Sans", sans-serif',
           fontWeight: 600,
           color: MINT,
           mb: 1.5,
@@ -175,7 +176,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
       <Typography
         sx={{
           color: '#C5D8D3',
-          fontFamily: '"Source Sans 3", sans-serif',
+          fontFamily: '"IBM Plex Sans", sans-serif',
           mb: 2,
           lineHeight: 1.65,
           fontSize: featured ? '0.98rem' : '0.94rem',
@@ -192,7 +193,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
               component="li"
               key={item}
               sx={{
-                fontFamily: '"Source Sans 3", sans-serif',
+                fontFamily: '"IBM Plex Sans", sans-serif',
                 fontSize: '0.9rem',
                 lineHeight: 1.55,
                 mb: 0.6,
@@ -372,12 +373,12 @@ const BiohackerHome = () => {
                 objectFit: 'cover',
                 objectPosition: 'center',
                 transform: 'scale(1.2)',
-                clipPath: 'inset(8% 12% 8% 12% round 14px)',
+                clipPath: 'inset(8% 12% 8% 12%)',
                 cursor: 'pointer',
                 userSelect: 'none',
                 WebkitUserDrag: 'none',
-                borderRadius: '14px',
-                boxShadow: '0 10px 28px rgba(8, 18, 22, 0.4)',
+                borderRadius: 0,
+                boxShadow: '10px 10px 0 #000',
                 border: `1px solid ${BORDER}`,
                 flexShrink: 0,
                 '&:hover': { filter: 'brightness(1.06)' },
@@ -396,7 +397,7 @@ const BiohackerHome = () => {
               />
               <Typography
                 sx={{
-                  fontFamily: '"Source Sans 3", sans-serif',
+                  fontFamily: '"IBM Plex Sans", sans-serif',
                   fontWeight: 600,
                   fontSize: { xs: '0.98rem', md: '1.05rem' },
                   color: MINT,
@@ -411,7 +412,7 @@ const BiohackerHome = () => {
           <Typography
             sx={{
               color: '#C5D8D3',
-              fontFamily: '"Source Sans 3", sans-serif',
+              fontFamily: '"IBM Plex Sans", sans-serif',
               fontSize: { xs: '0.95rem', md: '0.98rem' },
               lineHeight: 1.7,
               whiteSpace: 'pre-line',
@@ -435,7 +436,7 @@ const BiohackerHome = () => {
                     key={link.id}
                     onClick={() => scrollTo(link.id)}
                     sx={{
-                      fontFamily: '"Source Sans 3", sans-serif',
+                      fontFamily: '"IBM Plex Sans", sans-serif',
                       fontSize: '0.82rem',
                       fontWeight: 700,
                       letterSpacing: '0.1em',
@@ -495,7 +496,7 @@ const BiohackerHome = () => {
           <Typography
             sx={{
               mt: 4,
-              fontFamily: '"Source Sans 3", sans-serif',
+              fontFamily: '"IBM Plex Sans", sans-serif',
               fontSize: '0.78rem',
               color: MUTED,
               letterSpacing: '0.02em',
@@ -531,7 +532,7 @@ const BiohackerHome = () => {
                 color: MUTED,
                 maxWidth: '58ch',
                 mb: 3.5,
-                fontFamily: '"Source Sans 3", sans-serif',
+                fontFamily: '"IBM Plex Sans", sans-serif',
                 mt: -2,
                 fontSize: '0.98rem',
               }}
@@ -543,7 +544,7 @@ const BiohackerHome = () => {
               sx={{
                 display: 'grid',
                 gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
-                gap: 2.25,
+                gap: 2.75,
               }}
             >
               {featuredWork.map((exp, i) => (
@@ -581,8 +582,8 @@ const BiohackerHome = () => {
                 sx={{
                   bgcolor: SURFACE,
                   color: TEXT,
-                  borderRadius: '12px',
-                  fontFamily: '"Source Sans 3", sans-serif',
+                  borderRadius: 0,
+                  fontFamily: '"IBM Plex Sans", sans-serif',
                   fontWeight: 600,
                   '& .MuiOutlinedInput-notchedOutline': {
                     borderColor: BORDER,
@@ -609,6 +610,7 @@ const BiohackerHome = () => {
                     sx={{
                       cursor: 'pointer',
                       fontWeight: 700,
+                      borderRadius: 0,
                       bgcolor: active ? 'rgba(126, 200, 184, 0.2)' : SURFACE,
                       color: active ? MINT : MUTED,
                       border: `1px solid ${active ? BORDER : 'rgba(126,200,184,0.14)'}`,
@@ -620,7 +622,7 @@ const BiohackerHome = () => {
             </Box>
           )}
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.75 }}>
             {experienceList.map((exp, i) => (
               <motion.div
                 key={exp.id}
@@ -648,7 +650,7 @@ const BiohackerHome = () => {
             sx={{
               display: 'grid',
               gridTemplateColumns: { xs: '1fr', sm: education.length > 1 ? '1fr 1fr' : '1fr' },
-              gap: 2.25,
+              gap: 2.75,
             }}
           >
             {education.map((exp) => (
@@ -662,7 +664,7 @@ const BiohackerHome = () => {
               <Typography
                 variant="h4"
                 sx={{
-                  fontFamily: '"Fraunces", Georgia, serif',
+                  fontFamily: '"Instrument Serif", Georgia, serif',
                   fontWeight: 650,
                   fontSize: { xs: '1.35rem', md: '1.55rem' },
                   color: TEXT,
@@ -676,7 +678,7 @@ const BiohackerHome = () => {
                   <Box key={category}>
                     <Typography
                       sx={{
-                        fontFamily: '"Source Sans 3", sans-serif',
+                        fontFamily: '"IBM Plex Sans", sans-serif',
                         fontWeight: 700,
                         color: TEXT,
                         mb: 1,
@@ -702,7 +704,7 @@ const BiohackerHome = () => {
               color: '#C5D8D3',
               maxWidth: '52ch',
               mb: 3,
-              fontFamily: '"Source Sans 3", sans-serif',
+              fontFamily: '"IBM Plex Sans", sans-serif',
               fontSize: '1.02rem',
               lineHeight: 1.7,
               mt: -2,
@@ -725,7 +727,7 @@ const BiohackerHome = () => {
                 <MuiLink
                   href="mailto:vijayk.karthik15@gmail.com"
                   underline="hover"
-                  sx={{ color: TEXT, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
+                  sx={{ color: TEXT, fontWeight: 600, fontFamily: '"IBM Plex Sans", sans-serif' }}
                 >
                   vijayk.karthik15@gmail.com
                 </MuiLink>
@@ -735,7 +737,7 @@ const BiohackerHome = () => {
                 <MuiLink
                   href="mailto:kvijay@g.ucla.edu"
                   underline="hover"
-                  sx={{ color: TEXT, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
+                  sx={{ color: TEXT, fontWeight: 600, fontFamily: '"IBM Plex Sans", sans-serif' }}
                 >
                   kvijay@g.ucla.edu
                 </MuiLink>
@@ -747,7 +749,7 @@ const BiohackerHome = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   underline="hover"
-                  sx={{ color: MUTED, fontWeight: 600, fontFamily: '"Source Sans 3", sans-serif' }}
+                  sx={{ color: MUTED, fontWeight: 600, fontFamily: '"IBM Plex Sans", sans-serif' }}
                 >
                   Los Angeles, CA
                 </MuiLink>

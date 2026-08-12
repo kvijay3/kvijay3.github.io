@@ -28,36 +28,36 @@ const tealTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Source Sans 3", "Segoe UI", system-ui, sans-serif',
+    fontFamily: '"IBM Plex Sans", "Segoe UI", system-ui, sans-serif',
     h1: {
-      fontFamily: '"Fraunces", Georgia, serif',
+      fontFamily: '"Instrument Serif", Georgia, serif',
       fontWeight: 650,
       letterSpacing: '-0.02em',
       color: '#E8F2F0',
     },
     h2: {
-      fontFamily: '"Fraunces", Georgia, serif',
+      fontFamily: '"Instrument Serif", Georgia, serif',
       fontWeight: 600,
       letterSpacing: '-0.015em',
       color: '#E8F2F0',
     },
     h3: {
-      fontFamily: '"Fraunces", Georgia, serif',
+      fontFamily: '"Instrument Serif", Georgia, serif',
       fontWeight: 600,
       color: '#E8F2F0',
     },
     h4: {
-      fontFamily: '"Fraunces", Georgia, serif',
+      fontFamily: '"Instrument Serif", Georgia, serif',
       fontWeight: 600,
       color: '#E8F2F0',
     },
     h5: {
-      fontFamily: '"Fraunces", Georgia, serif',
+      fontFamily: '"Instrument Serif", Georgia, serif',
       fontWeight: 600,
       color: '#E8F2F0',
     },
     h6: {
-      fontFamily: '"Source Sans 3", sans-serif',
+      fontFamily: '"IBM Plex Sans", sans-serif',
       fontWeight: 600,
       color: '#9BB5B0',
     },
@@ -72,12 +72,12 @@ const tealTheme = createTheme({
       color: '#9BB5B0',
     },
   },
-  shape: { borderRadius: 14 },
+  shape: { borderRadius: 0 },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 999,
+          borderRadius: 0,
           textTransform: 'none',
           fontWeight: 600,
           letterSpacing: '0.01em',
@@ -94,6 +94,7 @@ const tealTheme = createTheme({
       styleOverrides: {
         root: {
           fontWeight: 600,
+          borderRadius: 0,
         },
       },
     },
@@ -151,7 +152,7 @@ function App() {
             align="center"
             sx={{
               color: '#9BB5B0',
-              fontFamily: '"Source Sans 3", sans-serif',
+              fontFamily: '"IBM Plex Sans", sans-serif',
               letterSpacing: '0.02em',
             }}
           >
