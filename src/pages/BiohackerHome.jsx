@@ -46,15 +46,58 @@ const NAV_LINKS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-const SOCIAL_ICON_SX = {
+const SOCIAL_ICON_SIZE = 42;
+const SOCIAL_SHADOW_REST = 5;
+const SOCIAL_SHADOW_HOVER = 8;
+
+const SOCIAL_ICON_BTN_SX = {
+  position: 'relative',
+  zIndex: 1,
+  width: SOCIAL_ICON_SIZE,
+  height: SOCIAL_ICON_SIZE,
+  borderRadius: 0,
   color: MUTED,
-  border: `1px solid transparent`,
-  transition: 'color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease',
-  '&:hover': {
+  border: `1.5px solid ${BORDER}`,
+  bgcolor: SURFACE,
+  transition: 'color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, transform 0.22s ease',
+};
+
+const socialIconFrameSx = {
+  position: 'relative',
+  width: SOCIAL_ICON_SIZE,
+  height: SOCIAL_ICON_SIZE,
+  isolation: 'isolate',
+  // room so the black plate isn't clipped
+  mr: `${SOCIAL_SHADOW_REST}px`,
+  mb: `${SOCIAL_SHADOW_REST}px`,
+  '&:hover .social-icon-btn, &:focus-within .social-icon-btn': {
     color: MINT,
-    bgcolor: 'rgba(126,200,184,0.1)',
+    bgcolor: 'rgba(126,200,184,0.12)',
     borderColor: BORDER,
+    transform: 'translate(-2px, -2px)',
   },
+  '&:hover .social-icon-shadow, &:focus-within .social-icon-shadow': {
+    transform: `translate(${SOCIAL_SHADOW_HOVER}px, ${SOCIAL_SHADOW_HOVER}px)`,
+  },
+  '@media (prefers-reduced-motion: reduce)': {
+    '&:hover .social-icon-btn, &:focus-within .social-icon-btn': {
+      transform: 'none',
+    },
+    '&:hover .social-icon-shadow, &:focus-within .social-icon-shadow': {
+      transform: `translate(${SOCIAL_SHADOW_REST}px, ${SOCIAL_SHADOW_REST}px)`,
+    },
+  },
+};
+
+const socialIconShadowSx = {
+  position: 'absolute',
+  inset: 0,
+  bgcolor: '#000000',
+  transform: `translate(${SOCIAL_SHADOW_REST}px, ${SOCIAL_SHADOW_REST}px)`,
+  zIndex: 0,
+  pointerEvents: 'none',
+  transition: 'transform 0.22s ease',
+  borderRadius: 0,
 };
 
 const fadeUp = {
@@ -279,44 +322,28 @@ const BiohackerHome = () => {
     }
   };
 
+  const renderSocialIcon = (href, label, icon) => (
+    <Box key={label} sx={socialIconFrameSx}>
+      <Box className="social-icon-shadow" sx={socialIconShadowSx} aria-hidden />
+      <IconButton
+        className="social-icon-btn"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+        sx={SOCIAL_ICON_BTN_SX}
+      >
+        {icon}
+      </IconButton>
+    </Box>
+  );
+
   const socialButtons = (
     <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap' }}>
-      <IconButton
-        href={experiencesData.social.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="X (Twitter)"
-        sx={SOCIAL_ICON_SX}
-      >
-        <XMuiIcon fontSize="small" />
-      </IconButton>
-      <IconButton
-        href={experiencesData.social.instagram}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-        sx={SOCIAL_ICON_SX}
-      >
-        <Instagram />
-      </IconButton>
-      <IconButton
-        href={experiencesData.social.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-        sx={SOCIAL_ICON_SX}
-      >
-        <GitHub />
-      </IconButton>
-      <IconButton
-        href={experiencesData.social.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-        sx={SOCIAL_ICON_SX}
-      >
-        <LinkedIn />
-      </IconButton>
+      {renderSocialIcon(experiencesData.social.twitter, 'X (Twitter)', <XMuiIcon fontSize="small" />)}
+      {renderSocialIcon(experiencesData.social.instagram, 'Instagram', <Instagram />)}
+      {renderSocialIcon(experiencesData.social.github, 'GitHub', <GitHub />)}
+      {renderSocialIcon(experiencesData.social.linkedin, 'LinkedIn', <LinkedIn />)}
     </Box>
   );
 
