@@ -17,6 +17,7 @@ import {
   Email,
   LocationOn,
   OpenInNew,
+  Apple,
   X as XMuiIcon,
 } from '@mui/icons-material';
 import experiencesData from '../data/experiences.json';
@@ -183,6 +184,7 @@ const EMPHASIS_TERMS = [
   'in vitro',
   'award',
   'won',
+  'backed',
   'published',
   'launched',
   'presented',
@@ -476,19 +478,34 @@ const ExperienceCard = ({ experience, featured = false }) => (
                 target="_blank"
                 rel="noopener noreferrer"
                 size="small"
-                endIcon={<OpenInNew sx={{ fontSize: 14 }} />}
-                sx={{
-                  color: MINT,
-                  border: `1px solid ${BORDER}`,
-                  px: 1.5,
-                  py: 0.5,
-                  minHeight: 36,
-                  fontSize: '0.8rem',
-                  '&:hover': {
-                    bgcolor: 'rgba(126, 200, 184, 0.1)',
-                    borderColor: MINT,
-                  },
-                }}
+                variant={link.primary ? 'contained' : 'text'}
+                startIcon={link.primary ? <Apple sx={{ fontSize: 18 }} /> : undefined}
+                endIcon={link.primary ? undefined : <OpenInNew sx={{ fontSize: 14 }} />}
+                sx={
+                  link.primary
+                    ? {
+                        bgcolor: MINT,
+                        color: PAGE_BG,
+                        border: `1px solid ${MINT}`,
+                        px: 1.75,
+                        py: 0.5,
+                        minHeight: 40,
+                        fontSize: '0.84rem',
+                        '&:hover': { bgcolor: MINT_DEEP, borderColor: MINT_DEEP },
+                      }
+                    : {
+                        color: MINT,
+                        border: `1px solid ${BORDER}`,
+                        px: 1.5,
+                        py: 0.5,
+                        minHeight: 40,
+                        fontSize: '0.8rem',
+                        '&:hover': {
+                          bgcolor: 'rgba(126, 200, 184, 0.1)',
+                          borderColor: MINT,
+                        },
+                      }
+                }
               >
                 {link.label}
               </Button>

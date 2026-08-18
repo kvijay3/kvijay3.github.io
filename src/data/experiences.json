@@ -29,7 +29,7 @@
     },
     {
       "value": "Cofounder & CTO",
-      "label": "DoSync — dosync.health"
+      "label": "DoSync, Inc. — AI-powered supplement tracking, backed and live on the App Store"
     }
   ],
   "skills": {
@@ -70,15 +70,27 @@
         "Featured"
       ],
       "title": "Cofounder and CTO",
-      "company": "DoSync",
+      "company": "DoSync, Inc.",
       "location": "Los Angeles, CA",
       "startDate": "March 2026",
       "endDate": "Present",
       "logo": "",
-      "description": "",
-      "technologies": [],
-      "achievements": [],
+      "description": "AI-powered supplement tracking, shipped on iOS.",
+      "technologies": [
+        "AI",
+        "iOS",
+        "Consumer Health"
+      ],
+      "achievements": [
+        "Backed by investors",
+        "Published on the App Store"
+      ],
       "links": [
+        {
+          "label": "Download on iOS",
+          "url": "https://apps.apple.com/us/app/dosync/id6758967395",
+          "primary": true
+        },
         {
           "label": "dosync.health",
           "url": "https://dosync.health/"
