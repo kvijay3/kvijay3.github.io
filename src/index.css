@@ -40,7 +40,10 @@ html {
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  overflow-wrap: break-word;
   font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.65;
@@ -70,7 +73,21 @@ a:hover {
 
 .content {
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
+}
+
+/* Offset card/plate shadows shrink on small screens so nothing spills off-canvas. */
+:root {
+  --card-offset: 10px;
+  --card-offset-hover: 14px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --card-offset: 6px;
+    --card-offset-hover: 6px;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -109,7 +126,51 @@ a:hover {
 }
 
 .section-anchor {
-  scroll-margin-top: 32px;
+  scroll-margin-top: 84px;
+}
+
+@media (min-width: 900px) {
+  .section-anchor {
+    scroll-margin-top: 32px;
+  }
+}
+
+/* Hide the mobile nav's scrollbar without losing the ability to swipe it. */
+.mobile-nav {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mobile-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+ * The pinned identity panel must never become its own scroll container.
+ * On short desktop viewports we tighten spacing instead of adding a scrollbar;
+ * below 680px tall (rare) it degrades to scrolling rather than clipping content.
+ */
+@media (min-width: 900px) and (max-height: 820px) {
+  .identity-panel {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .identity-panel .hero-blur-name--sidebar {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 900px) and (max-height: 700px) {
+  .identity-panel__footnote {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) and (max-height: 680px) {
+  .identity-panel {
+    overflow-y: auto;
+    justify-content: flex-start;
+  }
 }
 
 .hero-blur-name {
@@ -123,8 +184,15 @@ a:hover {
 }
 
 .hero-blur-name--sidebar {
-  font-size: clamp(1.55rem, 3.2vw, 2.05rem);
+  font-size: clamp(1.35rem, 5.5vw, 1.85rem);
   margin-bottom: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 900px) {
+  .hero-blur-name--sidebar {
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

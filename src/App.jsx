@@ -1,4 +1,4 @@
-import { ThemeProvider, CssBaseline, Box, Typography } from '@mui/material';
+import { ThemeProvider, CssBaseline, Box, useMediaQuery } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import React from 'react';
 import BiohackerHome from './pages/BiohackerHome';
@@ -109,21 +109,29 @@ const tealTheme = createTheme({
 });
 
 function App() {
+  // The aurora shader is a full-screen WebGL canvas: skip it where it costs the
+  // most and helps the least — phones, tablets and reduced-motion users.
+  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const isCompact = useMediaQuery(tealTheme.breakpoints.down('md'));
+  const showAurora = !prefersReducedMotion && !isCompact;
+
   return (
     <ThemeProvider theme={tealTheme}>
       <CssBaseline />
-      <Box className="aurora-page" aria-hidden="true">
-        <Aurora
-          colorStops={['#1A2F35', '#7EC8B8', '#6BA3C7']}
-          amplitude={0.85}
-          blend={0.55}
-          speed={0.55}
-        />
-      </Box>
+      {showAurora && (
+        <Box className="aurora-page" aria-hidden="true">
+          <Aurora
+            colorStops={['#1A2F35', '#7EC8B8', '#6BA3C7']}
+            amplitude={0.85}
+            blend={0.55}
+            speed={0.55}
+          />
+        </Box>
+      )}
       <ScrollProgress />
       <Box
         sx={{
-          minHeight: '100vh',
+          minHeight: '100dvh',
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
@@ -131,33 +139,10 @@ function App() {
           background: 'transparent',
         }}
       >
-        <Box sx={{ flex: 1 }}>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
           <main className="content">
             <BiohackerHome />
           </main>
-        </Box>
-        <Box
-          component="footer"
-          sx={{
-            py: 4,
-            px: 2,
-            mt: 'auto',
-            borderTop: '1px solid rgba(126, 200, 184, 0.16)',
-            background: 'rgba(26, 47, 53, 0.72)',
-            backdropFilter: 'blur(10px)',
-          }}
-        >
-          <Typography
-            variant="body2"
-            align="center"
-            sx={{
-              color: '#9BB5B0',
-              fontFamily: '"IBM Plex Sans", sans-serif',
-              letterSpacing: '0.02em',
-            }}
-          >
-            © {new Date().getFullYear()} Vijaykumar Karthikeyan. Built with care.
-          </Typography>
         </Box>
       </Box>
     </ThemeProvider>

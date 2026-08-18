@@ -2,12 +2,20 @@
   "profile": {
     "name": "Vijaykumar Karthikeyan",
     "title": "Bioengineer · Developer · Researcher",
-    "bio": "Hi, I'm Vijay — I work at the intersection of biology and computation. I build CRISPR diagnostics, ML-powered biotech tools, and products that turn lab insights into real-world impact.\n\nCurrently a third-year undergraduate in Bioengineering at UCLA (CS technical breadth + Data Science Engineering minor). Always happy to chat about science, building, or soccer.",
+    "tagline": "I build CRISPR diagnostics, ML-powered biotech tools, and products that turn lab insights into real-world impact.",
+    "availability": "Open to research & internship opportunities",
+    "bio": "I'm a third-year Bioengineering undergraduate at UCLA, adding a CS technical breadth and a Data Science Engineering minor, and I work where wet lab meets code.\n\nOn the research side I study CRISPR/Cas13 nucleic acid diagnostics in the Kamariza Lab and engineer point-of-care assays. On the build side I've led engineering at a biotech startup, shipped iOS and web products used by real teams, and trained ML models for chemistry and health. Always happy to chat about science, building, or soccer.",
     "image": "/headshot.svg",
     "email": "vijayk.karthik15@gmail.com",
+    "altEmail": "kvijay@g.ucla.edu",
     "phone": "",
     "location": "Los Angeles, CA",
-    "resume": "/resume.pdf"
+    "resume": "/resume.pdf",
+    "focus": [
+      "CRISPR diagnostics",
+      "ML for biology",
+      "Full-stack product"
+    ]
   },
   "social": {
     "linkedin": "https://linkedin.com/in/vijaykumar-karthikeyan",
@@ -15,6 +23,24 @@
     "twitter": "https://x.com/kvijay03",
     "instagram": "https://www.instagram.com/vijay.kk3/"
   },
+  "highlights": [
+    {
+      "value": "UCLA '28",
+      "label": "B.S. Bioengineering — CS technical breadth + Data Science Eng. minor"
+    },
+    {
+      "value": "2 shipped apps",
+      "label": "iOS apps published to the App Store (Kinetiq, Kwo)"
+    },
+    {
+      "value": "Cofounder & CTO",
+      "label": "Cogenesis, Inc. — incubated at Founders, Inc., backed by Startup UCLA"
+    },
+    {
+      "value": "2 hackathon wins",
+      "label": "Best Social Impact, LA Hacks 2026 · 2nd Place, UCLA BioHack 2025"
+    }
+  ],
   "skills": {
     "Languages": [
       "Python",

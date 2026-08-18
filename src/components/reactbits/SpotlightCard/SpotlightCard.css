@@ -3,15 +3,15 @@
   height: 100%;
   isolation: isolate;
   /* room so the black plate isn't clipped by adjacent layout */
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: var(--card-offset, 10px);
+  margin-bottom: var(--card-offset, 10px);
 }
 
 .card-spotlight-shadow {
   position: absolute;
   inset: 0;
   background: #000000;
-  transform: translate(10px, 10px);
+  transform: translate(var(--card-offset, 10px), var(--card-offset, 10px));
   z-index: 0;
   pointer-events: none;
   transition: transform 0.22s ease;
@@ -39,15 +39,25 @@
   --spotlight-color: rgba(107, 163, 199, 0.22);
 }
 
-/* Lift the card up-left so the black under-square becomes more pronounced */
-.card-spotlight-frame:hover .card-spotlight,
-.card-spotlight-frame:focus-within .card-spotlight {
-  transform: translate(-4px, -4px);
-}
+/*
+ * Lift the card up-left so the black under-square becomes more pronounced.
+ * Pointer devices only — on touch screens the hover state sticks after a tap.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .card-spotlight-frame:hover .card-spotlight,
+  .card-spotlight-frame:focus-within .card-spotlight {
+    transform: translate(-4px, -4px);
+  }
 
-.card-spotlight-frame:hover .card-spotlight-shadow,
-.card-spotlight-frame:focus-within .card-spotlight-shadow {
-  transform: translate(14px, 14px);
+  .card-spotlight-frame:hover .card-spotlight-shadow,
+  .card-spotlight-frame:focus-within .card-spotlight-shadow {
+    transform: translate(var(--card-offset-hover, 14px), var(--card-offset-hover, 14px));
+  }
+
+  .card-spotlight:hover::before,
+  .card-spotlight:focus-within::before {
+    opacity: 0.85;
+  }
 }
 
 .card-spotlight::before {
@@ -62,11 +72,6 @@
   transition: opacity 0.5s ease;
   pointer-events: none;
   z-index: 1;
-}
-
-.card-spotlight:hover::before,
-.card-spotlight:focus-within::before {
-  opacity: 0.85;
 }
 
 .card-spotlight > * {
@@ -85,6 +90,6 @@
   }
   .card-spotlight-frame:hover .card-spotlight-shadow,
   .card-spotlight-frame:focus-within .card-spotlight-shadow {
-    transform: translate(10px, 10px);
+    transform: translate(var(--card-offset, 10px), var(--card-offset, 10px));
   }
 }
