@@ -205,3 +205,37 @@ a:hover {
     transition-duration: 0.01ms !important;
   }
 }
+
+/*
+ * Scroll emphasis: keywords sit in bold at rest so nothing reflows, then
+ * brighten with a rule sweeping in underneath once their block enters view.
+ */
+.emph {
+  font-weight: 700;
+  color: inherit;
+  background-image: linear-gradient(var(--accent-mint), var(--accent-mint));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1.5px;
+  transition:
+    color 0.45s ease var(--emph-delay, 0ms),
+    background-size 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--emph-delay, 0ms);
+}
+
+.emph {
+  --emph-delay: calc(var(--emph-i, 1) * 70ms);
+}
+
+.is-lit .emph,
+.is-lit.emph {
+  color: var(--text);
+  background-size: 100% 1.5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emph {
+    transition: none;
+    color: var(--text);
+    background-size: 100% 1.5px;
+  }
+}

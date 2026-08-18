@@ -2,8 +2,7 @@
   "profile": {
     "name": "Vijaykumar Karthikeyan",
     "title": "Bioengineer · Developer · Researcher",
-    "tagline": "I build CRISPR diagnostics, ML-powered biotech tools, and products that turn lab insights into real-world impact.",
-    "availability": "Open to research & internship opportunities",
+    "tagline": "I build for biology and health — from the bench to the backend.",
     "bio": "I'm a third-year Bioengineering undergraduate at UCLA, adding a CS technical breadth and a Data Science Engineering minor, and I work where wet lab meets code.\n\nOn the research side I study CRISPR/Cas13 nucleic acid diagnostics in the Kamariza Lab and engineer point-of-care assays. On the build side I've led engineering at a biotech startup, shipped iOS and web products used by real teams, and trained ML models for chemistry and health. Always happy to chat about science, building, or soccer.",
     "image": "/headshot.svg",
     "email": "vijayk.karthik15@gmail.com",
@@ -29,16 +28,8 @@
       "label": "B.S. Bioengineering — CS technical breadth + Data Science Eng. minor"
     },
     {
-      "value": "2 shipped apps",
-      "label": "iOS apps published to the App Store (Kinetiq, Kwo)"
-    },
-    {
       "value": "Cofounder & CTO",
-      "label": "Cogenesis, Inc. — incubated at Founders, Inc., backed by Startup UCLA"
-    },
-    {
-      "value": "2 hackathon wins",
-      "label": "Best Social Impact, LA Hacks 2026 · 2nd Place, UCLA BioHack 2025"
+      "label": "DoSync — dosync.health"
     }
   ],
   "skills": {
@@ -71,6 +62,29 @@
     ]
   },
   "experiences": [
+    {
+      "id": 16,
+      "type": "work",
+      "categories": [
+        "Current",
+        "Featured"
+      ],
+      "title": "Cofounder and CTO",
+      "company": "DoSync",
+      "location": "Los Angeles, CA",
+      "startDate": "March 2026",
+      "endDate": "Present",
+      "logo": "",
+      "description": "",
+      "technologies": [],
+      "achievements": [],
+      "links": [
+        {
+          "label": "dosync.health",
+          "url": "https://dosync.health/"
+        }
+      ]
+    },
     {
       "id": 1,
       "type": "research",
@@ -208,7 +222,7 @@
       "location": "Los Angeles, CA",
       "startDate": "September 2024",
       "endDate": "June 2028",
-      "description": "Third-year undergraduate. Technical Breadth in Computer Science + Minor in Data Science Engineering. Coursework: Molecular Bioengineering, Machine Learning and Modelling, Biotransport, Thermodynamics, Data Structures & Algorithms, Biomedical Transducers, Biocompatibility, Biomedical Ethics.",
+      "description": "",
       "technologies": [
         "Bioengineering",
         "Computer Science",
@@ -361,7 +375,7 @@
       "company": "Creative Labs @ UCLA",
       "location": "Los Angeles, CA",
       "startDate": "October 2025",
-      "endDate": "Present",
+      "endDate": "January 2026",
       "description": "Backend application using Google Places API and smart scoring to help users pick places to eat.",
       "technologies": [
         "Backend Development",

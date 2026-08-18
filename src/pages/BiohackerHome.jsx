@@ -36,7 +36,7 @@ const BORDER_SKY = 'rgba(107, 163, 199, 0.28)';
 const SPOTLIGHT = 'rgba(126, 200, 184, 0.22)';
 const SPOTLIGHT_FEATURED = 'rgba(107, 163, 199, 0.26)';
 
-const FEATURED_IDS = [5, 4, 2, 3]; // Polaris, CRISPR TB, Kinetiq, Cogenesis
+const FEATURED_IDS = [16, 1, 4, 2, 5]; // DoSync, Kamariza Lab, CRISPR TB, Kinetiq, Polaris
 const ROLE_TYPES = ['research', 'work', 'leadership'];
 
 const NAV_LINKS = [
@@ -164,6 +164,69 @@ const fadeUp = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-40px' },
   transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+};
+
+/*
+ * Words worth catching a recruiter's eye mid-scroll. Each match is set in bold
+ * at rest (so nothing reflows) and lights up — brightening, with a rule sweeping
+ * in underneath — the moment its block scrolls into view. Edit this list freely;
+ * keep it short, or everything is emphasised and nothing is.
+ */
+const EMPHASIS_TERMS = [
+  'Best Social Impact Award',
+  'Best Social Impact',
+  'Second Place',
+  'First Place',
+  'App Store',
+  'point-of-care',
+  'machine learning',
+  'in vitro',
+  'award',
+  'won',
+  'published',
+  'launched',
+  'presented',
+  'shipped',
+  'cofounder',
+  'CTO',
+  'CRISPR',
+  'Cas13',
+  'Cas13a',
+  'diagnostics',
+  'bioengineering',
+  'tuberculosis',
+  'RNA',
+  'assay',
+  'iOS',
+  'ML',
+  'AI',
+];
+
+const EMPHASIS_SET = new Set(EMPHASIS_TERMS.map((term) => term.toLowerCase()));
+
+// Longest first so "Best Social Impact Award" wins over the bare "award".
+const EMPHASIS_RE = new RegExp(
+  `\\b(${[...EMPHASIS_TERMS]
+    .sort((a, b) => b.length - a.length)
+    .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|')})\\b`,
+  'gi'
+);
+
+/** Wraps emphasis terms found in a plain string; anything else passes through. */
+const Emphasize = ({ children }) => {
+  if (typeof children !== 'string') return children;
+  let lit = 0;
+  return children.split(EMPHASIS_RE).map((part, i) => {
+    if (!EMPHASIS_SET.has(part.toLowerCase())) return part;
+    lit += 1;
+    return (
+      // eslint-disable-next-line react/no-array-index-key
+      <span className="emph" key={i} style={{ '--emph-i': lit }}>
+        {part}
+      </span>
+    );
+  });
 };
 
 const SectionLabel = ({ children }) => (
@@ -314,6 +377,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
   >
     <Box
       component="article"
+      data-emph-scope
       sx={{
         p: featured ? { xs: 2, sm: 2.5, md: 3 } : { xs: 1.85, sm: 2.15, md: 2.5 },
         height: '100%',
@@ -342,31 +406,42 @@ const ExperienceCard = ({ experience, featured = false }) => (
         {experience.title}
       </Typography>
 
-      <Typography
-        sx={{
-          fontFamily: '"IBM Plex Sans", sans-serif',
-          fontWeight: 600,
-          color: MINT,
-          mb: 1.25,
-          fontSize: { xs: '0.88rem', md: '0.94rem' },
-          lineHeight: 1.45,
-        }}
-      >
-        {experience.company}
-        {experience.location ? ` · ${experience.location}` : ''}
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.25 }}>
+        {experience.logo && (
+          <Box
+            component="img"
+            src={experience.logo}
+            alt=""
+            sx={{ height: 22, width: 'auto', maxWidth: 96, display: 'block', flexShrink: 0 }}
+          />
+        )}
+        <Typography
+          sx={{
+            fontFamily: '"IBM Plex Sans", sans-serif',
+            fontWeight: 600,
+            color: MINT,
+            fontSize: { xs: '0.88rem', md: '0.94rem' },
+            lineHeight: 1.45,
+          }}
+        >
+          {experience.company}
+          {experience.location ? ` · ${experience.location}` : ''}
+        </Typography>
+      </Box>
 
-      <Typography
-        sx={{
-          color: BODY,
-          fontFamily: '"IBM Plex Sans", sans-serif',
-          mb: 1.75,
-          lineHeight: 1.62,
-          fontSize: { xs: '0.9rem', md: featured ? '0.97rem' : '0.93rem' },
-        }}
-      >
-        {experience.description}
-      </Typography>
+      {experience.description && (
+        <Typography
+          sx={{
+            color: BODY,
+            fontFamily: '"IBM Plex Sans", sans-serif',
+            mb: 1.75,
+            lineHeight: 1.62,
+            fontSize: { xs: '0.9rem', md: featured ? '0.97rem' : '0.93rem' },
+          }}
+        >
+          <Emphasize>{experience.description}</Emphasize>
+        </Typography>
+      )}
 
       {experience.achievements?.length > 0 && (
         <Box component="ul" sx={{ m: 0, mb: 1.75, pl: 2.1, color: BODY }}>
@@ -382,7 +457,7 @@ const ExperienceCard = ({ experience, featured = false }) => (
                 '&::marker': { color: SKY },
               }}
             >
-              {item}
+              <Emphasize>{item}</Emphasize>
             </Typography>
           ))}
         </Box>
@@ -488,6 +563,27 @@ const BiohackerHome = () => {
     );
 
     sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  // Light up the emphasis words in each block as that block scrolls into view.
+  useEffect(() => {
+    const scopes = document.querySelectorAll('[data-emph-scope]');
+    if (!scopes.length || typeof IntersectionObserver === 'undefined') return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-lit');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.1 }
+    );
+
+    scopes.forEach((scope) => observer.observe(scope));
     return () => observer.disconnect();
   }, []);
 
@@ -880,8 +976,9 @@ const BiohackerHome = () => {
         <Box id="about" className="section-anchor" component="section" sx={{ mb: { xs: 5, md: 8 } }}>
           <motion.div {...fadeUp}>
             <SectionLabel>About</SectionLabel>
-            <SectionTitle>Biology × computation, shipped</SectionTitle>
+            <SectionTitle>Making science move faster</SectionTitle>
             <Typography
+              data-emph-scope
               sx={{
                 color: BODY,
                 fontFamily: '"IBM Plex Sans", sans-serif',
@@ -892,7 +989,7 @@ const BiohackerHome = () => {
                 mb: 3,
               }}
             >
-              {profile.bio}
+              <Emphasize>{profile.bio}</Emphasize>
             </Typography>
 
             {profile.focus?.length > 0 && (
