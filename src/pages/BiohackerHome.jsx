@@ -584,6 +584,9 @@ const BiohackerHome = () => {
   }, []);
 
   // Light up the emphasis words in each block as that block scrolls into view.
+  // The bottom rootMargin holds the trigger until a block is well inside the
+  // viewport (not just peeking over the fold), so the sweep happens where the
+  // reader is actually looking instead of finishing before the block arrives.
   useEffect(() => {
     const scopes = document.querySelectorAll('[data-emph-scope]');
     if (!scopes.length || typeof IntersectionObserver === 'undefined') return undefined;
@@ -597,7 +600,7 @@ const BiohackerHome = () => {
           }
         });
       },
-      { rootMargin: '0px 0px -12% 0px', threshold: 0.1 }
+      { rootMargin: '0px 0px -30% 0px', threshold: 0.3 }
     );
 
     scopes.forEach((scope) => observer.observe(scope));

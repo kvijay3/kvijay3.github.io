@@ -2,8 +2,8 @@
   "profile": {
     "name": "Vijaykumar Karthikeyan",
     "title": "Bioengineer · Developer · Researcher",
-    "tagline": "I build for biology and health — from the bench to the backend.",
-    "bio": "I'm a third-year Bioengineering undergraduate at UCLA, adding a CS technical breadth and a Data Science Engineering minor, and I work where wet lab meets code.\n\nOn the research side I study CRISPR/Cas13 nucleic acid diagnostics in the Kamariza Lab and engineer point-of-care assays. On the build side I've led engineering at a biotech startup, shipped iOS and web products used by real teams, and trained ML models for chemistry and health. Always happy to chat about science, building, or soccer.",
+    "tagline": "Taking biology from pipette to production.",
+    "bio": "I'm a third-year Bioengineering undergraduate at UCLA, adding a CS technical breadth and a Data Science Engineering minor, and I work where wet lab meets code.\n\nOn the research side I study CRISPR/Cas13 nucleic acid diagnostics in the Kamariza Lab. On the build side I've led engineering at biotech and healthtech startups, shipped iOS and web products used by real teams, and trained ML models for chemistry and health. Always happy to chat about science, building, or soccer.",
     "image": "/headshot.svg",
     "email": "vijayk.karthik15@gmail.com",
     "altEmail": "kvijay@g.ucla.edu",

@@ -2,7 +2,6 @@ import { ThemeProvider, CssBaseline, Box, useMediaQuery } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import React from 'react';
 import BiohackerHome from './pages/BiohackerHome';
-import ScrollProgress from './components/ScrollProgress';
 import Aurora from './components/reactbits/Aurora/Aurora';
 
 const tealTheme = createTheme({
@@ -128,7 +127,6 @@ function App() {
           />
         </Box>
       )}
-      <ScrollProgress />
       <Box
         sx={{
           minHeight: '100dvh',
