@@ -59,9 +59,64 @@
       "CRISPR-Cas Diagnostics",
       "PRISM",
       "Benchling"
+    ],
+    "Scientific Computing": [
+      "SciPy",
+      "CompuCell3D",
+      "Cellular Potts / Agent-Based Modeling",
+      "ODE & Reaction-Diffusion Modeling",
+      "Unit Testing",
+      "Reproducible Workflows"
     ]
   },
   "experiences": [
+    {
+      "id": 17,
+      "type": "project",
+      "categories": [
+        "Current",
+        "Research"
+      ],
+      "title": "Computational Model of Kidney Morphogenesis",
+      "company": "UCLA Bioengineering",
+      "location": "Los Angeles, CA",
+      "startDate": "2026",
+      "endDate": "Present",
+      "description": "A computational model of nephron and collecting-duct fusion in kidney assembloids, using morphogen fields to predict the signaling that drives kidney morphogenesis.",
+      "technologies": [
+        "Python",
+        "CompuCell3D",
+        "SciPy",
+        "Agent-Based Modeling",
+        "Reaction-Diffusion"
+      ],
+      "achievements": [
+        "Building a 3D cellular Potts model of nephron-collecting duct fusion in kidney assembloids with WNT9B/GDNF fields",
+        "Reproducing published fusion timing and Notch-inhibition trends; predicted WNT polarity corroborated in Science"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "project",
+      "categories": [
+        "Current"
+      ],
+      "title": "Skin-Conformal Electrode Strip for Site-Specific Neuromuscular Evaluation",
+      "company": "BMES Design Team @ UCLA",
+      "location": "Los Angeles, CA",
+      "startDate": "2026",
+      "endDate": "Present",
+      "description": "Project Lead on the 2026-27 BMES design team, building a skin-conformal electrode strip for site-specific neuromuscular evaluation.",
+      "technologies": [
+        "Wearables",
+        "Electrodes",
+        "EMG",
+        "Sensor Design"
+      ],
+      "achievements": [
+        "Developing a skin-conformal strip that maps and syncs muscle activity across muscle groups to analyze movement"
+      ]
+    },
     {
       "id": 16,
       "type": "work",
@@ -105,7 +160,7 @@
         "Research",
         "Featured"
       ],
-      "title": "Student Researcher @ The Kamariza Lab",
+      "title": "URSP Scholar & Student Researcher @ The Kamariza Lab",
       "company": "UCLA Bioengineering",
       "location": "Los Angeles, CA",
       "startDate": "January 2025",
@@ -242,6 +297,7 @@
         "Machine Learning"
       ],
       "achievements": [
+        "Undergraduate Research Scholars Program (URSP) Scholar, 2026-2027 — funds year-long research",
         "Technical Breadth in Computer Science + Minor in Data Science Engineering",
         "BMES @ UCLA — BioHack Chair | Design Team Project Manager (Sep 2024 – Present)",
         "VEST @ UCLA — Internal Vice President (Jan 2025 – Present)"
